@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R2trader lab - forward test</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#0f1218;color:#e6e9ef;margin:0;padding:16px;max-width:1000px;margin:auto}
+h1{margin:0 0 4px}h2{margin:24px 0 8px;font-size:18px}h3{margin:16px 0 6px;font-size:15px}.sub{color:#8b93a5;font-size:13px}
+.warn{background:#2a2110;border:1px solid #6b5416;padding:10px;border-radius:8px;margin:12px 0;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.card{background:#181d27;border-radius:8px;padding:12px}.card b{display:block;font-size:19px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:5px;border-bottom:1px solid #232a38}
+.up{color:#3ecf8e}.down{color:#f0616d}.box{background:#181d27;border-radius:8px;padding:12px;overflow-x:auto;margin-bottom:10px}
+a{color:#7aa7ff}
+</style></head><body>
+<h1>R2trader lab</h1>
+<div class="sub" id="upd">Loading...</div>
+<div class="sub"><a href="index.html">Back to main dashboard</a></div>
+<div class="warn">Simulation only. Three paper accounts start from the moment they were first run and only trade on new candles. No real money, not financial advice. Research below showed none of these rules beating buy-and-hold with confidence.</div>
+<div id="acc"></div>
+<h2>Research: slower strategies (up to 788 days of data)</h2><div class="box"><table id="r1"></table></div>
+<h2>Research: high-frequency candidates (about 33 days of 1h data)</h2><div class="box"><table id="r2"></table></div>
+<script>
+const $=id=>document.getElementById(id);
+const f=(x,d=2)=>Number(x).toLocaleString(undefined,{maximumFractionDigits:d});
+const cls=x=>x>0?'up':x<0?'down':'';
+function el(t,txt,c){const e=document.createElement(t);if(txt!==undefined)e.textContent=txt;if(c)e.className=c;return e}
+function cards(parent,items){const g=el('div');g.className='cards';items.forEach(([k,v,c])=>{const d=el('div');d.className='card';d.append(el('span',k,'sub'),el('b',v,c));g.appendChild(d)});parent.appendChild(g)}
+function table(t,head,rows){t.innerHTML='';const h=el('tr');head.forEach(x=>h.appendChild(el('th',x)));t.appendChild(h);
+if(!rows.length){const r=el('tr'),td=el('td','None yet');td.colSpan=head.length;r.appendChild(td);t.appendChild(r)}
+rows.forEach(row=>{const r=el('tr');row.forEach(([v,c])=>r.appendChild(el('td',v,c)));t.appendChild(r)})}
+function draw(cv,curve){const w=cv.width=cv.clientWidth*2,h=cv.height=240,g=cv.getContext('2d');g.clearRect(0,0,w,h);
+if(curve.length<2){g.fillStyle='#8b93a5';g.font='22px sans-serif';g.fillText('Collecting data - the line appears after a few candles',16,50);return}
+const ys=curve.map(p=>p[1]),mn=Math.min(...ys),mx=Math.max(...ys),r=(mx-mn)||1;
+g.strokeStyle='#3ecf8e';g.lineWidth=3;g.beginPath();curve.forEach((p,i)=>{const x=i/(curve.length-1)*(w-20)+10,y=h-20-(p[1]-mn)/r*(h-40);i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke();
+g.fillStyle='#8b93a5';g.font='20px sans-serif';g.fillText(f(mx),12,22);g.fillText(f(mn),12,h-4)}
+function rtable(t,rows){table(t,['TF','Strategy','Trades','Per day','Win %','Return %','Test-period %','Buy&hold test %','Max DD %','Passes'],
+rows.map(r=>[[r.tf],[r.strategy],[r.trades],[r.trades_per_day],[f(r.win_rate,1)],[f(r.ret),cls(r.ret)],[f(r.ret_out),cls(r.ret_out)],[f(r.bh_out),cls(r.bh_out)],[f(r.max_dd)],[r.passes?'yes':'no',r.passes?'up':'']]))}
+fetch('data/forward.json?'+Date.now()).then(r=>r.json()).then(d=>{
+$('upd').textContent='Updated '+d.updated;const root=$('acc');
+d.accounts.forEach(a=>{const box=el('div');box.className='box';box.appendChild(el('h3',a.title));box.appendChild(el('div',a.rule,'sub'));
+cards(box,[['Equity (USDT)',f(a.equity),''],['Return %',f(a.ret_pct),cls(a.ret_pct)],['Closed trades',a.trades,''],['Win rate %',f(a.win_rate,1),''],['Trades per day',a.trades_per_day===null?'n/a yet':a.trades_per_day,''],['Days running',a.days,''],['Open positions',a.open.length,'']]);
+const cv=el('canvas');cv.style.width='100%';cv.height=120;box.appendChild(cv);
+const t=el('table');box.appendChild(t);
+table(t,['Coin','Entry','Exit','P&L (USDT)','Reason','Closed'],a.closed.slice(0,10).map(c=>[[c.sym],[f(c.entry,4)],[f(c.exit,4)],[f(c.pnl),cls(c.pnl)],[c.why],[new Date(c.t_out).toISOString().slice(0,16).replace('T',' ')]]));
+root.appendChild(box);draw(cv,a.curve)})
+}).catch(e=>{$('upd').textContent='Forward data not available yet: '+e});
+fetch('data/research.json?'+Date.now()).then(r=>r.json()).then(d=>rtable($('r1'),d.rows)).catch(()=>{});
+fetch('data/research_hf.json?'+Date.now()).then(r=>r.json()).then(d=>rtable($('r2'),d.rows)).catch(()=>{});
+</script></body></html>

@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["src/**", ".github/workflows/update.yml", "docs/index.html"]
+    paths: ["src/**", ".github/workflows/update.yml", "docs/index.html", "docs/forward.html"]
 permissions:
   contents: write
   pages: write
@@ -27,12 +27,14 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+      - run: python src/forward.py
+        continue-on-error: true
       - name: Save results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data
-          git diff --cached --quiet || (git commit -m "Update paper-trading data" && git push)
+          git diff --cached --quiet || (git commit -m "Update paper-trading data" && git pull --rebase && git push)
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
