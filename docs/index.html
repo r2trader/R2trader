@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R2trader - crypto paper trading</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#0f1218;color:#e6e9ef;margin:0;padding:16px;max-width:1000px;margin:auto}
+h1{margin:0 0 4px}h2{margin:24px 0 8px;font-size:18px}.sub{color:#8b93a5;font-size:13px}
+.warn{background:#2a2110;border:1px solid #6b5416;padding:10px;border-radius:8px;margin:12px 0;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.card{background:#181d27;border-radius:8px;padding:12px}.card b{display:block;font-size:20px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:6px;border-bottom:1px solid #232a38}
+.up{color:#3ecf8e}.down{color:#f0616d}.box{background:#181d27;border-radius:8px;padding:12px;overflow-x:auto}
+</style></head><body>
+<h1>R2trader</h1>
+<div class="sub" id="upd">Loading...</div>
+<div class="warn">Simulation only. No real money, no real orders, not financial advice. Paper results look better than real trading because fees, slippage and delays are only approximated.</div>
+<div class="box" id="note"></div>
+<h2>Live paper account</h2><div class="cards" id="live"></div>
+<h2>Equity curve</h2><div class="box"><canvas id="cv" height="160" style="width:100%"></canvas></div>
+<h2>Market signals (hourly)</h2><div class="box"><table id="sig"></table></div>
+<h2>Open positions</h2><div class="box"><table id="open"></table></div>
+<h2>Recent closed trades</h2><div class="box"><table id="closed"></table></div>
+<h2>Backtest (same rules on recent history)</h2><div class="cards" id="bt"></div>
+<script>
+const $=id=>document.getElementById(id);
+const f=(x,d=2)=>Number(x).toLocaleString(undefined,{maximumFractionDigits:d});
+const cls=x=>x>0?'up':x<0?'down':'';
+function cards(el,items){el.innerHTML='';items.forEach(([k,v,c])=>{const d=document.createElement('div');d.className='card';
+const s=document.createElement('span');s.className='sub';s.textContent=k;const b=document.createElement('b');b.textContent=v;if(c)b.className=c;
+d.append(s,b);el.appendChild(d)})}
+function table(el,head,rows){el.innerHTML='';const t=document.createElement('tr');head.forEach(h=>{const th=document.createElement('th');th.textContent=h;t.appendChild(th)});el.appendChild(t);
+if(!rows.length){const r=document.createElement('tr'),td=document.createElement('td');td.colSpan=head.length;td.textContent='None yet';r.appendChild(td);el.appendChild(r)}
+rows.forEach(row=>{const r=document.createElement('tr');row.forEach(([v,c])=>{const td=document.createElement('td');td.textContent=v;if(c)td.className=c;r.appendChild(td)});el.appendChild(r)})}
+function draw(curve){const cv=$('cv'),w=cv.width=cv.clientWidth*2,h=cv.height=320,g=cv.getContext('2d');g.clearRect(0,0,w,h);
+if(curve.length<2){g.fillStyle='#8b93a5';g.font='24px sans-serif';g.fillText('Not enough data yet',20,60);return}
+const ys=curve.map(p=>p[1]),mn=Math.min(...ys),mx=Math.max(...ys),r=(mx-mn)||1;
+g.strokeStyle='#3ecf8e';g.lineWidth=3;g.beginPath();curve.forEach((p,i)=>{const x=i/(curve.length-1)*(w-20)+10,y=h-20-(p[1]-mn)/r*(h-40);i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke();
+g.fillStyle='#8b93a5';g.font='22px sans-serif';g.fillText(f(mx),12,24);g.fillText(f(mn),12,h-4)}
+fetch('data/dashboard.json?'+Date.now()).then(r=>r.json()).then(d=>{
+if(!d.live){$('upd').textContent='Waiting for the first scheduled run.';return}
+$('upd').textContent='Updated '+d.updated+' (hourly candles)';$('note').textContent=d.note;
+const L=d.live;cards($('live'),[['Equity (USDT)',f(L.equity),''],['Return %',f(L.return_pct),cls(L.return_pct)],['Closed trades',L.trades,''],['Win rate %',f(L.win_rate,1),''],['Open positions',L.open_positions,''],['Halted today',L.halted_today?'Yes':'No','']]);
+draw(d.curve);
+table($('sig'),['Coin','Price','24h %','Volume x avg','Breakout','Uptrend','Signal'],d.signals.map(s=>[[s.sym],[f(s.price,4)],[f(s.chg24),cls(s.chg24)],[f(s.vol_ratio)],[s.breakout?'yes':'no'],[s.trend?'yes':'no'],[s.fire?'BUY (paper)':'-',s.fire?'up':'']]));
+table($('open'),['Coin','Entry','Stop','Target','Qty','Hours held'],d.open.map(p=>[[p.sym],[f(p.entry,4)],[f(p.stop,4)],[f(p.tp,4)],[f(p.qty,4)],[p.n]]));
+table($('closed'),['Coin','Entry','Exit','P&L (USDT)','Reason','Closed'],d.closed.map(c=>[[c.sym],[f(c.entry,4)],[f(c.exit,4)],[f(c.pnl),cls(c.pnl)],[c.why],[new Date(c.t_out).toISOString().slice(0,16).replace('T',' ')]]));
+const B=d.backtest;if(B)cards($('bt'),[['Days tested',B.days,''],['Trades',B.trades,''],['Win rate %',f(B.win_rate,1),''],['Strategy return %',f(B.return_pct),cls(B.return_pct)],['Buy-and-hold %',f(B.buy_hold_pct),cls(B.buy_hold_pct)],['Max drawdown %',f(B.max_drawdown_pct),'down']]);
+}).catch(e=>{$('upd').textContent='Could not load data: '+e})
+</script></body></html>
