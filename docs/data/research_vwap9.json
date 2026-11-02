@@ -1,0 +1,347 @@
+{
+ "updated": "2026-11-02 15:08 UTC",
+ "configs": 16,
+ "note": "VWAP (UTC-day anchor) + EMA9 cross adapted to crypto spot. Stop 1.5x ATR, exit on a close through EMA9 or at the next UTC day start, skip the first 4h after the VWAP reset, skip chop (3+ crosses in 20 bars). Chosen by in-sample Sharpe on the first 60% of history only; the last 40% is the holdout. Fees 0.1%/side, slippage 0.05%, fills at the next candle open.",
+ "rows": [
+  {
+   "tf": "15m",
+   "side": "long",
+   "entry": "cross",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -11.3,
+    "sharpe": -10.17,
+    "trades": 195
+   },
+   "holdout": {
+    "ret": -6.78,
+    "sharpe": -11.8,
+    "trades": 95
+   },
+   "bh_holdout": -11.1,
+   "expo": 17.2,
+   "max_dd": 17.51,
+   "days": 50
+  },
+  {
+   "tf": "15m",
+   "side": "long",
+   "entry": "cross",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -7.73,
+    "sharpe": -7.69,
+    "trades": 121
+   },
+   "holdout": {
+    "ret": -3.84,
+    "sharpe": -7.36,
+    "trades": 54
+   },
+   "bh_holdout": -11.1,
+   "expo": 12.4,
+   "max_dd": 11.56,
+   "days": 50
+  },
+  {
+   "tf": "15m",
+   "side": "long",
+   "entry": "pullback",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -5.98,
+    "sharpe": -6.52,
+    "trades": 134
+   },
+   "holdout": {
+    "ret": -5.16,
+    "sharpe": -17.11,
+    "trades": 61
+   },
+   "bh_holdout": -11.1,
+   "expo": 10.2,
+   "max_dd": 13.28,
+   "days": 50
+  },
+  {
+   "tf": "15m",
+   "side": "long",
+   "entry": "pullback",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -1.52,
+    "sharpe": -1.92,
+    "trades": 71
+   },
+   "holdout": {
+    "ret": -2.66,
+    "sharpe": -11.19,
+    "trades": 29
+   },
+   "bh_holdout": -11.1,
+   "expo": 5.5,
+   "max_dd": 8.04,
+   "days": 50,
+   "selected": true,
+   "verdict": "no edge: fails the untouched holdout"
+  },
+  {
+   "tf": "15m",
+   "side": "short",
+   "entry": "cross",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -12.82,
+    "sharpe": -13.72,
+    "trades": 182
+   },
+   "holdout": {
+    "ret": -5.51,
+    "sharpe": -6.89,
+    "trades": 117
+   },
+   "bh_holdout": -11.1,
+   "expo": 19.9,
+   "max_dd": 19.11,
+   "days": 50
+  },
+  {
+   "tf": "15m",
+   "side": "short",
+   "entry": "cross",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -11.06,
+    "sharpe": -14.52,
+    "trades": 122
+   },
+   "holdout": {
+    "ret": -3.77,
+    "sharpe": -4.86,
+    "trades": 94
+   },
+   "bh_holdout": -11.1,
+   "expo": 14.2,
+   "max_dd": 16.03,
+   "days": 50
+  },
+  {
+   "tf": "15m",
+   "side": "short",
+   "entry": "pullback",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -8.88,
+    "sharpe": -9.55,
+    "trades": 140
+   },
+   "holdout": {
+    "ret": -6.02,
+    "sharpe": -14.29,
+    "trades": 87
+   },
+   "bh_holdout": -11.1,
+   "expo": 11.7,
+   "max_dd": 14.54,
+   "days": 50
+  },
+  {
+   "tf": "15m",
+   "side": "short",
+   "entry": "pullback",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -8.1,
+    "sharpe": -12.01,
+    "trades": 90
+   },
+   "holdout": {
+    "ret": -4.75,
+    "sharpe": -11.93,
+    "trades": 69
+   },
+   "bh_holdout": -11.1,
+   "expo": 7.5,
+   "max_dd": 12.73,
+   "days": 50
+  },
+  {
+   "tf": "1h",
+   "side": "long",
+   "entry": "cross",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -21.77,
+    "sharpe": -6.23,
+    "trades": 326
+   },
+   "holdout": {
+    "ret": -4.7,
+    "sharpe": -1.16,
+    "trades": 245
+   },
+   "bh_holdout": 21.19,
+   "expo": 27.1,
+   "max_dd": 26.66,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "long",
+   "entry": "cross",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -15.16,
+    "sharpe": -5.26,
+    "trades": 199
+   },
+   "holdout": {
+    "ret": 2.14,
+    "sharpe": 0.68,
+    "trades": 156
+   },
+   "bh_holdout": 21.19,
+   "expo": 19.7,
+   "max_dd": 17.04,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "long",
+   "entry": "pullback",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -21.41,
+    "sharpe": -8.78,
+    "trades": 232
+   },
+   "holdout": {
+    "ret": -13.23,
+    "sharpe": -5.34,
+    "trades": 174
+   },
+   "bh_holdout": 21.19,
+   "expo": 16.5,
+   "max_dd": 32.18,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "long",
+   "entry": "pullback",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -12.79,
+    "sharpe": -6.13,
+    "trades": 129
+   },
+   "holdout": {
+    "ret": -7.91,
+    "sharpe": -3.75,
+    "trades": 99
+   },
+   "bh_holdout": 21.19,
+   "expo": 10.2,
+   "max_dd": 20.13,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "short",
+   "entry": "cross",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -20.83,
+    "sharpe": -4.43,
+    "trades": 349
+   },
+   "holdout": {
+    "ret": -16.06,
+    "sharpe": -5.53,
+    "trades": 234
+   },
+   "bh_holdout": 21.19,
+   "expo": 26.3,
+   "max_dd": 34.7,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "short",
+   "entry": "cross",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -19.31,
+    "sharpe": -4.35,
+    "trades": 266
+   },
+   "holdout": {
+    "ret": -11.28,
+    "sharpe": -4.55,
+    "trades": 157
+   },
+   "bh_holdout": 21.19,
+   "expo": 20.6,
+   "max_dd": 29.11,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "short",
+   "entry": "pullback",
+   "trend_filter": false,
+   "coins": 10,
+   "insample": {
+    "ret": -11.54,
+    "sharpe": -3.02,
+    "trades": 209
+   },
+   "holdout": {
+    "ret": -13.11,
+    "sharpe": -6.32,
+    "trades": 149
+   },
+   "bh_holdout": 21.19,
+   "expo": 14.3,
+   "max_dd": 23.46,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "side": "short",
+   "entry": "pullback",
+   "trend_filter": true,
+   "coins": 10,
+   "insample": {
+    "ret": -8.86,
+    "sharpe": -2.43,
+    "trades": 146
+   },
+   "holdout": {
+    "ret": -8.17,
+    "sharpe": -4.69,
+    "trades": 96
+   },
+   "bh_holdout": 21.19,
+   "expo": 9.5,
+   "max_dd": 16.84,
+   "days": 200,
+   "selected": true,
+   "verdict": "no edge: fails the untouched holdout"
+  }
+ ]
+}
