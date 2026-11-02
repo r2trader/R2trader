@@ -1,9 +1,10 @@
-"""R2trader forward test: five paper accounts (engine v2) on new candles only. Rules are frozen as of 2026-10-30.
+"""R2trader forward test: six paper accounts (engine v2) on new candles only. Rules for A-E are frozen as of 2026-10-30; F was added 2026-11-02.
 Paper only. Writes docs/data/forward.json and forward_state.json."""
 import json, os, time
 from datetime import datetime, timezone
 import research as R
 import research_hf as H
+import research_ema921 as E
 import lab as L
 
 ACC = {
@@ -19,6 +20,10 @@ ACC = {
     "E": dict(title="E: VWAP dip buy (4h, experiment)", tf="4h", build=L.build_vwap_dip, stop=2.0, tp=None, maxbars=24,
               side="long", rule="UNPROVEN EXPERIMENT. Buy, after the first candle of each UTC day, when price is above its EMA100 but more than 1x ATR "
                                 "below the daily VWAP (resets 00:00 UTC). Sell when price returns to VWAP, on a 2x ATR stop, or after 24 candles."),
+    "F": dict(title="F: EMA 9/21 + EMA100 trend (1d, red-team survivor)", tf="1d", build=E.build_ema("long", "cross", 0), stop=2.0, tp=None,
+              maxbars=R.NOEXIT, side="long",
+              rule="Added 2026-11-02 after surviving the red-team run. Buy on daily candles when EMA9 crosses above EMA21 and price is above EMA100. "
+                   "Sell on the reverse cross or a 2x ATR stop. Backtest final test: +7.1%, Sharpe 0.31, about one trade every three weeks."),
 }
 
 
