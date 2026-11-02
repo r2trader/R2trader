@@ -1,0 +1,899 @@
+{
+ "updated": "2026-11-02 20:14 UTC",
+ "configs": 16,
+ "coins": [
+  "BTC",
+  "ETH"
+ ],
+ "note": "Fibonacci pullback + 50 MA as posted (4h swing trend, 15m entry, 1% stop, 2% target), BTC and ETH, about 3 years of 15m candles. m = 15m swing width in candles. as_posted rows use touch 0.5 and stop 1%. Tuned on the first 50%, validated on the next 25%, final test read once. Stops are checked before targets inside a candle. Fees 0.1%/side, slippage 0.05%, next-open fills. Position size is capped at 25% of equity, so account returns are smaller than the per-trade 'exp' figures suggest.",
+ "selected": [
+  {
+   "side": "long",
+   "config": {
+    "side": "long",
+    "m": 4,
+    "touch": 0.5,
+    "stop": 2.0
+   },
+   "test": {
+    "ret": -5.69,
+    "sharpe": -0.97,
+    "trades": 66,
+    "win": 31.8,
+    "exp": -0.341
+   },
+   "redteam": {
+    "cost_x2_test": {
+     "ret": -10.07,
+     "sharpe": -1.8,
+     "trades": 67,
+     "win": 31.3,
+     "exp": -0.619
+    },
+    "neighbours": [
+     {
+      "m": 2,
+      "touch": 0.5,
+      "stop": 2.0,
+      "test": {
+       "ret": -9.47,
+       "sharpe": -1.83,
+       "trades": 60,
+       "win": 26.7,
+       "exp": -0.65
+      }
+     },
+     {
+      "m": 8,
+      "touch": 0.5,
+      "stop": 2.0,
+      "test": {
+       "ret": -12.71,
+       "sharpe": -2.18,
+       "trades": 77,
+       "win": 26.0,
+       "exp": -0.691
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.382,
+      "stop": 2.0,
+      "test": {
+       "ret": -5.19,
+       "sharpe": -0.83,
+       "trades": 73,
+       "win": 32.9,
+       "exp": -0.277
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.618,
+      "stop": 2.0,
+      "test": {
+       "ret": -7.92,
+       "sharpe": -1.58,
+       "trades": 57,
+       "win": 28.1,
+       "exp": -0.565
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 1.5,
+      "test": {
+       "ret": -7.01,
+       "sharpe": -1.54,
+       "trades": 78,
+       "win": 30.8,
+       "exp": -0.365
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 3.0,
+      "test": {
+       "ret": -1.14,
+       "sharpe": -0.08,
+       "trades": 53,
+       "win": 35.8,
+       "exp": -0.024
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "ablations": {
+     "no_fibonacci": {
+      "ret": -16.09,
+      "sharpe": -2.01,
+      "trades": 126,
+      "win": 28.6,
+      "exp": -0.535
+     },
+     "no_trend_filter": {
+      "ret": -17.83,
+      "sharpe": -1.9,
+      "trades": 180,
+      "win": 30.6,
+      "exp": -0.417
+     }
+    },
+    "random_in_trend_test_ret": [
+     -11.43,
+     -7.29,
+     -0.07,
+     -13.26,
+     -8.37,
+     -3.58,
+     -3.91,
+     -5.92,
+     -5.72,
+     -2.14,
+     1.61,
+     -12.0
+    ],
+    "random_median": -5.72,
+    "beats_random_share": 0.58,
+    "pnl_by_coin_test": {
+     "ETH": -322.41,
+     "BTC": -207.43
+    },
+    "pnl_without_top3_trades": -796.28,
+    "survives": false
+   }
+  },
+  {
+   "side": "short",
+   "config": {
+    "side": "short",
+    "m": 4,
+    "touch": 0.5,
+    "stop": 2.0
+   },
+   "test": {
+    "ret": -5.27,
+    "sharpe": -0.79,
+    "trades": 66,
+    "win": 33.3,
+    "exp": -0.25
+   },
+   "redteam": {
+    "cost_x2_test": {
+     "ret": -10.42,
+     "sharpe": -1.67,
+     "trades": 66,
+     "win": 31.8,
+     "exp": -0.591
+    },
+    "neighbours": [
+     {
+      "m": 2,
+      "touch": 0.5,
+      "stop": 2.0,
+      "test": {
+       "ret": -1.2,
+       "sharpe": -0.15,
+       "trades": 64,
+       "win": 37.5,
+       "exp": 0.0
+      }
+     },
+     {
+      "m": 8,
+      "touch": 0.5,
+      "stop": 2.0,
+      "test": {
+       "ret": 2.51,
+       "sharpe": 0.42,
+       "trades": 76,
+       "win": 40.8,
+       "exp": 0.198
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.382,
+      "stop": 2.0,
+      "test": {
+       "ret": -5.27,
+       "sharpe": -0.72,
+       "trades": 79,
+       "win": 34.2,
+       "exp": -0.199
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.618,
+      "stop": 2.0,
+      "test": {
+       "ret": -3.88,
+       "sharpe": -0.7,
+       "trades": 56,
+       "win": 33.9,
+       "exp": -0.214
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 1.5,
+      "test": {
+       "ret": -7.73,
+       "sharpe": -1.71,
+       "trades": 81,
+       "win": 30.9,
+       "exp": -0.361
+      }
+     },
+     {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 3.0,
+      "test": {
+       "ret": -6.26,
+       "sharpe": -0.71,
+       "trades": 50,
+       "win": 32.0,
+       "exp": -0.37
+      }
+     }
+    ],
+    "neighbours_positive": 1,
+    "ablations": {
+     "no_fibonacci": {
+      "ret": -7.96,
+      "sharpe": -0.82,
+      "trades": 137,
+      "win": 34.3,
+      "exp": -0.192
+     },
+     "no_trend_filter": {
+      "ret": -13.53,
+      "sharpe": -1.42,
+      "trades": 174,
+      "win": 32.8,
+      "exp": -0.285
+     }
+    },
+    "random_in_trend_test_ret": [
+     -8.94,
+     -5.29,
+     -5.92,
+     -0.47,
+     -11.59,
+     -10.28,
+     -17.6,
+     -0.37,
+     -14.39,
+     -4.29,
+     -10.81,
+     -11.42
+    ],
+    "random_median": -8.94,
+    "beats_random_share": 0.75,
+    "pnl_by_coin_test": {
+     "ETH": -435.41,
+     "BTC": 2.65
+    },
+    "pnl_without_top3_trades": -669.53,
+    "survives": false
+   }
+  }
+ ],
+ "rows": [
+  {
+   "side": "long",
+   "m": 4,
+   "touch": 0.5,
+   "stop": 1.0,
+   "as_posted": true,
+   "train": {
+    "ret": -14.15,
+    "sharpe": -2.26,
+    "trades": 202,
+    "win": 31.7,
+    "exp": -0.299
+   },
+   "val": {
+    "ret": -0.64,
+    "sharpe": -0.18,
+    "trades": 93,
+    "win": 40.9,
+    "exp": -0.024
+   },
+   "test": {
+    "ret": -4.36,
+    "sharpe": -1.34,
+    "trades": 86,
+    "win": 34.9,
+    "exp": -0.204
+   },
+   "full": {
+    "ret": -18.42,
+    "sharpe": -1.53,
+    "trades": 381,
+    "win": 34.6,
+    "exp": -0.211
+   },
+   "expo": 15.8,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "long",
+   "m": 4,
+   "touch": 0.5,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -9.05,
+    "sharpe": -0.77,
+    "trades": 160,
+    "win": 33.8,
+    "exp": -0.225
+   },
+   "val": {
+    "ret": 2.35,
+    "sharpe": 0.42,
+    "trades": 78,
+    "win": 39.7,
+    "exp": 0.134
+   },
+   "test": {
+    "ret": -5.69,
+    "sharpe": -0.97,
+    "trades": 66,
+    "win": 31.8,
+    "exp": -0.341
+   },
+   "full": {
+    "ret": -12.21,
+    "sharpe": -0.51,
+    "trades": 304,
+    "win": 34.9,
+    "exp": -0.158
+   },
+   "expo": 34.7,
+   "bh_test": -3.17,
+   "days": 1092,
+   "selected": true
+  },
+  {
+   "side": "long",
+   "m": 4,
+   "touch": 0.382,
+   "stop": 1.0,
+   "as_posted": false,
+   "train": {
+    "ret": -17.12,
+    "sharpe": -2.62,
+    "trades": 230,
+    "win": 30.9,
+    "exp": -0.324
+   },
+   "val": {
+    "ret": 0.41,
+    "sharpe": 0.14,
+    "trades": 104,
+    "win": 42.3,
+    "exp": 0.019
+   },
+   "test": {
+    "ret": -2.44,
+    "sharpe": -0.68,
+    "trades": 94,
+    "win": 38.3,
+    "exp": -0.101
+   },
+   "full": {
+    "ret": -18.81,
+    "sharpe": -1.46,
+    "trades": 428,
+    "win": 35.3,
+    "exp": -0.192
+   },
+   "expo": 17.5,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "long",
+   "m": 4,
+   "touch": 0.382,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -12.29,
+    "sharpe": -1.02,
+    "trades": 177,
+    "win": 32.8,
+    "exp": -0.284
+   },
+   "val": {
+    "ret": 6.62,
+    "sharpe": 1.05,
+    "trades": 84,
+    "win": 42.9,
+    "exp": 0.321
+   },
+   "test": {
+    "ret": -5.19,
+    "sharpe": -0.83,
+    "trades": 73,
+    "win": 32.9,
+    "exp": -0.277
+   },
+   "full": {
+    "ret": -11.34,
+    "sharpe": -0.44,
+    "trades": 334,
+    "win": 35.3,
+    "exp": -0.13
+   },
+   "expo": 37.3,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "long",
+   "m": 8,
+   "touch": 0.5,
+   "stop": 1.0,
+   "as_posted": true,
+   "train": {
+    "ret": -17.79,
+    "sharpe": -2.7,
+    "trades": 235,
+    "win": 30.6,
+    "exp": -0.331
+   },
+   "val": {
+    "ret": 1.84,
+    "sharpe": 0.54,
+    "trades": 109,
+    "win": 44.0,
+    "exp": 0.071
+   },
+   "test": {
+    "ret": -5.07,
+    "sharpe": -1.41,
+    "trades": 98,
+    "win": 34.7,
+    "exp": -0.209
+   },
+   "full": {
+    "ret": -20.53,
+    "sharpe": -1.58,
+    "trades": 442,
+    "win": 34.8,
+    "exp": -0.205
+   },
+   "expo": 18.4,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "long",
+   "m": 8,
+   "touch": 0.5,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -22.64,
+    "sharpe": -2.05,
+    "trades": 186,
+    "win": 28.5,
+    "exp": -0.54
+   },
+   "val": {
+    "ret": 5.84,
+    "sharpe": 0.91,
+    "trades": 80,
+    "win": 42.5,
+    "exp": 0.299
+   },
+   "test": {
+    "ret": -12.71,
+    "sharpe": -2.18,
+    "trades": 77,
+    "win": 26.0,
+    "exp": -0.691
+   },
+   "full": {
+    "ret": -28.52,
+    "sharpe": -1.3,
+    "trades": 343,
+    "win": 31.2,
+    "exp": -0.378
+   },
+   "expo": 36.4,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "long",
+   "m": 8,
+   "touch": 0.382,
+   "stop": 1.0,
+   "as_posted": false,
+   "train": {
+    "ret": -19.69,
+    "sharpe": -2.84,
+    "trades": 264,
+    "win": 30.7,
+    "exp": -0.329
+   },
+   "val": {
+    "ret": 0.76,
+    "sharpe": 0.23,
+    "trades": 122,
+    "win": 42.6,
+    "exp": 0.028
+   },
+   "test": {
+    "ret": -4.61,
+    "sharpe": -1.23,
+    "trades": 106,
+    "win": 35.8,
+    "exp": -0.175
+   },
+   "full": {
+    "ret": -22.82,
+    "sharpe": -1.69,
+    "trades": 492,
+    "win": 34.8,
+    "exp": -0.207
+   },
+   "expo": 19.9,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "long",
+   "m": 8,
+   "touch": 0.382,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -21.81,
+    "sharpe": -1.85,
+    "trades": 200,
+    "win": 29.5,
+    "exp": -0.48
+   },
+   "val": {
+    "ret": 5.21,
+    "sharpe": 0.79,
+    "trades": 89,
+    "win": 41.6,
+    "exp": 0.244
+   },
+   "test": {
+    "ret": -12.7,
+    "sharpe": -2.09,
+    "trades": 77,
+    "win": 26.0,
+    "exp": -0.691
+   },
+   "full": {
+    "ret": -28.19,
+    "sharpe": -1.22,
+    "trades": 366,
+    "win": 31.7,
+    "exp": -0.348
+   },
+   "expo": 39.1,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 4,
+   "touch": 0.5,
+   "stop": 1.0,
+   "as_posted": true,
+   "train": {
+    "ret": -11.58,
+    "sharpe": -2.2,
+    "trades": 179,
+    "win": 33.0,
+    "exp": -0.261
+   },
+   "val": {
+    "ret": -1.96,
+    "sharpe": -0.59,
+    "trades": 89,
+    "win": 39.3,
+    "exp": -0.07
+   },
+   "test": {
+    "ret": -10.83,
+    "sharpe": -3.65,
+    "trades": 93,
+    "win": 25.8,
+    "exp": -0.476
+   },
+   "full": {
+    "ret": -22.7,
+    "sharpe": -2.13,
+    "trades": 361,
+    "win": 32.7,
+    "exp": -0.269
+   },
+   "expo": 12.2,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 4,
+   "touch": 0.5,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -18.23,
+    "sharpe": -1.79,
+    "trades": 143,
+    "win": 28.7,
+    "exp": -0.53
+   },
+   "val": {
+    "ret": 0.35,
+    "sharpe": 0.1,
+    "trades": 76,
+    "win": 39.5,
+    "exp": 0.119
+   },
+   "test": {
+    "ret": -5.27,
+    "sharpe": -0.79,
+    "trades": 66,
+    "win": 33.3,
+    "exp": -0.25
+   },
+   "full": {
+    "ret": -22.27,
+    "sharpe": -1.03,
+    "trades": 285,
+    "win": 32.6,
+    "exp": -0.292
+   },
+   "expo": 33.0,
+   "bh_test": -3.17,
+   "days": 1092,
+   "selected": true
+  },
+  {
+   "side": "short",
+   "m": 4,
+   "touch": 0.382,
+   "stop": 1.0,
+   "as_posted": false,
+   "train": {
+    "ret": -10.54,
+    "sharpe": -1.84,
+    "trades": 199,
+    "win": 34.7,
+    "exp": -0.21
+   },
+   "val": {
+    "ret": -1.18,
+    "sharpe": -0.32,
+    "trades": 96,
+    "win": 40.6,
+    "exp": -0.031
+   },
+   "test": {
+    "ret": -12.93,
+    "sharpe": -4.0,
+    "trades": 110,
+    "win": 25.5,
+    "exp": -0.487
+   },
+   "full": {
+    "ret": -23.02,
+    "sharpe": -2.01,
+    "trades": 405,
+    "win": 33.6,
+    "exp": -0.243
+   },
+   "expo": 13.6,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 4,
+   "touch": 0.382,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -16.63,
+    "sharpe": -1.54,
+    "trades": 158,
+    "win": 30.4,
+    "exp": -0.427
+   },
+   "val": {
+    "ret": -0.52,
+    "sharpe": -0.04,
+    "trades": 80,
+    "win": 38.8,
+    "exp": 0.075
+   },
+   "test": {
+    "ret": -5.27,
+    "sharpe": -0.72,
+    "trades": 79,
+    "win": 34.2,
+    "exp": -0.199
+   },
+   "full": {
+    "ret": -21.43,
+    "sharpe": -0.92,
+    "trades": 317,
+    "win": 33.4,
+    "exp": -0.244
+   },
+   "expo": 36.4,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 8,
+   "touch": 0.5,
+   "stop": 1.0,
+   "as_posted": true,
+   "train": {
+    "ret": -14.21,
+    "sharpe": -2.58,
+    "trades": 203,
+    "win": 32.0,
+    "exp": -0.289
+   },
+   "val": {
+    "ret": -4.28,
+    "sharpe": -1.3,
+    "trades": 99,
+    "win": 36.4,
+    "exp": -0.159
+   },
+   "test": {
+    "ret": -9.97,
+    "sharpe": -3.04,
+    "trades": 109,
+    "win": 29.4,
+    "exp": -0.369
+   },
+   "full": {
+    "ret": -26.06,
+    "sharpe": -2.37,
+    "trades": 411,
+    "win": 32.4,
+    "exp": -0.279
+   },
+   "expo": 12.5,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 8,
+   "touch": 0.5,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -15.6,
+    "sharpe": -1.45,
+    "trades": 163,
+    "win": 31.3,
+    "exp": -0.373
+   },
+   "val": {
+    "ret": -0.46,
+    "sharpe": -0.03,
+    "trades": 81,
+    "win": 38.3,
+    "exp": 0.047
+   },
+   "test": {
+    "ret": 2.51,
+    "sharpe": 0.42,
+    "trades": 76,
+    "win": 40.8,
+    "exp": 0.198
+   },
+   "full": {
+    "ret": -13.89,
+    "sharpe": -0.57,
+    "trades": 320,
+    "win": 35.3,
+    "exp": -0.131
+   },
+   "expo": 34.0,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 8,
+   "touch": 0.382,
+   "stop": 1.0,
+   "as_posted": false,
+   "train": {
+    "ret": -13.64,
+    "sharpe": -2.32,
+    "trades": 227,
+    "win": 33.5,
+    "exp": -0.246
+   },
+   "val": {
+    "ret": -3.91,
+    "sharpe": -1.08,
+    "trades": 112,
+    "win": 37.5,
+    "exp": -0.125
+   },
+   "test": {
+    "ret": -12.38,
+    "sharpe": -3.72,
+    "trades": 120,
+    "win": 27.5,
+    "exp": -0.425
+   },
+   "full": {
+    "ret": -27.29,
+    "sharpe": -2.35,
+    "trades": 459,
+    "win": 32.9,
+    "exp": -0.263
+   },
+   "expo": 13.9,
+   "bh_test": -3.17,
+   "days": 1092
+  },
+  {
+   "side": "short",
+   "m": 8,
+   "touch": 0.382,
+   "stop": 2.0,
+   "as_posted": false,
+   "train": {
+    "ret": -15.58,
+    "sharpe": -1.38,
+    "trades": 176,
+    "win": 31.8,
+    "exp": -0.341
+   },
+   "val": {
+    "ret": -2.55,
+    "sharpe": -0.35,
+    "trades": 90,
+    "win": 36.7,
+    "exp": -0.05
+   },
+   "test": {
+    "ret": 0.5,
+    "sharpe": 0.12,
+    "trades": 82,
+    "win": 39.0,
+    "exp": 0.092
+   },
+   "full": {
+    "ret": -17.33,
+    "sharpe": -0.71,
+    "trades": 348,
+    "win": 34.8,
+    "exp": -0.164
+   },
+   "expo": 36.6,
+   "bh_test": -3.17,
+   "days": 1092
+  }
+ ]
+}
