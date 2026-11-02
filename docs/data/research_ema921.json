@@ -1,0 +1,1485 @@
+{
+ "updated": "2026-11-02 12:00 UTC",
+ "configs": 48,
+ "note": "EMA 9/21 cross with EMA100 filter. Tuned only on the first 50% (train) and checked on the next 25% (validation); the last 25% (test) is read once. Red-team: doubled costs, neighbouring EMA lengths, removal of the top 3 trades, per-coin spread, exposure-matched buy-and-hold. Fees 0.1%/side, slippage 0.05%, next-open fills.",
+ "selected": [
+  {
+   "side": "long",
+   "tf": "1d",
+   "config": {
+    "side": "long",
+    "exit": "cross",
+    "stop": 2.0,
+    "adx": 0
+   },
+   "test": {
+    "ret": 7.12,
+    "sharpe": 0.31,
+    "trades": 33
+   },
+   "redteam": {
+    "cost_x2_test": {
+     "ret": 5.97,
+     "sharpe": 0.27,
+     "trades": 33
+    },
+    "neighbours": [
+     {
+      "params": [
+       8,
+       21,
+       100
+      ],
+      "test": {
+       "ret": 4.48,
+       "sharpe": 0.23,
+       "trades": 36
+      }
+     },
+     {
+      "params": [
+       10,
+       21,
+       100
+      ],
+      "test": {
+       "ret": 10.24,
+       "sharpe": 0.41,
+       "trades": 30
+      }
+     },
+     {
+      "params": [
+       9,
+       18,
+       100
+      ],
+      "test": {
+       "ret": 5.91,
+       "sharpe": 0.27,
+       "trades": 35
+      }
+     },
+     {
+      "params": [
+       9,
+       24,
+       100
+      ],
+      "test": {
+       "ret": 14.12,
+       "sharpe": 0.55,
+       "trades": 30
+      }
+     },
+     {
+      "params": [
+       9,
+       21,
+       80
+      ],
+      "test": {
+       "ret": 6.45,
+       "sharpe": 0.29,
+       "trades": 34
+      }
+     },
+     {
+      "params": [
+       9,
+       21,
+       120
+      ],
+      "test": {
+       "ret": 6.73,
+       "sharpe": 0.3,
+       "trades": 34
+      }
+     }
+    ],
+    "neighbours_positive": 6,
+    "pnl_by_coin_test": {
+     "ADA": 6221.63,
+     "ETH": 1070.29,
+     "BTC": 6577.21,
+     "SOL": -756.03,
+     "BNB": 6828.38,
+     "XRP": 793.17,
+     "LTC": -1207.59,
+     "DOGE": -1057.74,
+     "LINK": 6261.2,
+     "AVAX": 822.35
+    },
+    "coins_positive": 7,
+    "pnl_without_top3_trades": 3985.71,
+    "exposure_matched_bh": -32.36,
+    "survives": true
+   }
+  },
+  {
+   "side": "short",
+   "tf": "4h",
+   "config": {
+    "side": "short",
+    "exit": "ema21",
+    "stop": 2.0,
+    "adx": 20
+   },
+   "test": {
+    "ret": -9.88,
+    "sharpe": -1.69,
+    "trades": 55
+   },
+   "redteam": {
+    "cost_x2_test": {
+     "ret": -12.97,
+     "sharpe": -2.23,
+     "trades": 55
+    },
+    "neighbours": [
+     {
+      "params": [
+       8,
+       21,
+       100
+      ],
+      "test": {
+       "ret": -7.43,
+       "sharpe": -1.23,
+       "trades": 54
+      }
+     },
+     {
+      "params": [
+       10,
+       21,
+       100
+      ],
+      "test": {
+       "ret": -8.96,
+       "sharpe": -1.75,
+       "trades": 47
+      }
+     },
+     {
+      "params": [
+       9,
+       18,
+       100
+      ],
+      "test": {
+       "ret": -11.42,
+       "sharpe": -2.17,
+       "trades": 54
+      }
+     },
+     {
+      "params": [
+       9,
+       24,
+       100
+      ],
+      "test": {
+       "ret": -9.36,
+       "sharpe": -1.77,
+       "trades": 47
+      }
+     },
+     {
+      "params": [
+       9,
+       21,
+       80
+      ],
+      "test": {
+       "ret": -9.62,
+       "sharpe": -1.54,
+       "trades": 61
+      }
+     },
+     {
+      "params": [
+       9,
+       21,
+       120
+      ],
+      "test": {
+       "ret": -9.28,
+       "sharpe": -1.61,
+       "trades": 52
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "pnl_by_coin_test": {
+     "ADA": 205.06,
+     "XRP": -244.91,
+     "BTC": -206.95,
+     "SOL": -318.51,
+     "AVAX": -237.22,
+     "BNB": 145.76,
+     "ETH": -204.7,
+     "DOGE": 127.76,
+     "LINK": -130.34,
+     "LTC": -102.0
+    },
+    "coins_positive": 3,
+    "pnl_without_top3_trades": -1462.19,
+    "exposure_matched_bh": 0.33,
+    "survives": false
+   }
+  }
+ ],
+ "rows": [
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -8.22,
+    "sharpe": -1.55,
+    "trades": 163
+   },
+   "val": {
+    "ret": 0.2,
+    "sharpe": 0.18,
+    "trades": 107
+   },
+   "test": {
+    "ret": -12.97,
+    "sharpe": -5.85,
+    "trades": 78
+   },
+   "expo": 62.0,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -7.69,
+    "sharpe": -2.47,
+    "trades": 83
+   },
+   "val": {
+    "ret": 4.08,
+    "sharpe": 1.67,
+    "trades": 60
+   },
+   "test": {
+    "ret": -7.42,
+    "sharpe": -4.88,
+    "trades": 38
+   },
+   "expo": 43.2,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -7.93,
+    "sharpe": -1.46,
+    "trades": 161
+   },
+   "val": {
+    "ret": 0.75,
+    "sharpe": 0.34,
+    "trades": 103
+   },
+   "test": {
+    "ret": -8.2,
+    "sharpe": -3.49,
+    "trades": 74
+   },
+   "expo": 63.6,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -6.34,
+    "sharpe": -1.93,
+    "trades": 80
+   },
+   "val": {
+    "ret": 5.23,
+    "sharpe": 2.08,
+    "trades": 60
+   },
+   "test": {
+    "ret": -3.73,
+    "sharpe": -1.94,
+    "trades": 37
+   },
+   "expo": 47.2,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -11.01,
+    "sharpe": -2.74,
+    "trades": 189
+   },
+   "val": {
+    "ret": -4.12,
+    "sharpe": -1.32,
+    "trades": 126
+   },
+   "test": {
+    "ret": -7.45,
+    "sharpe": -3.61,
+    "trades": 88
+   },
+   "expo": 44.8,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -8.38,
+    "sharpe": -3.49,
+    "trades": 89
+   },
+   "val": {
+    "ret": -0.5,
+    "sharpe": -0.19,
+    "trades": 66
+   },
+   "test": {
+    "ret": -5.75,
+    "sharpe": -4.04,
+    "trades": 40
+   },
+   "expo": 28.5,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -10.44,
+    "sharpe": -2.6,
+    "trades": 188
+   },
+   "val": {
+    "ret": -4.29,
+    "sharpe": -1.4,
+    "trades": 126
+   },
+   "test": {
+    "ret": -3.13,
+    "sharpe": -1.31,
+    "trades": 86
+   },
+   "expo": 45.6,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -7.94,
+    "sharpe": -3.3,
+    "trades": 88
+   },
+   "val": {
+    "ret": -0.34,
+    "sharpe": -0.11,
+    "trades": 66
+   },
+   "test": {
+    "ret": -1.36,
+    "sharpe": -0.71,
+    "trades": 40
+   },
+   "expo": 30.3,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -4.26,
+    "sharpe": -0.59,
+    "trades": 180
+   },
+   "val": {
+    "ret": -12.61,
+    "sharpe": -5.85,
+    "trades": 105
+   },
+   "test": {
+    "ret": -5.07,
+    "sharpe": -1.76,
+    "trades": 99
+   },
+   "expo": 61.3,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -10.44,
+    "sharpe": -2.55,
+    "trades": 103
+   },
+   "val": {
+    "ret": -7.64,
+    "sharpe": -5.07,
+    "trades": 47
+   },
+   "test": {
+    "ret": -6.27,
+    "sharpe": -3.0,
+    "trades": 53
+   },
+   "expo": 39.7,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -4.54,
+    "sharpe": -0.64,
+    "trades": 179
+   },
+   "val": {
+    "ret": -11.91,
+    "sharpe": -5.52,
+    "trades": 104
+   },
+   "test": {
+    "ret": -6.72,
+    "sharpe": -2.33,
+    "trades": 98
+   },
+   "expo": 62.4,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -10.66,
+    "sharpe": -2.61,
+    "trades": 102
+   },
+   "val": {
+    "ret": -7.71,
+    "sharpe": -5.16,
+    "trades": 46
+   },
+   "test": {
+    "ret": -5.59,
+    "sharpe": -2.38,
+    "trades": 52
+   },
+   "expo": 40.9,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -9.49,
+    "sharpe": -1.9,
+    "trades": 214
+   },
+   "val": {
+    "ret": -13.86,
+    "sharpe": -8.38,
+    "trades": 134
+   },
+   "test": {
+    "ret": -8.01,
+    "sharpe": -3.26,
+    "trades": 136
+   },
+   "expo": 46.6,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -7.24,
+    "sharpe": -1.97,
+    "trades": 109
+   },
+   "val": {
+    "ret": -5.71,
+    "sharpe": -4.75,
+    "trades": 49
+   },
+   "test": {
+    "ret": -5.82,
+    "sharpe": -3.35,
+    "trades": 61
+   },
+   "expo": 28.4,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -9.41,
+    "sharpe": -1.91,
+    "trades": 214
+   },
+   "val": {
+    "ret": -13.44,
+    "sharpe": -8.18,
+    "trades": 133
+   },
+   "test": {
+    "ret": -7.4,
+    "sharpe": -2.95,
+    "trades": 136
+   },
+   "expo": 46.9,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "1h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -7.27,
+    "sharpe": -2.0,
+    "trades": 109
+   },
+   "val": {
+    "ret": -5.72,
+    "sharpe": -4.83,
+    "trades": 48
+   },
+   "test": {
+    "ret": -5.68,
+    "sharpe": -3.26,
+    "trades": 61
+   },
+   "expo": 28.5,
+   "bh_test": -2.02,
+   "days": 200
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": 43.98,
+    "sharpe": 1.42,
+    "trades": 171
+   },
+   "val": {
+    "ret": -18.48,
+    "sharpe": -1.99,
+    "trades": 63
+   },
+   "test": {
+    "ret": 2.93,
+    "sharpe": 0.35,
+    "trades": 99
+   },
+   "expo": 60.4,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": 28.7,
+    "sharpe": 1.24,
+    "trades": 91
+   },
+   "val": {
+    "ret": -11.28,
+    "sharpe": -1.71,
+    "trades": 32
+   },
+   "test": {
+    "ret": 0.15,
+    "sharpe": 0.1,
+    "trades": 54
+   },
+   "expo": 38.5,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": 35.19,
+    "sharpe": 1.43,
+    "trades": 163
+   },
+   "val": {
+    "ret": -12.99,
+    "sharpe": -1.56,
+    "trades": 57
+   },
+   "test": {
+    "ret": 1.92,
+    "sharpe": 0.27,
+    "trades": 97
+   },
+   "expo": 61.5,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": 17.34,
+    "sharpe": 1.01,
+    "trades": 89
+   },
+   "val": {
+    "ret": -7.22,
+    "sharpe": -1.26,
+    "trades": 31
+   },
+   "test": {
+    "ret": -2.22,
+    "sharpe": -0.16,
+    "trades": 55
+   },
+   "expo": 40.9,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": 46.84,
+    "sharpe": 1.69,
+    "trades": 203
+   },
+   "val": {
+    "ret": -24.33,
+    "sharpe": -3.73,
+    "trades": 78
+   },
+   "test": {
+    "ret": -6.49,
+    "sharpe": -0.61,
+    "trades": 126
+   },
+   "expo": 44.8,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": 16.96,
+    "sharpe": 1.0,
+    "trades": 99
+   },
+   "val": {
+    "ret": -12.93,
+    "sharpe": -2.76,
+    "trades": 33
+   },
+   "test": {
+    "ret": -10.21,
+    "sharpe": -1.48,
+    "trades": 64
+   },
+   "expo": 24.5,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": 36.48,
+    "sharpe": 1.69,
+    "trades": 202
+   },
+   "val": {
+    "ret": -20.35,
+    "sharpe": -3.67,
+    "trades": 78
+   },
+   "test": {
+    "ret": -6.47,
+    "sharpe": -0.69,
+    "trades": 126
+   },
+   "expo": 44.7,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": 10.55,
+    "sharpe": 0.82,
+    "trades": 98
+   },
+   "val": {
+    "ret": -9.97,
+    "sharpe": -2.68,
+    "trades": 33
+   },
+   "test": {
+    "ret": -9.74,
+    "sharpe": -1.56,
+    "trades": 64
+   },
+   "expo": 24.8,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -12.6,
+    "sharpe": -0.38,
+    "trades": 155
+   },
+   "val": {
+    "ret": 6.53,
+    "sharpe": 0.52,
+    "trades": 99
+   },
+   "test": {
+    "ret": 2.2,
+    "sharpe": 0.31,
+    "trades": 75
+   },
+   "expo": 61.9,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -9.29,
+    "sharpe": -0.43,
+    "trades": 82
+   },
+   "val": {
+    "ret": 6.7,
+    "sharpe": 0.62,
+    "trades": 63
+   },
+   "test": {
+    "ret": -5.42,
+    "sharpe": -0.68,
+    "trades": 47
+   },
+   "expo": 46.6,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -10.59,
+    "sharpe": -0.45,
+    "trades": 147
+   },
+   "val": {
+    "ret": 4.28,
+    "sharpe": 0.43,
+    "trades": 97
+   },
+   "test": {
+    "ret": 6.0,
+    "sharpe": 0.72,
+    "trades": 71
+   },
+   "expo": 63.4,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -4.84,
+    "sharpe": -0.28,
+    "trades": 81
+   },
+   "val": {
+    "ret": 9.29,
+    "sharpe": 0.9,
+    "trades": 62
+   },
+   "test": {
+    "ret": -4.15,
+    "sharpe": -0.56,
+    "trades": 45
+   },
+   "expo": 49.6,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -5.98,
+    "sharpe": -0.18,
+    "trades": 191
+   },
+   "val": {
+    "ret": -3.21,
+    "sharpe": -0.14,
+    "trades": 128
+   },
+   "test": {
+    "ret": -5.21,
+    "sharpe": -0.54,
+    "trades": 108
+   },
+   "expo": 49.1,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -2.82,
+    "sharpe": -0.13,
+    "trades": 88
+   },
+   "val": {
+    "ret": 0.65,
+    "sharpe": 0.15,
+    "trades": 69
+   },
+   "test": {
+    "ret": -9.88,
+    "sharpe": -1.69,
+    "trades": 55
+   },
+   "expo": 31.7,
+   "bh_test": 1.05,
+   "days": 798,
+   "selected": true
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -7.75,
+    "sharpe": -0.41,
+    "trades": 190
+   },
+   "val": {
+    "ret": -3.73,
+    "sharpe": -0.28,
+    "trades": 128
+   },
+   "test": {
+    "ret": -4.27,
+    "sharpe": -0.48,
+    "trades": 108
+   },
+   "expo": 49.0,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -2.43,
+    "sharpe": -0.17,
+    "trades": 88
+   },
+   "val": {
+    "ret": 3.7,
+    "sharpe": 0.54,
+    "trades": 69
+   },
+   "test": {
+    "ret": -9.96,
+    "sharpe": -2.02,
+    "trades": 55
+   },
+   "expo": 31.7,
+   "bh_test": 1.05,
+   "days": 798
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": 476.17,
+    "sharpe": 1.54,
+    "trades": 64
+   },
+   "val": {
+    "ret": 40.59,
+    "sharpe": 1.18,
+    "trades": 55
+   },
+   "test": {
+    "ret": 7.12,
+    "sharpe": 0.31,
+    "trades": 33
+   },
+   "expo": 60.9,
+   "bh_test": -53.14,
+   "days": 2788,
+   "selected": true
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": 291.59,
+    "sharpe": 0.99,
+    "trades": 43
+   },
+   "val": {
+    "ret": 47.02,
+    "sharpe": 1.35,
+    "trades": 34
+   },
+   "test": {
+    "ret": -15.07,
+    "sharpe": -0.75,
+    "trades": 24
+   },
+   "expo": 47.1,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": 256.33,
+    "sharpe": 1.43,
+    "trades": 65
+   },
+   "val": {
+    "ret": 27.09,
+    "sharpe": 1.18,
+    "trades": 54
+   },
+   "test": {
+    "ret": 3.17,
+    "sharpe": 0.2,
+    "trades": 33
+   },
+   "expo": 61.6,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": 176.38,
+    "sharpe": 0.95,
+    "trades": 43
+   },
+   "val": {
+    "ret": 30.96,
+    "sharpe": 1.33,
+    "trades": 33
+   },
+   "test": {
+    "ret": -12.48,
+    "sharpe": -0.86,
+    "trades": 24
+   },
+   "expo": 48.0,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": 69.56,
+    "sharpe": 1.0,
+    "trades": 86
+   },
+   "val": {
+    "ret": 35.6,
+    "sharpe": 1.23,
+    "trades": 67
+   },
+   "test": {
+    "ret": 1.4,
+    "sharpe": 0.12,
+    "trades": 43
+   },
+   "expo": 44.4,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": 48.94,
+    "sharpe": 0.88,
+    "trades": 46
+   },
+   "val": {
+    "ret": 36.73,
+    "sharpe": 1.36,
+    "trades": 35
+   },
+   "test": {
+    "ret": -6.71,
+    "sharpe": -0.35,
+    "trades": 24
+   },
+   "expo": 31.8,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": 44.38,
+    "sharpe": 1.0,
+    "trades": 86
+   },
+   "val": {
+    "ret": 23.36,
+    "sharpe": 1.22,
+    "trades": 67
+   },
+   "test": {
+    "ret": -0.55,
+    "sharpe": 0.0,
+    "trades": 43
+   },
+   "expo": 45.4,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "long",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": 31.02,
+    "sharpe": 0.86,
+    "trades": 46
+   },
+   "val": {
+    "ret": 26.76,
+    "sharpe": 1.43,
+    "trades": 34
+   },
+   "test": {
+    "ret": -5.96,
+    "sharpe": -0.45,
+    "trades": 24
+   },
+   "expo": 32.0,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": 9.55,
+    "sharpe": 0.3,
+    "trades": 68
+   },
+   "val": {
+    "ret": -13.22,
+    "sharpe": -0.76,
+    "trades": 49
+   },
+   "test": {
+    "ret": -1.96,
+    "sharpe": -0.06,
+    "trades": 46
+   },
+   "expo": 63.4,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -7.3,
+    "sharpe": -0.21,
+    "trades": 55
+   },
+   "val": {
+    "ret": -5.96,
+    "sharpe": -0.5,
+    "trades": 28
+   },
+   "test": {
+    "ret": 4.79,
+    "sharpe": 0.33,
+    "trades": 31
+   },
+   "expo": 49.0,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": 5.0,
+    "sharpe": 0.24,
+    "trades": 69
+   },
+   "val": {
+    "ret": -8.68,
+    "sharpe": -0.73,
+    "trades": 48
+   },
+   "test": {
+    "ret": -2.8,
+    "sharpe": -0.19,
+    "trades": 46
+   },
+   "expo": 62.8,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "cross",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -3.43,
+    "sharpe": -0.14,
+    "trades": 52
+   },
+   "val": {
+    "ret": -3.96,
+    "sharpe": -0.5,
+    "trades": 29
+   },
+   "test": {
+    "ret": 2.46,
+    "sharpe": 0.25,
+    "trades": 31
+   },
+   "expo": 49.9,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 0,
+   "train": {
+    "ret": -0.68,
+    "sharpe": 0.01,
+    "trades": 89
+   },
+   "val": {
+    "ret": -7.84,
+    "sharpe": -0.56,
+    "trades": 60
+   },
+   "test": {
+    "ret": -6.66,
+    "sharpe": -0.4,
+    "trades": 61
+   },
+   "expo": 48.0,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 2.0,
+   "adx": 20,
+   "train": {
+    "ret": -3.65,
+    "sharpe": -0.13,
+    "trades": 62
+   },
+   "val": {
+    "ret": -2.52,
+    "sharpe": -0.22,
+    "trades": 30
+   },
+   "test": {
+    "ret": 5.08,
+    "sharpe": 0.4,
+    "trades": 32
+   },
+   "expo": 37.6,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 0,
+   "train": {
+    "ret": -0.28,
+    "sharpe": 0.01,
+    "trades": 88
+   },
+   "val": {
+    "ret": -5.04,
+    "sharpe": -0.54,
+    "trades": 60
+   },
+   "test": {
+    "ret": -4.33,
+    "sharpe": -0.39,
+    "trades": 61
+   },
+   "expo": 48.0,
+   "bh_test": -53.14,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "coins": 10,
+   "side": "short",
+   "exit": "ema21",
+   "stop": 3.0,
+   "adx": 20,
+   "train": {
+    "ret": -0.94,
+    "sharpe": -0.04,
+    "trades": 60
+   },
+   "val": {
+    "ret": -1.6,
+    "sharpe": -0.22,
+    "trades": 30
+   },
+   "test": {
+    "ret": 3.26,
+    "sharpe": 0.37,
+    "trades": 32
+   },
+   "expo": 38.6,
+   "bh_test": -53.14,
+   "days": 2788
+  }
+ ]
+}
