@@ -1,0 +1,27 @@
+name: R2trader Momentum research
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["src/research_momentum.py", ".github/workflows/research_momentum.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: r2trader-research-momentum
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python src/research_momentum.py
+      - name: Save results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/research_momentum.json
+          git diff --cached --quiet || (git commit -m "Update Momentum research results" && git pull --rebase && git push)
