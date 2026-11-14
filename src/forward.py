@@ -1,4 +1,4 @@
-"""R2trader forward test: six paper accounts (engine v2) on new candles only. Rules for A-E are frozen as of 2026-10-30; F was added 2026-11-02.
+"""R2trader forward test: seven paper accounts (engine v2) on new candles only. Rules for A-E are frozen as of 2026-10-30; F added 2026-11-02; G added 2026-11-14.
 Paper only. Writes docs/data/forward.json and forward_state.json."""
 import json, os, time
 from datetime import datetime, timezone
@@ -24,6 +24,10 @@ ACC = {
               maxbars=R.NOEXIT, side="long",
               rule="Added 2026-11-02 after surviving the red-team run. Buy on daily candles when EMA9 crosses above EMA21 and price is above EMA100. "
                    "Sell on the reverse cross or a 2x ATR stop. Backtest final test: +7.1%, Sharpe 0.31, about one trade every three weeks."),
+    "G": dict(title="G: EMA 9/21 SHORT + 2x/5x Lev (4h, experiment)", tf="4h", build=E.build_ema("short", "cross", 20), stop=2.0, tp=None,
+              maxbars=R.NOEXIT, side="short", cap=2.0,
+              rule="UNPROVEN EXPERIMENT ($1k capital model, 2x leverage in high risk / 5x in low risk). Short when EMA9 crosses below EMA21, "
+                   "price is below EMA100, and ADX >= 20. Cover on reverse cross or 2x ATR stop."),
 }
 
 
