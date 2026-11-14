@@ -1,0 +1,358 @@
+{
+ "updated": "2026-11-14 08:35 UTC",
+ "capital": 1000.0,
+ "rows": [
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 7,
+   "stop": 2.5,
+   "train": {
+    "ret": 21.59,
+    "sharpe": 0.9,
+    "trades": 101
+   },
+   "val": {
+    "ret": -19.11,
+    "sharpe": 0.25,
+    "trades": 48
+   },
+   "test": {
+    "ret": 34.79,
+    "sharpe": 1.05,
+    "trades": 51
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 7,
+   "stop": 3.5,
+   "train": {
+    "ret": -4.26,
+    "sharpe": 0.84,
+    "trades": 95
+   },
+   "val": {
+    "ret": -44.43,
+    "sharpe": -0.26,
+    "trades": 48
+   },
+   "test": {
+    "ret": 51.2,
+    "sharpe": 1.23,
+    "trades": 47
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 14,
+   "stop": 2.5,
+   "train": {
+    "ret": -66.59,
+    "sharpe": -0.13,
+    "trades": 68
+   },
+   "val": {
+    "ret": -9.4,
+    "sharpe": 0.35,
+    "trades": 29
+   },
+   "test": {
+    "ret": 12.42,
+    "sharpe": 0.7,
+    "trades": 32
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 14,
+   "stop": 3.5,
+   "train": {
+    "ret": 20.26,
+    "sharpe": 0.84,
+    "trades": 66
+   },
+   "val": {
+    "ret": -36.09,
+    "sharpe": -0.14,
+    "trades": 28
+   },
+   "test": {
+    "ret": 50.55,
+    "sharpe": 1.22,
+    "trades": 31
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 7,
+   "stop": 2.5,
+   "train": {
+    "ret": 393.33,
+    "sharpe": 1.73,
+    "trades": 74
+   },
+   "val": {
+    "ret": 13.87,
+    "sharpe": 0.81,
+    "trades": 35
+   },
+   "test": {
+    "ret": -62.29,
+    "sharpe": -0.94,
+    "trades": 50
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 7,
+   "stop": 3.5,
+   "train": {
+    "ret": 177.65,
+    "sharpe": 1.37,
+    "trades": 72
+   },
+   "val": {
+    "ret": 26.29,
+    "sharpe": 0.98,
+    "trades": 33
+   },
+   "test": {
+    "ret": -28.38,
+    "sharpe": 0.19,
+    "trades": 43
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 14,
+   "stop": 2.5,
+   "train": {
+    "ret": -9.0,
+    "sharpe": 0.62,
+    "trades": 53
+   },
+   "val": {
+    "ret": 10.15,
+    "sharpe": 0.72,
+    "trades": 26
+   },
+   "test": {
+    "ret": 6.95,
+    "sharpe": 0.61,
+    "trades": 29
+   },
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 14,
+   "stop": 3.5,
+   "train": {
+    "ret": 100.22,
+    "sharpe": 1.16,
+    "trades": 52
+   },
+   "val": {
+    "ret": 4.37,
+    "sharpe": 0.66,
+    "trades": 25
+   },
+   "test": {
+    "ret": 31.58,
+    "sharpe": 1.02,
+    "trades": 27
+   },
+   "days": 798
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 7,
+   "stop": 2.5,
+   "train": {
+    "ret": 1482.96,
+    "sharpe": 1.19,
+    "trades": 271
+   },
+   "val": {
+    "ret": 517.1,
+    "sharpe": 1.56,
+    "trades": 164
+   },
+   "test": {
+    "ret": 25.97,
+    "sharpe": 0.52,
+    "trades": 133
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 7,
+   "stop": 3.5,
+   "train": {
+    "ret": 1756.07,
+    "sharpe": 1.23,
+    "trades": 265
+   },
+   "val": {
+    "ret": 690.22,
+    "sharpe": 1.73,
+    "trades": 162
+   },
+   "test": {
+    "ret": -5.77,
+    "sharpe": 0.31,
+    "trades": 132
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 14,
+   "stop": 2.5,
+   "train": {
+    "ret": 961.75,
+    "sharpe": 1.11,
+    "trades": 180
+   },
+   "val": {
+    "ret": 194.22,
+    "sharpe": 1.1,
+    "trades": 108
+   },
+   "test": {
+    "ret": -38.0,
+    "sharpe": -0.03,
+    "trades": 91
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 14,
+   "stop": 3.5,
+   "train": {
+    "ret": 1006.96,
+    "sharpe": 1.12,
+    "trades": 178
+   },
+   "val": {
+    "ret": 216.36,
+    "sharpe": 1.15,
+    "trades": 108
+   },
+   "test": {
+    "ret": -36.97,
+    "sharpe": -0.02,
+    "trades": 90
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 7,
+   "stop": 2.5,
+   "train": {
+    "ret": 3244.82,
+    "sharpe": 1.39,
+    "trades": 221
+   },
+   "val": {
+    "ret": 739.13,
+    "sharpe": 1.77,
+    "trades": 123
+   },
+   "test": {
+    "ret": 80.4,
+    "sharpe": 0.79,
+    "trades": 93
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 7,
+   "stop": 3.5,
+   "train": {
+    "ret": 4133.84,
+    "sharpe": 1.45,
+    "trades": 212
+   },
+   "val": {
+    "ret": 804.01,
+    "sharpe": 1.81,
+    "trades": 118
+   },
+   "test": {
+    "ret": 69.7,
+    "sharpe": 0.75,
+    "trades": 93
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 14,
+   "stop": 2.5,
+   "train": {
+    "ret": 492.36,
+    "sharpe": 0.96,
+    "trades": 158
+   },
+   "val": {
+    "ret": 547.88,
+    "sharpe": 1.59,
+    "trades": 84
+   },
+   "test": {
+    "ret": 7.59,
+    "sharpe": 0.4,
+    "trades": 73
+   },
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 14,
+   "stop": 3.5,
+   "train": {
+    "ret": 278.1,
+    "sharpe": 0.85,
+    "trades": 150
+   },
+   "val": {
+    "ret": 506.65,
+    "sharpe": 1.53,
+    "trades": 82
+   },
+   "test": {
+    "ret": -7.78,
+    "sharpe": 0.29,
+    "trades": 72
+   },
+   "days": 2788
+  }
+ ]
+}
