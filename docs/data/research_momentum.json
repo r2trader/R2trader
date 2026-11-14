@@ -1,0 +1,839 @@
+{
+ "updated": "2026-11-14 08:25 UTC",
+ "capital": 1000.0,
+ "fixed_overhead": 0.0,
+ "configs": 32,
+ "selected": {
+  "tf": "1d",
+  "config": {
+   "lb": 30,
+   "rb": 7,
+   "k": 3,
+   "stop": 3.5
+  },
+  "test": {
+   "ret": -51.98,
+   "sharpe": -0.7,
+   "trades": 58
+  },
+  "redteam": {
+   "cost_x2_test": {
+    "ret": -54.54,
+    "sharpe": -0.76,
+    "trades": 58
+   },
+   "neighbours": [
+    {
+     "lb": 23,
+     "rb": 7,
+     "test": {
+      "ret": -52.45,
+      "sharpe": -0.68,
+      "trades": 69
+     }
+    },
+    {
+     "lb": 37,
+     "rb": 7,
+     "test": {
+      "ret": -58.22,
+      "sharpe": -0.81,
+      "trades": 59
+     }
+    },
+    {
+     "lb": 30,
+     "rb": 4,
+     "test": {
+      "ret": -60.28,
+      "sharpe": -0.84,
+      "trades": 78
+     }
+    },
+    {
+     "lb": 30,
+     "rb": 14,
+     "test": {
+      "ret": -69.71,
+      "sharpe": -1.33,
+      "trades": 43
+     }
+    }
+   ],
+   "neighbours_positive": 0,
+   "pnl_without_top3_trades": -90984.19,
+   "survives": false
+  }
+ },
+ "rows": [
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 7,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 86.56,
+    "sharpe": 1.29,
+    "trades": 52
+   },
+   "val": {
+    "ret": -16.66,
+    "sharpe": -1.37,
+    "trades": 15
+   },
+   "test": {
+    "ret": -6.6,
+    "sharpe": -0.23,
+    "trades": 27
+   },
+   "expo": 56.5,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 7,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 128.22,
+    "sharpe": 1.53,
+    "trades": 48
+   },
+   "val": {
+    "ret": -22.31,
+    "sharpe": -1.78,
+    "trades": 15
+   },
+   "test": {
+    "ret": 2.12,
+    "sharpe": 0.28,
+    "trades": 23
+   },
+   "expo": 59.8,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 7,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 100.65,
+    "sharpe": 1.36,
+    "trades": 70
+   },
+   "val": {
+    "ret": -18.28,
+    "sharpe": -1.36,
+    "trades": 20
+   },
+   "test": {
+    "ret": -10.01,
+    "sharpe": -0.4,
+    "trades": 36
+   },
+   "expo": 57.1,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 7,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 118.81,
+    "sharpe": 1.45,
+    "trades": 64
+   },
+   "val": {
+    "ret": -22.74,
+    "sharpe": -1.65,
+    "trades": 19
+   },
+   "test": {
+    "ret": -4.44,
+    "sharpe": -0.03,
+    "trades": 32
+   },
+   "expo": 60.7,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 14,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": -9.73,
+    "sharpe": 0.04,
+    "trades": 35
+   },
+   "val": {
+    "ret": -19.35,
+    "sharpe": -3.49,
+    "trades": 9
+   },
+   "test": {
+    "ret": 1.12,
+    "sharpe": 0.22,
+    "trades": 17
+   },
+   "expo": 42.9,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 14,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 70.29,
+    "sharpe": 1.15,
+    "trades": 33
+   },
+   "val": {
+    "ret": -24.75,
+    "sharpe": -3.34,
+    "trades": 8
+   },
+   "test": {
+    "ret": -3.3,
+    "sharpe": -0.03,
+    "trades": 17
+   },
+   "expo": 52.6,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 14,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 21.06,
+    "sharpe": 0.59,
+    "trades": 49
+   },
+   "val": {
+    "ret": -21.34,
+    "sharpe": -3.19,
+    "trades": 12
+   },
+   "test": {
+    "ret": 6.39,
+    "sharpe": 0.52,
+    "trades": 22
+   },
+   "expo": 44.5,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 14,
+   "rb": 14,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 88.91,
+    "sharpe": 1.27,
+    "trades": 46
+   },
+   "val": {
+    "ret": -27.37,
+    "sharpe": -3.18,
+    "trades": 11
+   },
+   "test": {
+    "ret": 1.96,
+    "sharpe": 0.27,
+    "trades": 22
+   },
+   "expo": 52.7,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 7,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 131.97,
+    "sharpe": 1.64,
+    "trades": 36
+   },
+   "val": {
+    "ret": -8.09,
+    "sharpe": -0.89,
+    "trades": 8
+   },
+   "test": {
+    "ret": -21.88,
+    "sharpe": -1.5,
+    "trades": 27
+   },
+   "expo": 51.9,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 7,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 130.23,
+    "sharpe": 1.59,
+    "trades": 35
+   },
+   "val": {
+    "ret": -10.94,
+    "sharpe": -1.1,
+    "trades": 8
+   },
+   "test": {
+    "ret": -11.64,
+    "sharpe": -0.57,
+    "trades": 23
+   },
+   "expo": 55.4,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 7,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 157.03,
+    "sharpe": 1.72,
+    "trades": 48
+   },
+   "val": {
+    "ret": -7.74,
+    "sharpe": -0.68,
+    "trades": 12
+   },
+   "test": {
+    "ret": -9.91,
+    "sharpe": -0.34,
+    "trades": 33
+   },
+   "expo": 54.0,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 7,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 128.45,
+    "sharpe": 1.53,
+    "trades": 46
+   },
+   "val": {
+    "ret": -11.39,
+    "sharpe": -1.0,
+    "trades": 12
+   },
+   "test": {
+    "ret": -7.97,
+    "sharpe": -0.19,
+    "trades": 28
+   },
+   "expo": 55.8,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 14,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 2.09,
+    "sharpe": 0.26,
+    "trades": 28
+   },
+   "val": {
+    "ret": -13.44,
+    "sharpe": -3.36,
+    "trades": 7
+   },
+   "test": {
+    "ret": -2.79,
+    "sharpe": -0.08,
+    "trades": 15
+   },
+   "expo": 40.0,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 14,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 70.53,
+    "sharpe": 1.2,
+    "trades": 27
+   },
+   "val": {
+    "ret": -16.93,
+    "sharpe": -2.71,
+    "trades": 6
+   },
+   "test": {
+    "ret": -7.81,
+    "sharpe": -0.38,
+    "trades": 15
+   },
+   "expo": 49.7,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 14,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 42.25,
+    "sharpe": 0.87,
+    "trades": 35
+   },
+   "val": {
+    "ret": -15.39,
+    "sharpe": -3.15,
+    "trades": 10
+   },
+   "test": {
+    "ret": 3.16,
+    "sharpe": 0.34,
+    "trades": 22
+   },
+   "expo": 44.9,
+   "days": 798
+  },
+  {
+   "tf": "4h",
+   "lb": 30,
+   "rb": 14,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 77.8,
+    "sharpe": 1.2,
+    "trades": 34
+   },
+   "val": {
+    "ret": -18.74,
+    "sharpe": -2.83,
+    "trades": 8
+   },
+   "test": {
+    "ret": -4.47,
+    "sharpe": -0.06,
+    "trades": 22
+   },
+   "expo": 51.0,
+   "days": 798
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 7,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 814.41,
+    "sharpe": 1.13,
+    "trades": 141
+   },
+   "val": {
+    "ret": 399.97,
+    "sharpe": 1.74,
+    "trades": 80
+   },
+   "test": {
+    "ret": -28.91,
+    "sharpe": -0.28,
+    "trades": 58
+   },
+   "expo": 66.4,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 7,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 1169.92,
+    "sharpe": 1.23,
+    "trades": 135
+   },
+   "val": {
+    "ret": 436.33,
+    "sharpe": 1.8,
+    "trades": 78
+   },
+   "test": {
+    "ret": -36.67,
+    "sharpe": -0.4,
+    "trades": 57
+   },
+   "expo": 67.3,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 7,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 1853.9,
+    "sharpe": 1.4,
+    "trades": 170
+   },
+   "val": {
+    "ret": 358.24,
+    "sharpe": 1.68,
+    "trades": 103
+   },
+   "test": {
+    "ret": -28.1,
+    "sharpe": -0.22,
+    "trades": 69
+   },
+   "expo": 67.0,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 7,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 2337.82,
+    "sharpe": 1.46,
+    "trades": 164
+   },
+   "val": {
+    "ret": 374.49,
+    "sharpe": 1.69,
+    "trades": 100
+   },
+   "test": {
+    "ret": -35.87,
+    "sharpe": -0.34,
+    "trades": 69
+   },
+   "expo": 67.4,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 14,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 782.49,
+    "sharpe": 1.14,
+    "trades": 92
+   },
+   "val": {
+    "ret": 274.3,
+    "sharpe": 1.54,
+    "trades": 62
+   },
+   "test": {
+    "ret": -55.62,
+    "sharpe": -1.01,
+    "trades": 42
+   },
+   "expo": 62.0,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 14,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 973.84,
+    "sharpe": 1.2,
+    "trades": 91
+   },
+   "val": {
+    "ret": 277.97,
+    "sharpe": 1.54,
+    "trades": 62
+   },
+   "test": {
+    "ret": -55.66,
+    "sharpe": -0.97,
+    "trades": 41
+   },
+   "expo": 64.4,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 14,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 1095.29,
+    "sharpe": 1.23,
+    "trades": 119
+   },
+   "val": {
+    "ret": 331.6,
+    "sharpe": 1.64,
+    "trades": 79
+   },
+   "test": {
+    "ret": -52.62,
+    "sharpe": -0.8,
+    "trades": 49
+   },
+   "expo": 62.2,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 14,
+   "rb": 14,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 1211.94,
+    "sharpe": 1.25,
+    "trades": 118
+   },
+   "val": {
+    "ret": 289.82,
+    "sharpe": 1.53,
+    "trades": 79
+   },
+   "test": {
+    "ret": -48.32,
+    "sharpe": -0.66,
+    "trades": 48
+   },
+   "expo": 64.4,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 7,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 2471.15,
+    "sharpe": 1.43,
+    "trades": 110
+   },
+   "val": {
+    "ret": 401.72,
+    "sharpe": 1.73,
+    "trades": 60
+   },
+   "test": {
+    "ret": -34.77,
+    "sharpe": -0.38,
+    "trades": 40
+   },
+   "expo": 68.4,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 7,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 4131.84,
+    "sharpe": 1.58,
+    "trades": 101
+   },
+   "val": {
+    "ret": 377.21,
+    "sharpe": 1.68,
+    "trades": 56
+   },
+   "test": {
+    "ret": -33.52,
+    "sharpe": -0.35,
+    "trades": 40
+   },
+   "expo": 69.0,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 7,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 3890.86,
+    "sharpe": 1.56,
+    "trades": 131
+   },
+   "val": {
+    "ret": 334.95,
+    "sharpe": 1.61,
+    "trades": 82
+   },
+   "test": {
+    "ret": -52.25,
+    "sharpe": -0.69,
+    "trades": 58
+   },
+   "expo": 68.7,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 7,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 4789.07,
+    "sharpe": 1.6,
+    "trades": 123
+   },
+   "val": {
+    "ret": 295.9,
+    "sharpe": 1.5,
+    "trades": 80
+   },
+   "test": {
+    "ret": -51.98,
+    "sharpe": -0.7,
+    "trades": 58
+   },
+   "expo": 69.0,
+   "days": 2788,
+   "selected": true
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 14,
+   "k": 2,
+   "stop": 2.5,
+   "train": {
+    "ret": 600.86,
+    "sharpe": 1.03,
+    "trades": 80
+   },
+   "val": {
+    "ret": 437.14,
+    "sharpe": 1.8,
+    "trades": 44
+   },
+   "test": {
+    "ret": -47.96,
+    "sharpe": -0.72,
+    "trades": 31
+   },
+   "expo": 65.9,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 14,
+   "k": 2,
+   "stop": 3.5,
+   "train": {
+    "ret": 580.05,
+    "sharpe": 1.02,
+    "trades": 74
+   },
+   "val": {
+    "ret": 388.11,
+    "sharpe": 1.7,
+    "trades": 43
+   },
+   "test": {
+    "ret": -48.92,
+    "sharpe": -0.71,
+    "trades": 30
+   },
+   "expo": 68.1,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 14,
+   "k": 3,
+   "stop": 2.5,
+   "train": {
+    "ret": 773.86,
+    "sharpe": 1.11,
+    "trades": 102
+   },
+   "val": {
+    "ret": 291.72,
+    "sharpe": 1.54,
+    "trades": 61
+   },
+   "test": {
+    "ret": -64.51,
+    "sharpe": -1.23,
+    "trades": 44
+   },
+   "expo": 66.0,
+   "days": 2788
+  },
+  {
+   "tf": "1d",
+   "lb": 30,
+   "rb": 14,
+   "k": 3,
+   "stop": 3.5,
+   "train": {
+    "ret": 810.58,
+    "sharpe": 1.11,
+    "trades": 94
+   },
+   "val": {
+    "ret": 263.11,
+    "sharpe": 1.45,
+    "trades": 58
+   },
+   "test": {
+    "ret": -69.71,
+    "sharpe": -1.33,
+    "trades": 43
+   },
+   "expo": 67.9,
+   "days": 2788
+  }
+ ]
+}
