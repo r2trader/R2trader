@@ -1,33 +1,29 @@
-"""R2trader forward test: seven paper accounts (engine v2) on new candles only. Rules for A-E are frozen as of 2026-10-30; F added 2026-11-02; G added 2026-11-14.
+"""R2trader forward test: paper accounts on new candles only.
+Updated 2026-11-17 after red-team v2 (docs/data/research_v2.json):
+- F (EMA 9/21 + EMA100 long, 1d) is the only strategy that survived all red-team checks (+15.47% test, 0.59 Sharpe, 10.5% max DD).
+- A, B, D were positive on the 25% test set (+14.28%, +7.42%, +8.69%) but failed the top-3-trades concentration check; kept for monitoring.
+- C (RSI dip 1h, -24.24%), E (VWAP dip 4h, -0.68%), and G (broken 2x/5x short leverage) are retired.
 Paper only. Writes docs/data/forward.json and forward_state.json."""
 import json, os, time
 from datetime import datetime, timezone
 import research as R
-import research_hf as H
 import research_ema921 as E
 import lab as L
 
 ACC = {
-    "A": dict(title="A: EMA 20/50 trend (4h)", tf="4h", build=R.build_ema_cross, stop=3.0, tp=None, maxbars=R.NOEXIT,
-              side="long", rule="Buy when EMA20 crosses above EMA50 and price is above EMA200. Sell on the reverse cross or a 3x ATR stop."),
-    "B": dict(title="B: Donchian 55 + BTC regime (4h)", tf="4h", build=R.build_donchian, stop=3.0, tp=None, maxbars=R.NOEXIT,
-              side="long", rule="Buy a 55-bar high only when BTC is above its EMA200. Sell on a 20-bar low or a 3x ATR stop."),
-    "C": dict(title="C: High-frequency RSI dip (1h, experiment)", tf="1h", build=H.rsi_dip(25), stop=1.5, tp=None, maxbars=12,
-              side="long", rule="Experiment aimed at 3-4 trades/day: buy when RSI(7) < 25, sell at RSI > 50, a 1.5x ATR stop or after 12 hours."),
-    "D": dict(title="D: EMA 20/50 SHORT (4h, experiment)", tf="4h", build=L.build_ema_cross_short, stop=3.0, tp=None, maxbars=R.NOEXIT,
-              side="short", rule="UNPROVEN EXPERIMENT. Short when EMA20 crosses below EMA50 and price is below EMA200. Cover on the reverse cross "
-                                 "or a 3x ATR stop. Assumes 0.01% funding per 8h; ignores margin, liquidation and futures pricing."),
-    "E": dict(title="E: VWAP dip buy (4h, experiment)", tf="4h", build=L.build_vwap_dip, stop=2.0, tp=None, maxbars=24,
-              side="long", rule="UNPROVEN EXPERIMENT. Buy, after the first candle of each UTC day, when price is above its EMA100 but more than 1x ATR "
-                                "below the daily VWAP (resets 00:00 UTC). Sell when price returns to VWAP, on a 2x ATR stop, or after 24 candles."),
-    "F": dict(title="F: EMA 9/21 + EMA100 trend (1d, red-team survivor)", tf="1d", build=E.build_ema("long", "cross", 0), stop=2.0, tp=None,
+    "F": dict(title="F: EMA 9/21 + EMA100 trend (1d, BEST / red-team survivor)", tf="1d", build=E.build_ema("long", "cross", 0), stop=2.0, tp=None,
               maxbars=R.NOEXIT, side="long",
-              rule="Added 2026-11-02 after surviving the red-team run. Buy on daily candles when EMA9 crosses above EMA21 and price is above EMA100. "
-                   "Sell on the reverse cross or a 2x ATR stop. Backtest final test: +7.1%, Sharpe 0.31, about one trade every three weeks."),
-    "G": dict(title="G: EMA 9/21 SHORT + 2x/5x Lev (4h, experiment)", tf="4h", build=E.build_ema("short", "cross", 20), stop=2.0, tp=None,
-              maxbars=R.NOEXIT, side="short", cap=2.0,
-              rule="UNPROVEN EXPERIMENT ($1k capital model, 2x leverage in high risk / 5x in low risk). Short when EMA9 crosses below EMA21, "
-                   "price is below EMA100, and ADX >= 20. Cover on reverse cross or 2x ATR stop."),
+              rule="Best available strategy (only red-team v2 survivor). Buy on daily candles when EMA9 crosses above EMA21 and price is above EMA100. "
+                   "Sell on the reverse cross or a 2x ATR stop. Red-team v2 test: +15.47% (+0.72%/mo), Sharpe 0.59, max DD 10.5%, 33 trades."),
+    "A": dict(title="A: EMA 20/50 trend (4h, secondary)", tf="4h", build=R.build_ema_cross, stop=3.0, tp=None, maxbars=R.NOEXIT,
+              side="long", rule="Buy when EMA20 crosses above EMA50 and price is above EMA200. Sell on the reverse cross or a 3x ATR stop. "
+                                "Red-team v2 test: +14.28% (+2.43%/mo), Sharpe 1.20, but failed top-3-trades concentration check."),
+    "B": dict(title="B: Donchian 55 + BTC regime (4h, secondary)", tf="4h", build=R.build_donchian, stop=3.0, tp=None, maxbars=R.NOEXIT,
+              side="long", rule="Buy a 55-bar high only when BTC is above its EMA200. Sell on a 20-bar low or a 3x ATR stop. "
+                                "Red-team v2 test: +7.42% (+1.20%/mo), Sharpe 0.76, but failed top-3-trades concentration check."),
+    "D": dict(title="D: EMA 20/50 SHORT (4h, secondary)", tf="4h", build=L.build_ema_cross_short, stop=3.0, tp=None, maxbars=R.NOEXIT,
+              side="short", rule="Short when EMA20 crosses below EMA50 and price is below EMA200. Cover on the reverse cross or a 3x ATR stop. "
+                                 "Red-team v2 test: +8.69% (+0.28%/mo), Sharpe 0.99, but failed top-3-trades concentration check."),
 }
 
 

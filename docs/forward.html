@@ -17,10 +17,10 @@ a{color:#7aa7ff}
 <div class="sub"><a href="index.html">Back to main dashboard</a></div>
 <div class="warn bad" id="stale"></div>
 <div class="warn bad" id="miss"></div>
-<div class="warn">Simulation only. These five paper accounts (A to E) start when first run and trade only on new candles, using engine v2 (fills at the next candle open, 60% exposure cap, fees and slippage). Rules were frozen on 2026-10-30, so only results from now on count. Research tables below are NOT clean tests: about 30 variants were tried and several were picked after seeing the data. Not financial advice.</div>
+<div class="warn">Simulation only. Forward-test accounts trade only on new candles (next-open fills, fees and slippage). Following the red-team v2 audit (2026-11-17), Strategy F is the only survivor; A, B, and D remain active for monitoring, while C, E, and broken G were retired. Not financial advice.</div>
 <div id="acc"></div>
-<h2>Research: every strategy tested, one engine</h2>
-<div class="sub" id="rnote"></div><div class="sub" id="par"></div>
+<h2>Red-team v2: all strategies tested on Engine v2</h2>
+<div class="sub" id="rnote"></div>
 <div class="box"><table id="r1"></table></div>
 <script>
 const $=id=>document.getElementById(id);
@@ -50,10 +50,9 @@ const t=el('table');box.appendChild(t);
 table(t,['Coin','Side','Entry','Exit','P&L (USDT)','Reason','Closed'],a.closed.slice(0,10).map(c=>[[c.sym],[c.side||'long'],[f(c.entry,4)],[f(c.exit,4)],[f(c.pnl),cls(c.pnl)],[c.why],[new Date(c.t_out).toISOString().slice(0,16).replace('T',' ')]]));
 root.appendChild(box);draw(cv,a.curve)})
 }).catch(e=>{$('upd').textContent='Forward data not available yet: '+e});
-fetch('data/research_all.json?'+Date.now()).then(r=>r.json()).then(d=>{
-$('rnote').textContent=d.note+' ('+d.variants+' rules, '+d.runs+' runs, updated '+d.updated+')';
-const ok=d.parity.filter(p=>p.match).length;$('par').textContent='Parity check: the old and new simulators gave identical results on '+ok+' of '+d.parity.length+' rules (4h data).';
-table($('r1'),['TF','Rule','Side','Trades','Per day','Win %','Return %','Buy&hold %','Sharpe','B&H Sharpe','In market %','Max DD %'],
-d.rows.map(r=>[[r.tf],[r.strategy],[r.side],[r.trades],[r.trades_per_day],[f(r.win_rate,1)],[f(r.ret),cls(r.ret)],[f(r.bh),cls(r.bh)],[n(r.sharpe)],[n(r.bh_sharpe)],[n(r.expo)],[f(r.max_dd)]]))
+fetch('data/research_v2.json?'+Date.now()).then(r=>r.json()).then(d=>{
+$('rnote').textContent=d.note+' (updated '+d.updated+')';
+table($('r1'),['ID','Variant','Test %','Avg/Mo %','Sharpe','Max DD %','Trades','Win %','B&H %','Survives','Issues'],
+d.scoreboard.map(r=>[[r.id],[r.which],[f(r.test_ret),cls(r.test_ret)],[n(r.avg_month),cls(r.avg_month)],[n(r.sharpe)],[f(r.max_dd,1)],[r.trades],[n(r.win)],[n(r.bh_test)],[r.survives?'YES':'NO',r.survives?'up':'down'],[r.fails.length?r.fails.join('; '):'Passed all checks']]))
 }).catch(()=>{});
 </script></body></html>
