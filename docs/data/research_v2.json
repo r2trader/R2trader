@@ -1,0 +1,5303 @@
+{
+ "updated": "2026-11-17 14:38 UTC",
+ "engine": "v2",
+ "note": "Engine v2: entries and signal exits fill at the next open, stops are checked before targets, funding on shorts and on levered longs, liquidation when worst-case equity falls below 3% of gross exposure. Fees 0.1%/side, slippage 0.05%, start 1,000. Coins are today's survivors, so long results are flattered. Test = last 25%, read once.",
+ "scoreboard": [
+  {
+   "id": "A",
+   "which": "frozen",
+   "params": {
+    "f": 20,
+    "s": 50,
+    "stop": 3.0
+   },
+   "test_ret": 14.28,
+   "sharpe": 1.2,
+   "avg_month": 2.43,
+   "months_ge5": 33.0,
+   "max_dd": 11.9,
+   "trades": 31,
+   "win": 29.0,
+   "bh_test": -20.3,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "B",
+   "which": "frozen",
+   "params": {
+    "n": 55,
+    "stop": 3.0
+   },
+   "test_ret": 7.42,
+   "sharpe": 0.76,
+   "avg_month": 1.2,
+   "months_ge5": 17.0,
+   "max_dd": 12.2,
+   "trades": 32,
+   "win": 31.2,
+   "bh_test": -20.3,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "C",
+   "which": "frozen",
+   "params": {
+    "thr": 25,
+    "stop": 1.5
+   },
+   "test_ret": -24.24,
+   "sharpe": -8.45,
+   "avg_month": -10.44,
+   "months_ge5": 0.0,
+   "max_dd": 27.3,
+   "trades": 217,
+   "win": 34.1,
+   "bh_test": -32.77,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ]
+  },
+  {
+   "id": "D",
+   "which": "frozen",
+   "params": {
+    "f": 20,
+    "s": 50,
+    "stop": 3.0
+   },
+   "test_ret": 8.69,
+   "sharpe": 0.99,
+   "avg_month": 0.28,
+   "months_ge5": 17.0,
+   "max_dd": 14.0,
+   "trades": 32,
+   "win": 21.9,
+   "bh_test": -20.3,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "E",
+   "which": "frozen",
+   "params": {
+    "mult": 1.0,
+    "stop": 2.0
+   },
+   "test_ret": -0.68,
+   "sharpe": -0.26,
+   "avg_month": -0.11,
+   "months_ge5": 0.0,
+   "max_dd": 4.0,
+   "trades": 42,
+   "win": 54.8,
+   "bh_test": -20.3,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "F",
+   "which": "frozen",
+   "params": {
+    "stop": 2.0
+   },
+   "test_ret": 15.47,
+   "sharpe": 0.59,
+   "avg_month": 0.72,
+   "months_ge5": 18.0,
+   "max_dd": 10.5,
+   "trades": 33,
+   "win": 36.4,
+   "bh_test": -57.24,
+   "survives": true,
+   "meets_5pct_month": false,
+   "fails": []
+  },
+  {
+   "id": "G",
+   "which": "frozen",
+   "params": {
+    "m": 4,
+    "touch": 0.5,
+    "stop": 1.0
+   },
+   "test_ret": -4.95,
+   "sharpe": -1.51,
+   "avg_month": -0.44,
+   "months_ge5": 0.0,
+   "max_dd": 6.0,
+   "trades": 88,
+   "win": 34.1,
+   "bh_test": -5.4,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "H",
+   "which": "frozen",
+   "params": {
+    "m": 4,
+    "touch": 0.5,
+    "stop": 1.0
+   },
+   "test_ret": -10.94,
+   "sharpe": -3.63,
+   "avg_month": -1.3,
+   "months_ge5": 0.0,
+   "max_dd": 11.1,
+   "trades": 91,
+   "win": 25.3,
+   "bh_test": -5.4,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ]
+  },
+  {
+   "id": "I",
+   "which": "frozen",
+   "params": {
+    "lb": 30,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "test_ret": -29.63,
+   "sharpe": -0.19,
+   "avg_month": -1.24,
+   "months_ge5": 18.0,
+   "max_dd": 41.8,
+   "trades": 55,
+   "win": 36.4,
+   "bh_test": -57.24,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ]
+  },
+  {
+   "id": "I",
+   "which": "selected",
+   "params": {
+    "lb": 14,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "test_ret": -36.03,
+   "sharpe": -0.47,
+   "avg_month": -1.92,
+   "months_ge5": 9.0,
+   "max_dd": 46.3,
+   "trades": 69,
+   "win": 36.2,
+   "bh_test": -57.24,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ]
+  },
+  {
+   "id": "J",
+   "which": "frozen",
+   "params": {
+    "lb": 30,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "test_ret": 9.49,
+   "sharpe": 0.31,
+   "avg_month": 0.37,
+   "months_ge5": 27.0,
+   "max_dd": 18.1,
+   "trades": 105,
+   "win": 44.8,
+   "bh_test": -57.24,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "J",
+   "which": "selected",
+   "params": {
+    "lb": 14,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "test_ret": 11.49,
+   "sharpe": 0.34,
+   "avg_month": 0.25,
+   "months_ge5": 32.0,
+   "max_dd": 29.3,
+   "trades": 136,
+   "win": 43.4,
+   "bh_test": -57.24,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "loses without its top 3 trades"
+   ]
+  },
+  {
+   "id": "K",
+   "which": "frozen",
+   "params": {
+    "lb": 30,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "test_ret": -41.3,
+   "sharpe": 0.39,
+   "avg_month": -2.83,
+   "months_ge5": 41.0,
+   "max_dd": 82.4,
+   "trades": 105,
+   "win": 44.8,
+   "bh_test": -57.24,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ]
+  },
+  {
+   "id": "K",
+   "which": "selected",
+   "params": {
+    "lb": 14,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "test_ret": -21.06,
+   "sharpe": 0.45,
+   "avg_month": -1.63,
+   "months_ge5": 41.0,
+   "max_dd": 84.0,
+   "trades": 136,
+   "win": 43.4,
+   "bh_test": -57.24,
+   "survives": false,
+   "meets_5pct_month": false,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ]
+  }
+ ],
+ "strategies": {
+  "A": {
+   "title": "A: EMA 20/50 trend long (4h)",
+   "tf": "4h",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "f": 20,
+      "s": 50,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": 76.57,
+      "sharpe": 1.54,
+      "max_dd": 27.9,
+      "trades": 81,
+      "win": 27.2,
+      "exp": 3.859,
+      "avg_month": 4.75,
+      "months": 13,
+      "months_ge5": 38.0
+     },
+     "val": {
+      "ret": -14.93,
+      "sharpe": -1.86,
+      "max_dd": 21.1,
+      "trades": 30,
+      "win": 10.0,
+      "exp": -3.057,
+      "avg_month": -2.58,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 16.73,
+      "sharpe": 1.28,
+      "max_dd": 10.4,
+      "trades": 31,
+      "win": 29.0,
+      "exp": 2.755,
+      "avg_month": 2.77,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 75.33,
+      "sharpe": 0.98,
+      "max_dd": 32.2,
+      "trades": 142,
+      "win": 23.9,
+      "exp": 2.157,
+      "avg_month": 2.22,
+      "months": 26,
+      "months_ge5": 27.0
+     },
+     "expo": 51.5,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "f": 20,
+      "s": 50,
+      "stop": 3.0
+     },
+     "train": {
+      "ret": 54.91,
+      "sharpe": 1.43,
+      "max_dd": 26.0,
+      "trades": 76,
+      "win": 30.3,
+      "exp": 3.674,
+      "avg_month": 3.67,
+      "months": 13,
+      "months_ge5": 23.0
+     },
+     "val": {
+      "ret": -9.74,
+      "sharpe": -1.23,
+      "max_dd": 14.9,
+      "trades": 25,
+      "win": 20.0,
+      "exp": -2.979,
+      "avg_month": -1.49,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 14.28,
+      "sharpe": 1.2,
+      "max_dd": 11.9,
+      "trades": 31,
+      "win": 29.0,
+      "exp": 2.177,
+      "avg_month": 2.43,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 59.78,
+      "sharpe": 0.96,
+      "max_dd": 28.7,
+      "trades": 132,
+      "win": 28.0,
+      "exp": 2.062,
+      "avg_month": 1.86,
+      "months": 26,
+      "months_ge5": 19.0
+     },
+     "expo": 56.5,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "f": 10,
+      "s": 30,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": 53.37,
+      "sharpe": 1.45,
+      "max_dd": 18.9,
+      "trades": 132,
+      "win": 26.5,
+      "exp": 1.74,
+      "avg_month": 3.75,
+      "months": 13,
+      "months_ge5": 31.0
+     },
+     "val": {
+      "ret": -10.44,
+      "sharpe": -1.77,
+      "max_dd": 11.2,
+      "trades": 28,
+      "win": 21.4,
+      "exp": -1.963,
+      "avg_month": -1.73,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 12.8,
+      "sharpe": 1.03,
+      "max_dd": 13.2,
+      "trades": 60,
+      "win": 23.3,
+      "exp": 0.885,
+      "avg_month": 2.03,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 54.94,
+      "sharpe": 0.92,
+      "max_dd": 27.3,
+      "trades": 220,
+      "win": 25.0,
+      "exp": 1.035,
+      "avg_month": 1.7,
+      "months": 26,
+      "months_ge5": 23.0
+     },
+     "expo": 55.4,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "f": 10,
+      "s": 30,
+      "stop": 3.0
+     },
+     "train": {
+      "ret": 31.66,
+      "sharpe": 1.2,
+      "max_dd": 19.4,
+      "trades": 128,
+      "win": 27.3,
+      "exp": 1.527,
+      "avg_month": 2.47,
+      "months": 13,
+      "months_ge5": 23.0
+     },
+     "val": {
+      "ret": -8.05,
+      "sharpe": -1.35,
+      "max_dd": 9.4,
+      "trades": 29,
+      "win": 20.7,
+      "exp": -2.431,
+      "avg_month": -1.36,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 12.23,
+      "sharpe": 1.08,
+      "max_dd": 11.8,
+      "trades": 58,
+      "win": 24.1,
+      "exp": 0.906,
+      "avg_month": 1.94,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 35.87,
+      "sharpe": 0.79,
+      "max_dd": 23.2,
+      "trades": 215,
+      "win": 25.6,
+      "exp": 0.826,
+      "avg_month": 1.19,
+      "months": 26,
+      "months_ge5": 19.0
+     },
+     "expo": 57.6,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "f": 20,
+     "s": 50,
+     "stop": 3.0
+    },
+    "base": {
+     "train": {
+      "ret": 54.91,
+      "sharpe": 1.43,
+      "max_dd": 26.0,
+      "trades": 76,
+      "win": 30.3,
+      "exp": 3.674,
+      "avg_month": 3.67,
+      "months": 13,
+      "months_ge5": 23.0
+     },
+     "val": {
+      "ret": -9.74,
+      "sharpe": -1.23,
+      "max_dd": 14.9,
+      "trades": 25,
+      "win": 20.0,
+      "exp": -2.979,
+      "avg_month": -1.49,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 14.28,
+      "sharpe": 1.2,
+      "max_dd": 11.9,
+      "trades": 31,
+      "win": 29.0,
+      "exp": 2.177,
+      "avg_month": 2.43,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 59.78,
+      "sharpe": 0.96,
+      "max_dd": 28.7,
+      "trades": 132,
+      "win": 28.0,
+      "exp": 2.062,
+      "avg_month": 1.86,
+      "months": 26,
+      "months_ge5": 19.0
+     },
+     "expo": 56.5,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    "cost_x2": {
+     "ret": 12.04,
+     "sharpe": 1.03,
+     "max_dd": 12.8,
+     "trades": 31,
+     "win": 29.0,
+     "exp": 1.892,
+     "avg_month": 2.1,
+     "months": 6,
+     "months_ge5": 33.0
+    },
+    "delay_1": {
+     "ret": 15.75,
+     "sharpe": 1.3,
+     "max_dd": 11.1,
+     "trades": 31,
+     "win": 35.5,
+     "exp": 2.39,
+     "avg_month": 2.65,
+     "months": 6,
+     "months_ge5": 33.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "f": 15,
+       "s": 50,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 12.48,
+       "sharpe": 1.04,
+       "max_dd": 13.3,
+       "trades": 35,
+       "win": 28.6,
+       "exp": 1.616,
+       "avg_month": 2.16,
+       "months": 6,
+       "months_ge5": 33.0
+      }
+     },
+     {
+      "params": {
+       "f": 27,
+       "s": 50,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 11.07,
+       "sharpe": 0.97,
+       "max_dd": 11.6,
+       "trades": 29,
+       "win": 37.9,
+       "exp": 1.795,
+       "avg_month": 1.94,
+       "months": 6,
+       "months_ge5": 33.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 38,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 11.27,
+       "sharpe": 1.02,
+       "max_dd": 11.3,
+       "trades": 35,
+       "win": 34.3,
+       "exp": 1.562,
+       "avg_month": 2.14,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 66,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 6.61,
+       "sharpe": 0.62,
+       "max_dd": 13.9,
+       "trades": 35,
+       "win": 31.4,
+       "exp": 1.021,
+       "avg_month": 1.25,
+       "months": 6,
+       "months_ge5": 33.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 50,
+       "stop": 2.25
+      },
+      "test": {
+       "ret": 18.12,
+       "sharpe": 1.35,
+       "max_dd": 10.9,
+       "trades": 31,
+       "win": 29.0,
+       "exp": 2.513,
+       "avg_month": 2.99,
+       "months": 6,
+       "months_ge5": 33.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 50,
+       "stop": 3.99
+      },
+      "test": {
+       "ret": 13.11,
+       "sharpe": 1.23,
+       "max_dd": 10.1,
+       "trades": 31,
+       "win": 29.0,
+       "exp": 2.005,
+       "avg_month": 2.25,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     }
+    ],
+    "neighbours_positive": 6,
+    "drop_best_coin": {
+     "coin": "SOL",
+     "test": {
+      "ret": 11.48,
+      "sharpe": 1.05,
+      "max_dd": 11.1,
+      "trades": 30,
+      "win": 30.0,
+      "exp": 1.823,
+      "avg_month": 2.01,
+      "months": 6,
+      "months_ge5": 33.0
+     }
+    },
+    "pnl_without_top3_pct": -5.61,
+    "random_test_ret": [
+     -6.15,
+     -6.83,
+     -0.14,
+     1.84,
+     -4.84,
+     -2.64,
+     6.05,
+     -3.5
+    ],
+    "beats_random": 1.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "B": {
+   "title": "B: Donchian 55 + BTC regime long (4h)",
+   "tf": "4h",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "n": 40,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": 121.94,
+      "sharpe": 2.23,
+      "max_dd": 25.8,
+      "trades": 88,
+      "win": 34.1,
+      "exp": 4.926,
+      "avg_month": 6.25,
+      "months": 13,
+      "months_ge5": 31.0
+     },
+     "val": {
+      "ret": -9.23,
+      "sharpe": -1.05,
+      "max_dd": 16.0,
+      "trades": 24,
+      "win": 20.8,
+      "exp": -2.12,
+      "avg_month": -1.3,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 10.05,
+      "sharpe": 0.87,
+      "max_dd": 13.0,
+      "trades": 43,
+      "win": 23.3,
+      "exp": 1.215,
+      "avg_month": 1.61,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 121.71,
+      "sharpe": 1.41,
+      "max_dd": 25.8,
+      "trades": 155,
+      "win": 29.0,
+      "exp": 2.805,
+      "avg_month": 3.11,
+      "months": 26,
+      "months_ge5": 23.0
+     },
+     "expo": 44.6,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "n": 40,
+      "stop": 3.0
+     },
+     "train": {
+      "ret": 78.54,
+      "sharpe": 2.0,
+      "max_dd": 24.7,
+      "trades": 80,
+      "win": 38.8,
+      "exp": 4.775,
+      "avg_month": 4.5,
+      "months": 13,
+      "months_ge5": 15.0
+     },
+     "val": {
+      "ret": -6.83,
+      "sharpe": -0.84,
+      "max_dd": 13.8,
+      "trades": 21,
+      "win": 23.8,
+      "exp": -2.833,
+      "avg_month": -0.77,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 9.1,
+      "sharpe": 0.88,
+      "max_dd": 11.7,
+      "trades": 36,
+      "win": 27.8,
+      "exp": 1.442,
+      "avg_month": 1.46,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "full": {
+      "ret": 81.48,
+      "sharpe": 1.27,
+      "max_dd": 24.7,
+      "trades": 137,
+      "win": 33.6,
+      "exp": 2.733,
+      "avg_month": 2.32,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 50.4,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "n": 55,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": 89.86,
+      "sharpe": 1.88,
+      "max_dd": 24.4,
+      "trades": 91,
+      "win": 30.8,
+      "exp": 4.022,
+      "avg_month": 5.27,
+      "months": 13,
+      "months_ge5": 23.0
+     },
+     "val": {
+      "ret": -7.82,
+      "sharpe": -0.92,
+      "max_dd": 15.2,
+      "trades": 21,
+      "win": 23.8,
+      "exp": -2.104,
+      "avg_month": -1.05,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 4.04,
+      "sharpe": 0.44,
+      "max_dd": 15.3,
+      "trades": 39,
+      "win": 23.1,
+      "exp": 0.596,
+      "avg_month": 0.66,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": 82.08,
+      "sharpe": 1.13,
+      "max_dd": 29.8,
+      "trades": 151,
+      "win": 27.8,
+      "exp": 2.285,
+      "avg_month": 2.33,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 41.3,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "n": 55,
+      "stop": 3.0
+     },
+     "train": {
+      "ret": 67.14,
+      "sharpe": 1.82,
+      "max_dd": 21.3,
+      "trades": 77,
+      "win": 37.7,
+      "exp": 4.437,
+      "avg_month": 4.15,
+      "months": 13,
+      "months_ge5": 23.0
+     },
+     "val": {
+      "ret": -6.59,
+      "sharpe": -0.83,
+      "max_dd": 13.2,
+      "trades": 19,
+      "win": 26.3,
+      "exp": -2.794,
+      "avg_month": -0.72,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 7.42,
+      "sharpe": 0.76,
+      "max_dd": 12.2,
+      "trades": 32,
+      "win": 31.2,
+      "exp": 0.943,
+      "avg_month": 1.2,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": 67.7,
+      "sharpe": 1.14,
+      "max_dd": 27.2,
+      "trades": 128,
+      "win": 34.4,
+      "exp": 2.49,
+      "avg_month": 2.01,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 46.5,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "n": 55,
+     "stop": 3.0
+    },
+    "base": {
+     "train": {
+      "ret": 67.14,
+      "sharpe": 1.82,
+      "max_dd": 21.3,
+      "trades": 77,
+      "win": 37.7,
+      "exp": 4.437,
+      "avg_month": 4.15,
+      "months": 13,
+      "months_ge5": 23.0
+     },
+     "val": {
+      "ret": -6.59,
+      "sharpe": -0.83,
+      "max_dd": 13.2,
+      "trades": 19,
+      "win": 26.3,
+      "exp": -2.794,
+      "avg_month": -0.72,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": 7.42,
+      "sharpe": 0.76,
+      "max_dd": 12.2,
+      "trades": 32,
+      "win": 31.2,
+      "exp": 0.943,
+      "avg_month": 1.2,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": 67.7,
+      "sharpe": 1.14,
+      "max_dd": 27.2,
+      "trades": 128,
+      "win": 34.4,
+      "exp": 2.49,
+      "avg_month": 2.01,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 46.5,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    "cost_x2": {
+     "ret": 4.37,
+     "sharpe": 0.49,
+     "max_dd": 13.0,
+     "trades": 33,
+     "win": 30.3,
+     "exp": 0.525,
+     "avg_month": 0.72,
+     "months": 6,
+     "months_ge5": 17.0
+    },
+    "delay_1": {
+     "ret": 4.13,
+     "sharpe": 0.49,
+     "max_dd": 10.1,
+     "trades": 32,
+     "win": 28.1,
+     "exp": 0.187,
+     "avg_month": 0.68,
+     "months": 6,
+     "months_ge5": 17.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "n": 41,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 12.68,
+       "sharpe": 1.16,
+       "max_dd": 10.4,
+       "trades": 35,
+       "win": 31.4,
+       "exp": 1.873,
+       "avg_month": 2.01,
+       "months": 6,
+       "months_ge5": 33.0
+      }
+     },
+     {
+      "params": {
+       "n": 73,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": -2.86,
+       "sharpe": -0.24,
+       "max_dd": 12.1,
+       "trades": 30,
+       "win": 26.7,
+       "exp": -1.221,
+       "avg_month": -0.48,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "n": 55,
+       "stop": 2.25
+      },
+      "test": {
+       "ret": 4.22,
+       "sharpe": 0.46,
+       "max_dd": 14.6,
+       "trades": 38,
+       "win": 26.3,
+       "exp": 0.574,
+       "avg_month": 0.69,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "n": 55,
+       "stop": 3.99
+      },
+      "test": {
+       "ret": 5.68,
+       "sharpe": 0.69,
+       "max_dd": 9.8,
+       "trades": 30,
+       "win": 30.0,
+       "exp": 0.655,
+       "avg_month": 0.92,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     }
+    ],
+    "neighbours_positive": 3,
+    "drop_best_coin": {
+     "coin": "SOL",
+     "test": {
+      "ret": 1.98,
+      "sharpe": 0.28,
+      "max_dd": 12.4,
+      "trades": 32,
+      "win": 28.1,
+      "exp": 0.178,
+      "avg_month": 0.33,
+      "months": 6,
+      "months_ge5": 17.0
+     }
+    },
+    "pnl_without_top3_pct": -15.94,
+    "random_test_ret": [
+     -5.37,
+     -0.12,
+     2.86,
+     5.67,
+     -5.66,
+     -9.75,
+     11.3,
+     -11.2
+    ],
+    "beats_random": 0.88,
+    "causality_mismatches": 0,
+    "fails": [
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "C": {
+   "title": "C: RSI(7) dip long (1h)",
+   "tf": "1h",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "thr": 20,
+      "stop": 1.5
+     },
+     "train": {
+      "ret": -17.02,
+      "sharpe": -3.84,
+      "max_dd": 18.3,
+      "trades": 228,
+      "win": 44.3,
+      "exp": -0.322,
+      "avg_month": -6.24,
+      "months": 3,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -2.89,
+      "sharpe": -1.78,
+      "max_dd": 5.1,
+      "trades": 90,
+      "win": 51.1,
+      "exp": -0.128,
+      "avg_month": -1.45,
+      "months": 2,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -16.91,
+      "sharpe": -5.94,
+      "max_dd": 20.7,
+      "trades": 158,
+      "win": 32.9,
+      "exp": -0.461,
+      "avg_month": -7.72,
+      "months": 1,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -33.04,
+      "sharpe": -4.08,
+      "max_dd": 35.2,
+      "trades": 476,
+      "win": 41.8,
+      "exp": -0.331,
+      "avg_month": -4.77,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "expo": 26.5,
+     "liqs": 0,
+     "bh_test": -32.77,
+     "days": 200
+    },
+    {
+     "params": {
+      "thr": 25,
+      "stop": 1.5
+     },
+     "train": {
+      "ret": -26.98,
+      "sharpe": -5.37,
+      "max_dd": 27.8,
+      "trades": 373,
+      "win": 43.4,
+      "exp": -0.332,
+      "avg_month": -9.95,
+      "months": 3,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -8.2,
+      "sharpe": -3.86,
+      "max_dd": 9.7,
+      "trades": 149,
+      "win": 46.3,
+      "exp": -0.226,
+      "avg_month": -4.19,
+      "months": 2,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -24.24,
+      "sharpe": -8.45,
+      "max_dd": 27.3,
+      "trades": 217,
+      "win": 34.1,
+      "exp": -0.506,
+      "avg_month": -10.44,
+      "months": 1,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -49.21,
+      "sharpe": -5.92,
+      "max_dd": 51.1,
+      "trades": 739,
+      "win": 41.3,
+      "exp": -0.362,
+      "avg_month": -8.15,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "expo": 37.3,
+     "liqs": 0,
+     "bh_test": -32.77,
+     "days": 200
+    },
+    {
+     "params": {
+      "thr": 30,
+      "stop": 1.5
+     },
+     "train": {
+      "ret": -35.64,
+      "sharpe": -6.84,
+      "max_dd": 37.0,
+      "trades": 507,
+      "win": 44.6,
+      "exp": -0.343,
+      "avg_month": -13.52,
+      "months": 3,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -12.99,
+      "sharpe": -5.71,
+      "max_dd": 15.2,
+      "trades": 233,
+      "win": 48.1,
+      "exp": -0.243,
+      "avg_month": -6.72,
+      "months": 2,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -29.09,
+      "sharpe": -9.35,
+      "max_dd": 33.2,
+      "trades": 297,
+      "win": 37.7,
+      "exp": -0.451,
+      "avg_month": -12.51,
+      "months": 1,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -60.28,
+      "sharpe": -7.28,
+      "max_dd": 62.0,
+      "trades": 1037,
+      "win": 43.4,
+      "exp": -0.351,
+      "avg_month": -11.11,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "expo": 46.5,
+     "liqs": 0,
+     "bh_test": -32.77,
+     "days": 200
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "thr": 25,
+     "stop": 1.5
+    },
+    "base": {
+     "train": {
+      "ret": -26.98,
+      "sharpe": -5.37,
+      "max_dd": 27.8,
+      "trades": 373,
+      "win": 43.4,
+      "exp": -0.332,
+      "avg_month": -9.95,
+      "months": 3,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -8.2,
+      "sharpe": -3.86,
+      "max_dd": 9.7,
+      "trades": 149,
+      "win": 46.3,
+      "exp": -0.226,
+      "avg_month": -4.19,
+      "months": 2,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -24.24,
+      "sharpe": -8.45,
+      "max_dd": 27.3,
+      "trades": 217,
+      "win": 34.1,
+      "exp": -0.506,
+      "avg_month": -10.44,
+      "months": 1,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -49.21,
+      "sharpe": -5.92,
+      "max_dd": 51.1,
+      "trades": 739,
+      "win": 41.3,
+      "exp": -0.362,
+      "avg_month": -8.15,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "expo": 37.3,
+     "liqs": 0,
+     "bh_test": -32.77,
+     "days": 200
+    },
+    "cost_x2": {
+     "ret": -36.59,
+     "sharpe": -13.1,
+     "max_dd": 38.9,
+     "trades": 223,
+     "win": 27.4,
+     "exp": -0.81,
+     "avg_month": -18.72,
+     "months": 1,
+     "months_ge5": 0.0
+    },
+    "delay_1": {
+     "ret": -22.83,
+     "sharpe": -8.01,
+     "max_dd": 25.8,
+     "trades": 206,
+     "win": 32.5,
+     "exp": -0.496,
+     "avg_month": -11.92,
+     "months": 1,
+     "months_ge5": 0.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "thr": 19,
+       "stop": 1.5
+      },
+      "test": {
+       "ret": -15.16,
+       "sharpe": -5.29,
+       "max_dd": 19.4,
+       "trades": 152,
+       "win": 30.9,
+       "exp": -0.424,
+       "avg_month": -5.32,
+       "months": 1,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "thr": 33,
+       "stop": 1.5
+      },
+      "test": {
+       "ret": -29.89,
+       "sharpe": -9.51,
+       "max_dd": 34.5,
+       "trades": 343,
+       "win": 40.5,
+       "exp": -0.405,
+       "avg_month": -13.63,
+       "months": 1,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "thr": 25,
+       "stop": 1.125
+      },
+      "test": {
+       "ret": -27.38,
+       "sharpe": -9.74,
+       "max_dd": 30.3,
+       "trades": 267,
+       "win": 28.5,
+       "exp": -0.474,
+       "avg_month": -12.98,
+       "months": 1,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "thr": 25,
+       "stop": 1.995
+      },
+      "test": {
+       "ret": -24.81,
+       "sharpe": -8.28,
+       "max_dd": 27.8,
+       "trades": 193,
+       "win": 36.3,
+       "exp": -0.583,
+       "avg_month": -10.92,
+       "months": 1,
+       "months_ge5": 0.0
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "drop_best_coin": {
+     "coin": "LTC",
+     "test": {
+      "ret": -24.47,
+      "sharpe": -8.6,
+      "max_dd": 27.4,
+      "trades": 211,
+      "win": 32.7,
+      "exp": -0.526,
+      "avg_month": -10.81,
+      "months": 1,
+      "months_ge5": 0.0
+     }
+    },
+    "pnl_without_top3_pct": -17.88,
+    "random_test_ret": [
+     -11.74,
+     -13.82,
+     -13.4,
+     -14.44,
+     -13.82,
+     -22.52,
+     -12.38,
+     -14.5
+    ],
+    "beats_random": 0.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades",
+     "does not clearly beat random entries"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "D": {
+   "title": "D: EMA 20/50 trend short (4h)",
+   "tf": "4h",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "f": 20,
+      "s": 50,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -1.93,
+      "sharpe": 0.06,
+      "max_dd": 20.4,
+      "trades": 65,
+      "win": 27.7,
+      "exp": -0.511,
+      "avg_month": -0.51,
+      "months": 13,
+      "months_ge5": 8.0
+     },
+     "val": {
+      "ret": -4.72,
+      "sharpe": -0.14,
+      "max_dd": 26.2,
+      "trades": 61,
+      "win": 27.9,
+      "exp": 0.293,
+      "avg_month": -0.88,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "test": {
+      "ret": 11.47,
+      "sharpe": 1.08,
+      "max_dd": 18.2,
+      "trades": 36,
+      "win": 19.4,
+      "exp": -0.5,
+      "avg_month": 0.29,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": 4.16,
+      "sharpe": 0.2,
+      "max_dd": 28.3,
+      "trades": 162,
+      "win": 25.9,
+      "exp": -0.206,
+      "avg_month": -0.19,
+      "months": 26,
+      "months_ge5": 19.0
+     },
+     "expo": 65.0,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "f": 20,
+      "s": 50,
+      "stop": 3.0
+     },
+     "train": {
+      "ret": -5.42,
+      "sharpe": -0.17,
+      "max_dd": 16.3,
+      "trades": 61,
+      "win": 29.5,
+      "exp": -0.873,
+      "avg_month": -0.68,
+      "months": 13,
+      "months_ge5": 8.0
+     },
+     "val": {
+      "ret": -2.38,
+      "sharpe": -0.08,
+      "max_dd": 21.2,
+      "trades": 58,
+      "win": 29.3,
+      "exp": 0.399,
+      "avg_month": -0.55,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "test": {
+      "ret": 8.69,
+      "sharpe": 0.99,
+      "max_dd": 14.0,
+      "trades": 32,
+      "win": 21.9,
+      "exp": -0.396,
+      "avg_month": 0.28,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": 0.36,
+      "sharpe": 0.11,
+      "max_dd": 23.1,
+      "trades": 151,
+      "win": 27.8,
+      "exp": -0.283,
+      "avg_month": -0.24,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 65.8,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "f": 10,
+      "s": 30,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -16.18,
+      "sharpe": -0.54,
+      "max_dd": 23.2,
+      "trades": 115,
+      "win": 22.6,
+      "exp": -0.854,
+      "avg_month": -1.85,
+      "months": 13,
+      "months_ge5": 8.0
+     },
+     "val": {
+      "ret": -3.26,
+      "sharpe": -0.04,
+      "max_dd": 26.5,
+      "trades": 81,
+      "win": 25.9,
+      "exp": 0.268,
+      "avg_month": -0.18,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "test": {
+      "ret": 11.52,
+      "sharpe": 1.05,
+      "max_dd": 13.7,
+      "trades": 53,
+      "win": 18.9,
+      "exp": 0.268,
+      "avg_month": 0.57,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": -9.57,
+      "sharpe": -0.06,
+      "max_dd": 29.3,
+      "trades": 249,
+      "win": 22.9,
+      "exp": -0.25,
+      "avg_month": -0.67,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 58.4,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "f": 10,
+      "s": 30,
+      "stop": 3.0
+     },
+     "train": {
+      "ret": -7.36,
+      "sharpe": -0.28,
+      "max_dd": 16.1,
+      "trades": 106,
+      "win": 25.5,
+      "exp": -0.582,
+      "avg_month": -1.15,
+      "months": 13,
+      "months_ge5": 8.0
+     },
+     "val": {
+      "ret": -2.65,
+      "sharpe": -0.09,
+      "max_dd": 21.7,
+      "trades": 79,
+      "win": 26.6,
+      "exp": 0.295,
+      "avg_month": -0.08,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "test": {
+      "ret": 7.39,
+      "sharpe": 0.86,
+      "max_dd": 12.2,
+      "trades": 50,
+      "win": 20.0,
+      "exp": 0.279,
+      "avg_month": 0.34,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": -3.15,
+      "sharpe": 0.02,
+      "max_dd": 23.7,
+      "trades": 235,
+      "win": 24.7,
+      "exp": -0.104,
+      "avg_month": -0.32,
+      "months": 26,
+      "months_ge5": 19.0
+     },
+     "expo": 58.6,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "f": 20,
+     "s": 50,
+     "stop": 3.0
+    },
+    "base": {
+     "train": {
+      "ret": -5.42,
+      "sharpe": -0.17,
+      "max_dd": 16.3,
+      "trades": 61,
+      "win": 29.5,
+      "exp": -0.873,
+      "avg_month": -0.68,
+      "months": 13,
+      "months_ge5": 8.0
+     },
+     "val": {
+      "ret": -2.38,
+      "sharpe": -0.08,
+      "max_dd": 21.2,
+      "trades": 58,
+      "win": 29.3,
+      "exp": 0.399,
+      "avg_month": -0.55,
+      "months": 6,
+      "months_ge5": 33.0
+     },
+     "test": {
+      "ret": 8.69,
+      "sharpe": 0.99,
+      "max_dd": 14.0,
+      "trades": 32,
+      "win": 21.9,
+      "exp": -0.396,
+      "avg_month": 0.28,
+      "months": 6,
+      "months_ge5": 17.0
+     },
+     "full": {
+      "ret": 0.36,
+      "sharpe": 0.11,
+      "max_dd": 23.1,
+      "trades": 151,
+      "win": 27.8,
+      "exp": -0.283,
+      "avg_month": -0.24,
+      "months": 26,
+      "months_ge5": 15.0
+     },
+     "expo": 65.8,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    "cost_x2": {
+     "ret": 6.6,
+     "sharpe": 0.78,
+     "max_dd": 15.1,
+     "trades": 32,
+     "win": 21.9,
+     "exp": -0.685,
+     "avg_month": -0.02,
+     "months": 6,
+     "months_ge5": 17.0
+    },
+    "delay_1": {
+     "ret": 10.09,
+     "sharpe": 1.15,
+     "max_dd": 13.2,
+     "trades": 31,
+     "win": 25.8,
+     "exp": -0.205,
+     "avg_month": 0.49,
+     "months": 6,
+     "months_ge5": 17.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "f": 15,
+       "s": 50,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 5.86,
+       "sharpe": 0.72,
+       "max_dd": 14.8,
+       "trades": 37,
+       "win": 18.9,
+       "exp": -0.738,
+       "avg_month": -0.34,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "f": 27,
+       "s": 50,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 17.05,
+       "sharpe": 1.59,
+       "max_dd": 12.7,
+       "trades": 28,
+       "win": 25.0,
+       "exp": 0.416,
+       "avg_month": 1.27,
+       "months": 6,
+       "months_ge5": 33.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 38,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": -3.82,
+       "sharpe": -0.42,
+       "max_dd": 14.9,
+       "trades": 37,
+       "win": 13.5,
+       "exp": -1.869,
+       "avg_month": -2.0,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 66,
+       "stop": 3.0
+      },
+      "test": {
+       "ret": 14.29,
+       "sharpe": 1.44,
+       "max_dd": 12.4,
+       "trades": 28,
+       "win": 21.4,
+       "exp": 0.591,
+       "avg_month": 0.97,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 50,
+       "stop": 2.25
+      },
+      "test": {
+       "ret": 13.29,
+       "sharpe": 1.27,
+       "max_dd": 15.0,
+       "trades": 32,
+       "win": 21.9,
+       "exp": -0.236,
+       "avg_month": 0.71,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     },
+     {
+      "params": {
+       "f": 20,
+       "s": 50,
+       "stop": 3.99
+      },
+      "test": {
+       "ret": 8.61,
+       "sharpe": 1.2,
+       "max_dd": 10.5,
+       "trades": 29,
+       "win": 24.1,
+       "exp": 0.139,
+       "avg_month": 0.62,
+       "months": 6,
+       "months_ge5": 17.0
+      }
+     }
+    ],
+    "neighbours_positive": 5,
+    "drop_best_coin": {
+     "coin": "LTC",
+     "test": {
+      "ret": 7.35,
+      "sharpe": 0.84,
+      "max_dd": 14.2,
+      "trades": 32,
+      "win": 21.9,
+      "exp": -0.622,
+      "avg_month": 0.08,
+      "months": 6,
+      "months_ge5": 17.0
+     }
+    },
+    "pnl_without_top3_pct": -11.55,
+    "random_test_ret": [
+     2.27,
+     -2.49,
+     -4.22,
+     -10.38,
+     -2.79,
+     3.57,
+     0.14,
+     -5.67
+    ],
+    "beats_random": 1.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "E": {
+   "title": "E: VWAP dip long (4h)",
+   "tf": "4h",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "mult": 0.5,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -30.73,
+      "sharpe": -2.31,
+      "max_dd": 31.9,
+      "trades": 505,
+      "win": 56.4,
+      "exp": -0.346,
+      "avg_month": -2.53,
+      "months": 13,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -12.38,
+      "sharpe": -2.53,
+      "max_dd": 13.8,
+      "trades": 129,
+      "win": 48.1,
+      "exp": -0.55,
+      "avg_month": -1.96,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -12.35,
+      "sharpe": -2.22,
+      "max_dd": 12.8,
+      "trades": 183,
+      "win": 49.7,
+      "exp": -0.247,
+      "avg_month": -2.17,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -46.8,
+      "sharpe": -2.3,
+      "max_dd": 47.7,
+      "trades": 817,
+      "win": 53.6,
+      "exp": -0.356,
+      "avg_month": -2.4,
+      "months": 26,
+      "months_ge5": 0.0
+     },
+     "expo": 25.7,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "mult": 1.0,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -6.01,
+      "sharpe": -0.77,
+      "max_dd": 11.0,
+      "trades": 138,
+      "win": 49.3,
+      "exp": -0.129,
+      "avg_month": -0.41,
+      "months": 13,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -3.59,
+      "sharpe": -1.34,
+      "max_dd": 6.3,
+      "trades": 32,
+      "win": 46.9,
+      "exp": -0.486,
+      "avg_month": -0.62,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -0.68,
+      "sharpe": -0.26,
+      "max_dd": 4.0,
+      "trades": 42,
+      "win": 54.8,
+      "exp": -0.001,
+      "avg_month": -0.11,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -10.0,
+      "sharpe": -0.78,
+      "max_dd": 16.5,
+      "trades": 212,
+      "win": 50.0,
+      "exp": -0.158,
+      "avg_month": -0.4,
+      "months": 26,
+      "months_ge5": 0.0
+     },
+     "expo": 7.2,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    {
+     "params": {
+      "mult": 1.5,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -0.57,
+      "sharpe": -0.21,
+      "max_dd": 2.4,
+      "trades": 23,
+      "win": 52.2,
+      "exp": -0.371,
+      "avg_month": -0.05,
+      "months": 13,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": 0.06,
+      "sharpe": 0.07,
+      "max_dd": 1.7,
+      "trades": 5,
+      "win": 60.0,
+      "exp": -0.117,
+      "avg_month": 0.01,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -0.42,
+      "sharpe": -0.86,
+      "max_dd": 0.8,
+      "trades": 8,
+      "win": 37.5,
+      "exp": -0.196,
+      "avg_month": -0.07,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -0.93,
+      "sharpe": -0.2,
+      "max_dd": 2.4,
+      "trades": 36,
+      "win": 50.0,
+      "exp": -0.296,
+      "avg_month": -0.04,
+      "months": 26,
+      "months_ge5": 0.0
+     },
+     "expo": 1.3,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "mult": 1.0,
+     "stop": 2.0
+    },
+    "base": {
+     "train": {
+      "ret": -6.01,
+      "sharpe": -0.77,
+      "max_dd": 11.0,
+      "trades": 138,
+      "win": 49.3,
+      "exp": -0.129,
+      "avg_month": -0.41,
+      "months": 13,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -3.59,
+      "sharpe": -1.34,
+      "max_dd": 6.3,
+      "trades": 32,
+      "win": 46.9,
+      "exp": -0.486,
+      "avg_month": -0.62,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -0.68,
+      "sharpe": -0.26,
+      "max_dd": 4.0,
+      "trades": 42,
+      "win": 54.8,
+      "exp": -0.001,
+      "avg_month": -0.11,
+      "months": 6,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -10.0,
+      "sharpe": -0.78,
+      "max_dd": 16.5,
+      "trades": 212,
+      "win": 50.0,
+      "exp": -0.158,
+      "avg_month": -0.4,
+      "months": 26,
+      "months_ge5": 0.0
+     },
+     "expo": 7.2,
+     "liqs": 0,
+     "bh_test": -20.3,
+     "days": 798
+    },
+    "cost_x2": {
+     "ret": -3.47,
+     "sharpe": -1.43,
+     "max_dd": 5.8,
+     "trades": 42,
+     "win": 40.5,
+     "exp": -0.295,
+     "avg_month": -0.59,
+     "months": 6,
+     "months_ge5": 0.0
+    },
+    "delay_1": {
+     "ret": -4.18,
+     "sharpe": -1.93,
+     "max_dd": 4.9,
+     "trades": 44,
+     "win": 38.6,
+     "exp": -0.382,
+     "avg_month": -0.71,
+     "months": 6,
+     "months_ge5": 0.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "mult": 0.75,
+       "stop": 2.0
+      },
+      "test": {
+       "ret": -6.56,
+       "sharpe": -1.79,
+       "max_dd": 7.9,
+       "trades": 98,
+       "win": 49.0,
+       "exp": -0.283,
+       "avg_month": -1.13,
+       "months": 6,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "mult": 1.33,
+       "stop": 2.0
+      },
+      "test": {
+       "ret": -0.52,
+       "sharpe": -0.5,
+       "max_dd": 1.5,
+       "trades": 12,
+       "win": 41.7,
+       "exp": -0.168,
+       "avg_month": -0.09,
+       "months": 6,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "mult": 1.0,
+       "stop": 1.5
+      },
+      "test": {
+       "ret": 0.25,
+       "sharpe": 0.12,
+       "max_dd": 3.4,
+       "trades": 44,
+       "win": 52.3,
+       "exp": 0.041,
+       "avg_month": 0.04,
+       "months": 6,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "mult": 1.0,
+       "stop": 2.66
+      },
+      "test": {
+       "ret": -0.8,
+       "sharpe": -0.34,
+       "max_dd": 3.6,
+       "trades": 41,
+       "win": 53.7,
+       "exp": 0.008,
+       "avg_month": -0.13,
+       "months": 6,
+       "months_ge5": 0.0
+      }
+     }
+    ],
+    "neighbours_positive": 1,
+    "drop_best_coin": {
+     "coin": "LTC",
+     "test": {
+      "ret": -1.68,
+      "sharpe": -0.7,
+      "max_dd": 4.6,
+      "trades": 39,
+      "win": 53.8,
+      "exp": -0.127,
+      "avg_month": -0.28,
+      "months": 6,
+      "months_ge5": 0.0
+     }
+    },
+    "pnl_without_top3_pct": -2.08,
+    "random_test_ret": [
+     -5.68,
+     -10.49,
+     -0.26,
+     -3.72,
+     -6.97,
+     -5.62,
+     -4.74,
+     -6.29
+    ],
+    "beats_random": 0.88,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "F": {
+   "title": "F: EMA 9/21 + EMA100 long (1d)",
+   "tf": "1d",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "stop": 2.0
+     },
+     "train": {
+      "ret": 485.24,
+      "sharpe": 1.54,
+      "max_dd": 22.0,
+      "trades": 65,
+      "win": 33.8,
+      "exp": 41.557,
+      "avg_month": 3.92,
+      "months": 46,
+      "months_ge5": 28.0
+     },
+     "val": {
+      "ret": 27.32,
+      "sharpe": 0.82,
+      "max_dd": 14.3,
+      "trades": 55,
+      "win": 25.5,
+      "exp": 1.032,
+      "avg_month": 1.24,
+      "months": 22,
+      "months_ge5": 23.0
+     },
+     "test": {
+      "ret": 15.47,
+      "sharpe": 0.59,
+      "max_dd": 10.5,
+      "trades": 33,
+      "win": 36.4,
+      "exp": 6.726,
+      "avg_month": 0.72,
+      "months": 22,
+      "months_ge5": 18.0
+     },
+     "full": {
+      "ret": 760.43,
+      "sharpe": 1.2,
+      "max_dd": 22.7,
+      "trades": 153,
+      "win": 31.4,
+      "exp": 19.477,
+      "avg_month": 2.39,
+      "months": 91,
+      "months_ge5": 24.0
+     },
+     "expo": 62.3,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    {
+     "params": {
+      "stop": 3.0
+     },
+     "train": {
+      "ret": 261.67,
+      "sharpe": 1.45,
+      "max_dd": 17.6,
+      "trades": 65,
+      "win": 33.8,
+      "exp": 41.299,
+      "avg_month": 2.83,
+      "months": 46,
+      "months_ge5": 24.0
+     },
+     "val": {
+      "ret": 18.55,
+      "sharpe": 0.81,
+      "max_dd": 9.6,
+      "trades": 54,
+      "win": 25.9,
+      "exp": 1.028,
+      "avg_month": 0.88,
+      "months": 22,
+      "months_ge5": 14.0
+     },
+     "test": {
+      "ret": 8.9,
+      "sharpe": 0.5,
+      "max_dd": 8.1,
+      "trades": 33,
+      "win": 36.4,
+      "exp": 6.014,
+      "avg_month": 0.43,
+      "months": 22,
+      "months_ge5": 9.0
+     },
+     "full": {
+      "ret": 366.9,
+      "sharpe": 1.12,
+      "max_dd": 18.9,
+      "trades": 152,
+      "win": 31.6,
+      "exp": 19.332,
+      "avg_month": 1.71,
+      "months": 91,
+      "months_ge5": 18.0
+     },
+     "expo": 63.2,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    }
+   ],
+   "selected_params": {
+    "stop": 2.0
+   },
+   "frozen": {
+    "params": {
+     "stop": 2.0
+    },
+    "base": {
+     "train": {
+      "ret": 485.24,
+      "sharpe": 1.54,
+      "max_dd": 22.0,
+      "trades": 65,
+      "win": 33.8,
+      "exp": 41.557,
+      "avg_month": 3.92,
+      "months": 46,
+      "months_ge5": 28.0
+     },
+     "val": {
+      "ret": 27.32,
+      "sharpe": 0.82,
+      "max_dd": 14.3,
+      "trades": 55,
+      "win": 25.5,
+      "exp": 1.032,
+      "avg_month": 1.24,
+      "months": 22,
+      "months_ge5": 23.0
+     },
+     "test": {
+      "ret": 15.47,
+      "sharpe": 0.59,
+      "max_dd": 10.5,
+      "trades": 33,
+      "win": 36.4,
+      "exp": 6.726,
+      "avg_month": 0.72,
+      "months": 22,
+      "months_ge5": 18.0
+     },
+     "full": {
+      "ret": 760.43,
+      "sharpe": 1.2,
+      "max_dd": 22.7,
+      "trades": 153,
+      "win": 31.4,
+      "exp": 19.477,
+      "avg_month": 2.39,
+      "months": 91,
+      "months_ge5": 24.0
+     },
+     "expo": 62.3,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": 14.23,
+     "sharpe": 0.56,
+     "max_dd": 10.6,
+     "trades": 33,
+     "win": 36.4,
+     "exp": 6.425,
+     "avg_month": 0.67,
+     "months": 22,
+     "months_ge5": 18.0
+    },
+    "delay_1": {
+     "ret": 14.36,
+     "sharpe": 0.59,
+     "max_dd": 9.8,
+     "trades": 34,
+     "win": 41.2,
+     "exp": 5.339,
+     "avg_month": 0.65,
+     "months": 22,
+     "months_ge5": 14.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "stop": 1.5
+      },
+      "test": {
+       "ret": 17.61,
+       "sharpe": 0.58,
+       "max_dd": 13.1,
+       "trades": 33,
+       "win": 33.3,
+       "exp": 6.969,
+       "avg_month": 0.82,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "stop": 2.66
+      },
+      "test": {
+       "ret": 10.68,
+       "sharpe": 0.53,
+       "max_dd": 8.8,
+       "trades": 33,
+       "win": 36.4,
+       "exp": 6.265,
+       "avg_month": 0.51,
+       "months": 22,
+       "months_ge5": 9.0
+      }
+     }
+    ],
+    "neighbours_positive": 2,
+    "drop_best_coin": {
+     "coin": "BNB",
+     "test": {
+      "ret": 8.58,
+      "sharpe": 0.42,
+      "max_dd": 8.8,
+      "trades": 29,
+      "win": 34.5,
+      "exp": 3.348,
+      "avg_month": 0.44,
+      "months": 22,
+      "months_ge5": 14.0
+     }
+    },
+    "pnl_without_top3_pct": 38.85,
+    "random_test_ret": [
+     -2.6,
+     1.94,
+     3.04,
+     5.16,
+     10.41,
+     -3.05,
+     -16.43,
+     5.73
+    ],
+    "beats_random": 1.0,
+    "causality_mismatches": 0,
+    "fails": [],
+    "survives": true,
+    "meets_5pct_month": false
+   }
+  },
+  "G": {
+   "title": "G: Fibonacci pullback + 50 MA long (15m, BTC+ETH)",
+   "tf": "15m",
+   "coins": 2,
+   "grid": [
+    {
+     "params": {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 1.0
+     },
+     "train": {
+      "ret": -13.51,
+      "sharpe": -2.13,
+      "max_dd": 13.9,
+      "trades": 202,
+      "win": 32.2,
+      "exp": -0.285,
+      "avg_month": -0.75,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -0.26,
+      "sharpe": -0.07,
+      "max_dd": 4.8,
+      "trades": 87,
+      "win": 41.4,
+      "exp": -0.009,
+      "avg_month": 0.24,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -4.95,
+      "sharpe": -1.51,
+      "max_dd": 6.0,
+      "trades": 88,
+      "win": 34.1,
+      "exp": -0.227,
+      "avg_month": -0.44,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -18.01,
+      "sharpe": -1.49,
+      "max_dd": 18.2,
+      "trades": 377,
+      "win": 34.7,
+      "exp": -0.208,
+      "avg_month": -0.51,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 15.8,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    {
+     "params": {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -7.26,
+      "sharpe": -0.6,
+      "max_dd": 13.7,
+      "trades": 158,
+      "win": 34.2,
+      "exp": -0.199,
+      "avg_month": -0.35,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": 1.72,
+      "sharpe": 0.33,
+      "max_dd": 6.0,
+      "trades": 75,
+      "win": 40.0,
+      "exp": 0.149,
+      "avg_month": 0.44,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -4.83,
+      "sharpe": -0.81,
+      "max_dd": 10.1,
+      "trades": 67,
+      "win": 32.8,
+      "exp": -0.28,
+      "avg_month": -0.52,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -10.22,
+      "sharpe": -0.42,
+      "max_dd": 16.5,
+      "trades": 300,
+      "win": 35.3,
+      "exp": -0.13,
+      "avg_month": -0.27,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 34.3,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    {
+     "params": {
+      "m": 8,
+      "touch": 0.5,
+      "stop": 1.0
+     },
+     "train": {
+      "ret": -15.4,
+      "sharpe": -2.28,
+      "max_dd": 17.1,
+      "trades": 233,
+      "win": 32.2,
+      "exp": -0.284,
+      "avg_month": -0.98,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": 0.4,
+      "sharpe": 0.14,
+      "max_dd": 5.5,
+      "trades": 104,
+      "win": 42.3,
+      "exp": 0.019,
+      "avg_month": 0.35,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -5.07,
+      "sharpe": -1.41,
+      "max_dd": 6.8,
+      "trades": 98,
+      "win": 34.7,
+      "exp": -0.209,
+      "avg_month": -0.53,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -19.37,
+      "sharpe": -1.48,
+      "max_dd": 21.1,
+      "trades": 435,
+      "win": 35.2,
+      "exp": -0.195,
+      "avg_month": -0.57,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 18.1,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    {
+     "params": {
+      "m": 8,
+      "touch": 0.5,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -19.62,
+      "sharpe": -1.72,
+      "max_dd": 24.3,
+      "trades": 186,
+      "win": 29.6,
+      "exp": -0.475,
+      "avg_month": -1.24,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": 4.19,
+      "sharpe": 0.69,
+      "max_dd": 4.5,
+      "trades": 76,
+      "win": 42.1,
+      "exp": 0.275,
+      "avg_month": 0.74,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -12.71,
+      "sharpe": -2.18,
+      "max_dd": 16.0,
+      "trades": 77,
+      "win": 26.0,
+      "exp": -0.691,
+      "avg_month": -1.48,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -26.89,
+      "sharpe": -1.22,
+      "max_dd": 30.0,
+      "trades": 339,
+      "win": 31.6,
+      "exp": -0.356,
+      "avg_month": -0.83,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 36.0,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "m": 4,
+     "touch": 0.5,
+     "stop": 1.0
+    },
+    "base": {
+     "train": {
+      "ret": -13.51,
+      "sharpe": -2.13,
+      "max_dd": 13.9,
+      "trades": 202,
+      "win": 32.2,
+      "exp": -0.285,
+      "avg_month": -0.75,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -0.26,
+      "sharpe": -0.07,
+      "max_dd": 4.8,
+      "trades": 87,
+      "win": 41.4,
+      "exp": -0.009,
+      "avg_month": 0.24,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -4.95,
+      "sharpe": -1.51,
+      "max_dd": 6.0,
+      "trades": 88,
+      "win": 34.1,
+      "exp": -0.227,
+      "avg_month": -0.44,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -18.01,
+      "sharpe": -1.49,
+      "max_dd": 18.2,
+      "trades": 377,
+      "win": 34.7,
+      "exp": -0.208,
+      "avg_month": -0.51,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 15.8,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    "cost_x2": {
+     "ret": -10.71,
+     "sharpe": -3.3,
+     "max_dd": 11.2,
+     "trades": 90,
+     "win": 33.3,
+     "exp": -0.5,
+     "avg_month": -1.18,
+     "months": 8,
+     "months_ge5": 0.0
+    },
+    "delay_1": {
+     "ret": -2.66,
+     "sharpe": -0.78,
+     "max_dd": 4.5,
+     "trades": 90,
+     "win": 37.8,
+     "exp": -0.116,
+     "avg_month": -0.14,
+     "months": 8,
+     "months_ge5": 0.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "m": 3,
+       "touch": 0.5,
+       "stop": 1.0
+      },
+      "test": {
+       "ret": -3.26,
+       "sharpe": -1.06,
+       "max_dd": 5.1,
+       "trades": 80,
+       "win": 36.2,
+       "exp": -0.163,
+       "avg_month": -0.22,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "m": 5,
+       "touch": 0.5,
+       "stop": 1.0
+      },
+      "test": {
+       "ret": -6.71,
+       "sharpe": -1.98,
+       "max_dd": 7.3,
+       "trades": 94,
+       "win": 31.9,
+       "exp": -0.292,
+       "avg_month": -0.67,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "m": 4,
+       "touch": 0.5,
+       "stop": 0.75
+      },
+      "test": {
+       "ret": -2.89,
+       "sharpe": -1.1,
+       "max_dd": 4.0,
+       "trades": 97,
+       "win": 39.2,
+       "exp": -0.119,
+       "avg_month": -0.21,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "m": 4,
+       "touch": 0.5,
+       "stop": 1.33
+      },
+      "test": {
+       "ret": -5.23,
+       "sharpe": -1.27,
+       "max_dd": 7.1,
+       "trades": 84,
+       "win": 33.3,
+       "exp": -0.25,
+       "avg_month": -0.42,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "drop_best_coin": {
+     "coin": "BTC",
+     "test": {
+      "ret": -4.42,
+      "sharpe": -1.98,
+      "max_dd": 6.1,
+      "trades": 48,
+      "win": 29.2,
+      "exp": -0.375,
+      "avg_month": -0.45,
+      "months": 8,
+      "months_ge5": 0.0
+     }
+    },
+    "pnl_without_top3_pct": -5.4,
+    "random_test_ret": [
+     -6.84,
+     -7.66,
+     -7.19,
+     -5.08,
+     -6.78,
+     -7.25,
+     -5.37,
+     -5.54
+    ],
+    "beats_random": 1.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "H": {
+   "title": "H: Fibonacci pullback + 50 MA short (15m, BTC+ETH)",
+   "tf": "15m",
+   "coins": 2,
+   "grid": [
+    {
+     "params": {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 1.0
+     },
+     "train": {
+      "ret": -10.73,
+      "sharpe": -2.06,
+      "max_dd": 11.7,
+      "trades": 176,
+      "win": 33.5,
+      "exp": -0.255,
+      "avg_month": -0.57,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -2.83,
+      "sharpe": -0.82,
+      "max_dd": 5.2,
+      "trades": 99,
+      "win": 38.4,
+      "exp": -0.113,
+      "avg_month": -0.37,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -10.94,
+      "sharpe": -3.63,
+      "max_dd": 11.1,
+      "trades": 91,
+      "win": 25.3,
+      "exp": -0.506,
+      "avg_month": -1.3,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -22.75,
+      "sharpe": -2.11,
+      "max_dd": 22.8,
+      "trades": 366,
+      "win": 32.8,
+      "exp": -0.279,
+      "avg_month": -0.66,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 12.2,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    {
+     "params": {
+      "m": 4,
+      "touch": 0.5,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -17.57,
+      "sharpe": -1.72,
+      "max_dd": 19.5,
+      "trades": 143,
+      "win": 29.4,
+      "exp": -0.529,
+      "avg_month": -1.1,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": 2.76,
+      "sharpe": 0.46,
+      "max_dd": 8.3,
+      "trades": 81,
+      "win": 40.7,
+      "exp": 0.15,
+      "avg_month": -0.28,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -6.56,
+      "sharpe": -1.06,
+      "max_dd": 11.8,
+      "trades": 63,
+      "win": 31.7,
+      "exp": -0.411,
+      "avg_month": -1.16,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -20.86,
+      "sharpe": -0.95,
+      "max_dd": 23.8,
+      "trades": 287,
+      "win": 33.1,
+      "exp": -0.312,
+      "avg_month": -0.65,
+      "months": 35,
+      "months_ge5": 3.0
+     },
+     "expo": 33.0,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    {
+     "params": {
+      "m": 8,
+      "touch": 0.5,
+      "stop": 1.0
+     },
+     "train": {
+      "ret": -13.02,
+      "sharpe": -2.34,
+      "max_dd": 13.5,
+      "trades": 201,
+      "win": 32.8,
+      "exp": -0.275,
+      "avg_month": -0.76,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -1.45,
+      "sharpe": -0.37,
+      "max_dd": 5.3,
+      "trades": 116,
+      "win": 40.5,
+      "exp": -0.047,
+      "avg_month": -0.59,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -13.82,
+      "sharpe": -4.49,
+      "max_dd": 14.4,
+      "trades": 99,
+      "win": 22.2,
+      "exp": -0.598,
+      "avg_month": -1.68,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -26.12,
+      "sharpe": -2.32,
+      "max_dd": 26.1,
+      "trades": 416,
+      "win": 32.5,
+      "exp": -0.288,
+      "avg_month": -0.8,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 12.7,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    {
+     "params": {
+      "m": 8,
+      "touch": 0.5,
+      "stop": 2.0
+     },
+     "train": {
+      "ret": -12.65,
+      "sharpe": -1.15,
+      "max_dd": 14.5,
+      "trades": 162,
+      "win": 32.7,
+      "exp": -0.322,
+      "avg_month": -0.8,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": 2.43,
+      "sharpe": 0.4,
+      "max_dd": 7.3,
+      "trades": 90,
+      "win": 40.0,
+      "exp": 0.105,
+      "avg_month": -0.45,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -0.5,
+      "sharpe": -0.04,
+      "max_dd": 8.7,
+      "trades": 70,
+      "win": 38.6,
+      "exp": 0.009,
+      "avg_month": -0.55,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -10.98,
+      "sharpe": -0.43,
+      "max_dd": 16.5,
+      "trades": 322,
+      "win": 36.0,
+      "exp": -0.131,
+      "avg_month": -0.34,
+      "months": 35,
+      "months_ge5": 3.0
+     },
+     "expo": 34.3,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    }
+   ],
+   "selected_params": null,
+   "frozen": {
+    "params": {
+     "m": 4,
+     "touch": 0.5,
+     "stop": 1.0
+    },
+    "base": {
+     "train": {
+      "ret": -10.73,
+      "sharpe": -2.06,
+      "max_dd": 11.7,
+      "trades": 176,
+      "win": 33.5,
+      "exp": -0.255,
+      "avg_month": -0.57,
+      "months": 17,
+      "months_ge5": 0.0
+     },
+     "val": {
+      "ret": -2.83,
+      "sharpe": -0.82,
+      "max_dd": 5.2,
+      "trades": 99,
+      "win": 38.4,
+      "exp": -0.113,
+      "avg_month": -0.37,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "test": {
+      "ret": -10.94,
+      "sharpe": -3.63,
+      "max_dd": 11.1,
+      "trades": 91,
+      "win": 25.3,
+      "exp": -0.506,
+      "avg_month": -1.3,
+      "months": 8,
+      "months_ge5": 0.0
+     },
+     "full": {
+      "ret": -22.75,
+      "sharpe": -2.11,
+      "max_dd": 22.8,
+      "trades": 366,
+      "win": 32.8,
+      "exp": -0.279,
+      "avg_month": -0.66,
+      "months": 35,
+      "months_ge5": 0.0
+     },
+     "expo": 12.2,
+     "liqs": 0,
+     "bh_test": -5.4,
+     "days": 1092
+    },
+    "cost_x2": {
+     "ret": -16.82,
+     "sharpe": -5.63,
+     "max_dd": 16.9,
+     "trades": 92,
+     "win": 23.9,
+     "exp": -0.797,
+     "avg_month": -2.04,
+     "months": 8,
+     "months_ge5": 0.0
+    },
+    "delay_1": {
+     "ret": -11.7,
+     "sharpe": -3.86,
+     "max_dd": 11.9,
+     "trades": 89,
+     "win": 23.6,
+     "exp": -0.556,
+     "avg_month": -1.41,
+     "months": 8,
+     "months_ge5": 0.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "m": 3,
+       "touch": 0.5,
+       "stop": 1.0
+      },
+      "test": {
+       "ret": -6.18,
+       "sharpe": -1.99,
+       "max_dd": 6.8,
+       "trades": 84,
+       "win": 32.1,
+       "exp": -0.301,
+       "avg_month": -0.71,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "m": 5,
+       "touch": 0.5,
+       "stop": 1.0
+      },
+      "test": {
+       "ret": -11.63,
+       "sharpe": -3.99,
+       "max_dd": 12.4,
+       "trades": 84,
+       "win": 22.6,
+       "exp": -0.586,
+       "avg_month": -1.34,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "m": 4,
+       "touch": 0.5,
+       "stop": 0.75
+      },
+      "test": {
+       "ret": -9.25,
+       "sharpe": -3.96,
+       "max_dd": 10.0,
+       "trades": 94,
+       "win": 26.6,
+       "exp": -0.411,
+       "avg_month": -1.22,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "m": 4,
+       "touch": 0.5,
+       "stop": 1.33
+      },
+      "test": {
+       "ret": -11.23,
+       "sharpe": -2.86,
+       "max_dd": 12.2,
+       "trades": 79,
+       "win": 25.3,
+       "exp": -0.594,
+       "avg_month": -1.47,
+       "months": 8,
+       "months_ge5": 0.0
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "drop_best_coin": {
+     "coin": "BTC",
+     "test": {
+      "ret": -6.27,
+      "sharpe": -3.08,
+      "max_dd": 6.8,
+      "trades": 49,
+      "win": 24.5,
+      "exp": -0.526,
+      "avg_month": -0.77,
+      "months": 8,
+      "months_ge5": 0.0
+     }
+    },
+    "pnl_without_top3_pct": -10.62,
+    "random_test_ret": [
+     -8.04,
+     -5.96,
+     -6.4,
+     -6.51,
+     -3.36,
+     -6.71,
+     -6.16,
+     -5.01
+    ],
+    "beats_random": 0.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades",
+     "does not clearly beat random entries"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "I": {
+   "title": "I: Momentum long-only (1d)",
+   "tf": "1d",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "lb": 14,
+      "rb": 7,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 3163.01,
+      "sharpe": 1.58,
+      "max_dd": 63.3,
+      "trades": 161,
+      "win": 51.6,
+      "exp": 9.398,
+      "avg_month": 7.87,
+      "months": 46,
+      "months_ge5": 41.0
+     },
+     "val": {
+      "ret": 311.7,
+      "sharpe": 1.5,
+      "max_dd": 50.4,
+      "trades": 104,
+      "win": 43.3,
+      "exp": 5.986,
+      "avg_month": 6.17,
+      "months": 22,
+      "months_ge5": 32.0
+     },
+     "test": {
+      "ret": -36.03,
+      "sharpe": -0.47,
+      "max_dd": 46.3,
+      "trades": 69,
+      "win": 36.2,
+      "exp": 0.074,
+      "avg_month": -1.92,
+      "months": 22,
+      "months_ge5": 9.0
+     },
+     "full": {
+      "ret": 8493.81,
+      "sharpe": 1.22,
+      "max_dd": 69.8,
+      "trades": 334,
+      "win": 45.8,
+      "exp": 6.41,
+      "avg_month": 5.02,
+      "months": 91,
+      "months_ge5": 31.0
+     },
+     "expo": 66.5,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    {
+     "params": {
+      "lb": 14,
+      "rb": 14,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 1660.57,
+      "sharpe": 1.38,
+      "max_dd": 73.6,
+      "trades": 119,
+      "win": 47.9,
+      "exp": 11.077,
+      "avg_month": 6.44,
+      "months": 46,
+      "months_ge5": 46.0
+     },
+     "val": {
+      "ret": 162.29,
+      "sharpe": 1.12,
+      "max_dd": 52.2,
+      "trades": 77,
+      "win": 29.9,
+      "exp": 6.943,
+      "avg_month": 4.0,
+      "months": 22,
+      "months_ge5": 23.0
+     },
+     "test": {
+      "ret": -41.21,
+      "sharpe": -0.45,
+      "max_dd": 54.2,
+      "trades": 46,
+      "win": 34.8,
+      "exp": -0.436,
+      "avg_month": -2.25,
+      "months": 22,
+      "months_ge5": 14.0
+     },
+     "full": {
+      "ret": 2614.77,
+      "sharpe": 0.99,
+      "max_dd": 82.6,
+      "trades": 242,
+      "win": 39.7,
+      "exp": 7.573,
+      "avg_month": 3.7,
+      "months": 91,
+      "months_ge5": 32.0
+     },
+     "expo": 65.6,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    {
+     "params": {
+      "lb": 30,
+      "rb": 7,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 2559.73,
+      "sharpe": 1.43,
+      "max_dd": 67.5,
+      "trades": 128,
+      "win": 50.0,
+      "exp": 12.525,
+      "avg_month": 7.39,
+      "months": 46,
+      "months_ge5": 39.0
+     },
+     "val": {
+      "ret": 218.43,
+      "sharpe": 1.25,
+      "max_dd": 52.2,
+      "trades": 86,
+      "win": 38.4,
+      "exp": 6.344,
+      "avg_month": 5.65,
+      "months": 22,
+      "months_ge5": 27.0
+     },
+     "test": {
+      "ret": -29.63,
+      "sharpe": -0.19,
+      "max_dd": 41.8,
+      "trades": 55,
+      "win": 36.4,
+      "exp": 1.994,
+      "avg_month": -1.24,
+      "months": 22,
+      "months_ge5": 18.0
+     },
+     "full": {
+      "ret": 5859.7,
+      "sharpe": 1.1,
+      "max_dd": 78.0,
+      "trades": 269,
+      "win": 43.5,
+      "exp": 8.396,
+      "avg_month": 4.59,
+      "months": 91,
+      "months_ge5": 32.0
+     },
+     "expo": 70.3,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    {
+     "params": {
+      "lb": 30,
+      "rb": 14,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 2499.61,
+      "sharpe": 1.26,
+      "max_dd": 67.6,
+      "trades": 91,
+      "win": 48.4,
+      "exp": 18.945,
+      "avg_month": 7.34,
+      "months": 46,
+      "months_ge5": 41.0
+     },
+     "val": {
+      "ret": 143.83,
+      "sharpe": 1.05,
+      "max_dd": 51.5,
+      "trades": 59,
+      "win": 35.6,
+      "exp": 8.191,
+      "avg_month": 4.45,
+      "months": 22,
+      "months_ge5": 32.0
+     },
+     "test": {
+      "ret": -28.74,
+      "sharpe": -0.22,
+      "max_dd": 40.0,
+      "trades": 38,
+      "win": 36.8,
+      "exp": 0.833,
+      "avg_month": -1.17,
+      "months": 22,
+      "months_ge5": 18.0
+     },
+     "full": {
+      "ret": 4416.79,
+      "sharpe": 0.96,
+      "max_dd": 80.5,
+      "trades": 188,
+      "win": 42.0,
+      "exp": 11.909,
+      "avg_month": 4.28,
+      "months": 91,
+      "months_ge5": 34.0
+     },
+     "expo": 71.2,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    }
+   ],
+   "selected_params": {
+    "lb": 14,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "frozen": {
+    "params": {
+     "lb": 30,
+     "rb": 7,
+     "stop": 3.5
+    },
+    "base": {
+     "train": {
+      "ret": 2559.73,
+      "sharpe": 1.43,
+      "max_dd": 67.5,
+      "trades": 128,
+      "win": 50.0,
+      "exp": 12.525,
+      "avg_month": 7.39,
+      "months": 46,
+      "months_ge5": 39.0
+     },
+     "val": {
+      "ret": 218.43,
+      "sharpe": 1.25,
+      "max_dd": 52.2,
+      "trades": 86,
+      "win": 38.4,
+      "exp": 6.344,
+      "avg_month": 5.65,
+      "months": 22,
+      "months_ge5": 27.0
+     },
+     "test": {
+      "ret": -29.63,
+      "sharpe": -0.19,
+      "max_dd": 41.8,
+      "trades": 55,
+      "win": 36.4,
+      "exp": 1.994,
+      "avg_month": -1.24,
+      "months": 22,
+      "months_ge5": 18.0
+     },
+     "full": {
+      "ret": 5859.7,
+      "sharpe": 1.1,
+      "max_dd": 78.0,
+      "trades": 269,
+      "win": 43.5,
+      "exp": 8.396,
+      "avg_month": 4.59,
+      "months": 91,
+      "months_ge5": 32.0
+     },
+     "expo": 70.3,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": -33.06,
+     "sharpe": -0.25,
+     "max_dd": 43.1,
+     "trades": 55,
+     "win": 34.5,
+     "exp": 1.696,
+     "avg_month": -1.46,
+     "months": 22,
+     "months_ge5": 18.0
+    },
+    "delay_1": {
+     "ret": -30.74,
+     "sharpe": -0.23,
+     "max_dd": 44.6,
+     "trades": 56,
+     "win": 39.3,
+     "exp": 1.508,
+     "avg_month": -1.39,
+     "months": 22,
+     "months_ge5": 18.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "lb": 22,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -45.19,
+       "sharpe": -0.56,
+       "max_dd": 57.5,
+       "trades": 60,
+       "win": 41.7,
+       "exp": -1.245,
+       "avg_month": -2.73,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 40,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -46.76,
+       "sharpe": -0.59,
+       "max_dd": 52.8,
+       "trades": 56,
+       "win": 32.1,
+       "exp": 0.482,
+       "avg_month": -2.45,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 5,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -52.49,
+       "sharpe": -0.64,
+       "max_dd": 59.4,
+       "trades": 69,
+       "win": 31.9,
+       "exp": 0.227,
+       "avg_month": -2.94,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 9,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -41.59,
+       "sharpe": -0.52,
+       "max_dd": 49.2,
+       "trades": 51,
+       "win": 37.3,
+       "exp": -0.527,
+       "avg_month": -2.15,
+       "months": 22,
+       "months_ge5": 14.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 7,
+       "stop": 2.625
+      },
+      "test": {
+       "ret": -34.37,
+       "sharpe": -0.27,
+       "max_dd": 45.2,
+       "trades": 58,
+       "win": 32.8,
+       "exp": 1.442,
+       "avg_month": -1.5,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 7,
+       "stop": 4.655
+      },
+      "test": {
+       "ret": -24.31,
+       "sharpe": -0.11,
+       "max_dd": 40.3,
+       "trades": 53,
+       "win": 35.8,
+       "exp": 2.331,
+       "avg_month": -0.91,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "drop_best_coin": {
+     "coin": "XRP",
+     "test": {
+      "ret": -35.39,
+      "sharpe": -0.35,
+      "max_dd": 40.7,
+      "trades": 55,
+      "win": 29.1,
+      "exp": -0.538,
+      "avg_month": -1.7,
+      "months": 22,
+      "months_ge5": 14.0
+     }
+    },
+    "pnl_without_top3_pct": -5997.43,
+    "random_test_ret": [
+     -9.89,
+     2.17,
+     -6.02,
+     -11.81,
+     -13.58,
+     -2.82,
+     -15.33,
+     -2.11
+    ],
+    "beats_random": 0.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades",
+     "does not clearly beat random entries"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   },
+   "selected": {
+    "params": {
+     "lb": 14,
+     "rb": 7,
+     "stop": 3.5
+    },
+    "base": {
+     "train": {
+      "ret": 3163.01,
+      "sharpe": 1.58,
+      "max_dd": 63.3,
+      "trades": 161,
+      "win": 51.6,
+      "exp": 9.398,
+      "avg_month": 7.87,
+      "months": 46,
+      "months_ge5": 41.0
+     },
+     "val": {
+      "ret": 311.7,
+      "sharpe": 1.5,
+      "max_dd": 50.4,
+      "trades": 104,
+      "win": 43.3,
+      "exp": 5.986,
+      "avg_month": 6.17,
+      "months": 22,
+      "months_ge5": 32.0
+     },
+     "test": {
+      "ret": -36.03,
+      "sharpe": -0.47,
+      "max_dd": 46.3,
+      "trades": 69,
+      "win": 36.2,
+      "exp": 0.074,
+      "avg_month": -1.92,
+      "months": 22,
+      "months_ge5": 9.0
+     },
+     "full": {
+      "ret": 8493.81,
+      "sharpe": 1.22,
+      "max_dd": 69.8,
+      "trades": 334,
+      "win": 45.8,
+      "exp": 6.41,
+      "avg_month": 5.02,
+      "months": 91,
+      "months_ge5": 31.0
+     },
+     "expo": 66.5,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": -40.0,
+     "sharpe": -0.56,
+     "max_dd": 49.0,
+     "trades": 69,
+     "win": 34.8,
+     "exp": -0.222,
+     "avg_month": -2.19,
+     "months": 22,
+     "months_ge5": 9.0
+    },
+    "delay_1": {
+     "ret": -37.24,
+     "sharpe": -0.53,
+     "max_dd": 47.5,
+     "trades": 69,
+     "win": 40.6,
+     "exp": 0.16,
+     "avg_month": -2.05,
+     "months": 22,
+     "months_ge5": 9.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "lb": 10,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -45.73,
+       "sharpe": -0.68,
+       "max_dd": 51.3,
+       "trades": 75,
+       "win": 34.7,
+       "exp": -0.633,
+       "avg_month": -2.64,
+       "months": 22,
+       "months_ge5": 9.0
+      }
+     },
+     {
+      "params": {
+       "lb": 19,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -29.84,
+       "sharpe": -0.31,
+       "max_dd": 45.8,
+       "trades": 63,
+       "win": 42.9,
+       "exp": -0.056,
+       "avg_month": -1.62,
+       "months": 22,
+       "months_ge5": 14.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 5,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -24.08,
+       "sharpe": -0.13,
+       "max_dd": 49.7,
+       "trades": 80,
+       "win": 35.0,
+       "exp": -0.305,
+       "avg_month": -1.11,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 9,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -25.59,
+       "sharpe": -0.2,
+       "max_dd": 49.8,
+       "trades": 60,
+       "win": 40.0,
+       "exp": 1.322,
+       "avg_month": -1.25,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 7,
+       "stop": 2.625
+      },
+      "test": {
+       "ret": -47.26,
+       "sharpe": -0.72,
+       "max_dd": 52.7,
+       "trades": 74,
+       "win": 35.1,
+       "exp": -0.885,
+       "avg_month": -2.6,
+       "months": 22,
+       "months_ge5": 9.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 7,
+       "stop": 4.655
+      },
+      "test": {
+       "ret": -42.27,
+       "sharpe": -0.56,
+       "max_dd": 51.8,
+       "trades": 70,
+       "win": 34.3,
+       "exp": -0.715,
+       "avg_month": -2.4,
+       "months": 22,
+       "months_ge5": 9.0
+      }
+     }
+    ],
+    "neighbours_positive": 0,
+    "drop_best_coin": {
+     "coin": "XRP",
+     "test": {
+      "ret": -29.38,
+      "sharpe": -0.34,
+      "max_dd": 43.0,
+      "trades": 66,
+      "win": 39.4,
+      "exp": -0.844,
+      "avg_month": -1.42,
+      "months": 22,
+      "months_ge5": 9.0
+     }
+    },
+    "pnl_without_top3_pct": -5969.89,
+    "random_test_ret": [
+     5.35,
+     10.63,
+     -18.84,
+     -3.55,
+     -8.3,
+     -6.67,
+     -17.76,
+     -0.35
+    ],
+    "beats_random": 0.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades",
+     "does not clearly beat random entries"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "J": {
+   "title": "J: Momentum long/short, 1x control (1d)",
+   "tf": "1d",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "lb": 14,
+      "rb": 7,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 524.98,
+      "sharpe": 1.16,
+      "max_dd": 43.9,
+      "trades": 253,
+      "win": 48.6,
+      "exp": 3.641,
+      "avg_month": 4.06,
+      "months": 46,
+      "months_ge5": 46.0
+     },
+     "val": {
+      "ret": 87.66,
+      "sharpe": 1.04,
+      "max_dd": 39.5,
+      "trades": 161,
+      "win": 44.1,
+      "exp": 1.833,
+      "avg_month": 2.51,
+      "months": 22,
+      "months_ge5": 36.0
+     },
+     "test": {
+      "ret": 11.49,
+      "sharpe": 0.34,
+      "max_dd": 29.3,
+      "trades": 136,
+      "win": 43.4,
+      "exp": 1.061,
+      "avg_month": 0.25,
+      "months": 22,
+      "months_ge5": 32.0
+     },
+     "full": {
+      "ret": 1207.62,
+      "sharpe": 0.97,
+      "max_dd": 48.6,
+      "trades": 550,
+      "win": 46.0,
+      "exp": 2.474,
+      "avg_month": 2.76,
+      "months": 91,
+      "months_ge5": 40.0
+     },
+     "expo": 97.8,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    {
+     "params": {
+      "lb": 30,
+      "rb": 7,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 158.96,
+      "sharpe": 0.72,
+      "max_dd": 42.2,
+      "trades": 207,
+      "win": 46.4,
+      "exp": 3.108,
+      "avg_month": 2.09,
+      "months": 46,
+      "months_ge5": 35.0
+     },
+     "val": {
+      "ret": 79.34,
+      "sharpe": 0.97,
+      "max_dd": 36.0,
+      "trades": 120,
+      "win": 40.8,
+      "exp": 3.418,
+      "avg_month": 2.86,
+      "months": 22,
+      "months_ge5": 23.0
+     },
+     "test": {
+      "ret": 9.49,
+      "sharpe": 0.31,
+      "max_dd": 18.1,
+      "trades": 105,
+      "win": 44.8,
+      "exp": 0.292,
+      "avg_month": 0.37,
+      "months": 22,
+      "months_ge5": 27.0
+     },
+     "full": {
+      "ret": 408.51,
+      "sharpe": 0.68,
+      "max_dd": 59.9,
+      "trades": 432,
+      "win": 44.4,
+      "exp": 2.51,
+      "avg_month": 1.72,
+      "months": 91,
+      "months_ge5": 30.0
+     },
+     "expo": 99.4,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    }
+   ],
+   "selected_params": {
+    "lb": 14,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "frozen": {
+    "params": {
+     "lb": 30,
+     "rb": 7,
+     "stop": 3.5
+    },
+    "base": {
+     "train": {
+      "ret": 158.96,
+      "sharpe": 0.72,
+      "max_dd": 42.2,
+      "trades": 207,
+      "win": 46.4,
+      "exp": 3.108,
+      "avg_month": 2.09,
+      "months": 46,
+      "months_ge5": 35.0
+     },
+     "val": {
+      "ret": 79.34,
+      "sharpe": 0.97,
+      "max_dd": 36.0,
+      "trades": 120,
+      "win": 40.8,
+      "exp": 3.418,
+      "avg_month": 2.86,
+      "months": 22,
+      "months_ge5": 23.0
+     },
+     "test": {
+      "ret": 9.49,
+      "sharpe": 0.31,
+      "max_dd": 18.1,
+      "trades": 105,
+      "win": 44.8,
+      "exp": 0.292,
+      "avg_month": 0.37,
+      "months": 22,
+      "months_ge5": 27.0
+     },
+     "full": {
+      "ret": 408.51,
+      "sharpe": 0.68,
+      "max_dd": 59.9,
+      "trades": 432,
+      "win": 44.4,
+      "exp": 2.51,
+      "avg_month": 1.72,
+      "months": 91,
+      "months_ge5": 30.0
+     },
+     "expo": 99.4,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": 1.84,
+     "sharpe": 0.19,
+     "max_dd": 21.8,
+     "trades": 105,
+     "win": 42.9,
+     "exp": -0.0,
+     "avg_month": 0.05,
+     "months": 22,
+     "months_ge5": 27.0
+    },
+    "delay_1": {
+     "ret": 3.77,
+     "sharpe": 0.22,
+     "max_dd": 19.0,
+     "trades": 107,
+     "win": 44.9,
+     "exp": -0.053,
+     "avg_month": 0.07,
+     "months": 22,
+     "months_ge5": 27.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "lb": 22,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -4.68,
+       "sharpe": 0.08,
+       "max_dd": 28.4,
+       "trades": 120,
+       "win": 44.2,
+       "exp": 0.166,
+       "avg_month": -0.39,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 40,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -18.34,
+       "sharpe": -0.2,
+       "max_dd": 33.0,
+       "trades": 100,
+       "win": 39.0,
+       "exp": -0.788,
+       "avg_month": -0.93,
+       "months": 22,
+       "months_ge5": 23.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 5,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -9.36,
+       "sharpe": 0.0,
+       "max_dd": 21.9,
+       "trades": 128,
+       "win": 43.8,
+       "exp": -0.157,
+       "avg_month": -0.56,
+       "months": 22,
+       "months_ge5": 18.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 9,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -20.07,
+       "sharpe": -0.24,
+       "max_dd": 31.1,
+       "trades": 96,
+       "win": 44.8,
+       "exp": -1.253,
+       "avg_month": -1.13,
+       "months": 22,
+       "months_ge5": 23.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 7,
+       "stop": 2.625
+      },
+      "test": {
+       "ret": 3.82,
+       "sharpe": 0.22,
+       "max_dd": 24.4,
+       "trades": 108,
+       "win": 42.6,
+       "exp": 0.075,
+       "avg_month": 0.18,
+       "months": 22,
+       "months_ge5": 32.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 7,
+       "stop": 4.655
+      },
+      "test": {
+       "ret": 5.6,
+       "sharpe": 0.25,
+       "max_dd": 21.4,
+       "trades": 104,
+       "win": 45.2,
+       "exp": 0.166,
+       "avg_month": 0.21,
+       "months": 22,
+       "months_ge5": 27.0
+      }
+     }
+    ],
+    "neighbours_positive": 3,
+    "drop_best_coin": {
+     "coin": "ETH",
+     "test": {
+      "ret": -4.07,
+      "sharpe": 0.08,
+      "max_dd": 23.9,
+      "trades": 107,
+      "win": 45.8,
+      "exp": -0.253,
+      "avg_month": -0.23,
+      "months": 22,
+      "months_ge5": 23.0
+     }
+    },
+    "pnl_without_top3_pct": -149.09,
+    "random_test_ret": [
+     2.02,
+     -2.59,
+     2.48,
+     -28.08,
+     -3.76,
+     -7.76,
+     -6.71,
+     -14.22
+    ],
+    "beats_random": 1.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "neighbouring settings mostly negative",
+     "loses without its best coin",
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   },
+   "selected": {
+    "params": {
+     "lb": 14,
+     "rb": 7,
+     "stop": 3.5
+    },
+    "base": {
+     "train": {
+      "ret": 524.98,
+      "sharpe": 1.16,
+      "max_dd": 43.9,
+      "trades": 253,
+      "win": 48.6,
+      "exp": 3.641,
+      "avg_month": 4.06,
+      "months": 46,
+      "months_ge5": 46.0
+     },
+     "val": {
+      "ret": 87.66,
+      "sharpe": 1.04,
+      "max_dd": 39.5,
+      "trades": 161,
+      "win": 44.1,
+      "exp": 1.833,
+      "avg_month": 2.51,
+      "months": 22,
+      "months_ge5": 36.0
+     },
+     "test": {
+      "ret": 11.49,
+      "sharpe": 0.34,
+      "max_dd": 29.3,
+      "trades": 136,
+      "win": 43.4,
+      "exp": 1.061,
+      "avg_month": 0.25,
+      "months": 22,
+      "months_ge5": 32.0
+     },
+     "full": {
+      "ret": 1207.62,
+      "sharpe": 0.97,
+      "max_dd": 48.6,
+      "trades": 550,
+      "win": 46.0,
+      "exp": 2.474,
+      "avg_month": 2.76,
+      "months": 91,
+      "months_ge5": 40.0
+     },
+     "expo": 97.8,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": 1.41,
+     "sharpe": 0.17,
+     "max_dd": 30.5,
+     "trades": 136,
+     "win": 43.4,
+     "exp": 0.767,
+     "avg_month": -0.17,
+     "months": 22,
+     "months_ge5": 23.0
+    },
+    "delay_1": {
+     "ret": 2.18,
+     "sharpe": 0.18,
+     "max_dd": 27.9,
+     "trades": 136,
+     "win": 42.6,
+     "exp": 0.831,
+     "avg_month": -0.25,
+     "months": 22,
+     "months_ge5": 23.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "lb": 10,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -19.83,
+       "sharpe": -0.24,
+       "max_dd": 39.6,
+       "trades": 150,
+       "win": 43.3,
+       "exp": -0.73,
+       "avg_month": -1.3,
+       "months": 22,
+       "months_ge5": 14.0
+      }
+     },
+     {
+      "params": {
+       "lb": 19,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": 8.21,
+       "sharpe": 0.29,
+       "max_dd": 17.7,
+       "trades": 126,
+       "win": 44.4,
+       "exp": 0.519,
+       "avg_month": 0.04,
+       "months": 22,
+       "months_ge5": 27.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 5,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": 4.55,
+       "sharpe": 0.23,
+       "max_dd": 23.0,
+       "trades": 163,
+       "win": 40.5,
+       "exp": 0.046,
+       "avg_month": -0.02,
+       "months": 22,
+       "months_ge5": 14.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 9,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": 25.83,
+       "sharpe": 0.56,
+       "max_dd": 24.1,
+       "trades": 122,
+       "win": 42.6,
+       "exp": 1.63,
+       "avg_month": 0.76,
+       "months": 22,
+       "months_ge5": 27.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 7,
+       "stop": 2.625
+      },
+      "test": {
+       "ret": 3.27,
+       "sharpe": 0.21,
+       "max_dd": 33.0,
+       "trades": 140,
+       "win": 43.6,
+       "exp": 0.814,
+       "avg_month": -0.1,
+       "months": 22,
+       "months_ge5": 23.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 7,
+       "stop": 4.655
+      },
+      "test": {
+       "ret": 8.41,
+       "sharpe": 0.29,
+       "max_dd": 30.0,
+       "trades": 136,
+       "win": 43.4,
+       "exp": 0.973,
+       "avg_month": 0.12,
+       "months": 22,
+       "months_ge5": 32.0
+      }
+     }
+    ],
+    "neighbours_positive": 5,
+    "drop_best_coin": {
+     "coin": "XRP",
+     "test": {
+      "ret": 24.01,
+      "sharpe": 0.53,
+      "max_dd": 28.9,
+      "trades": 131,
+      "win": 45.8,
+      "exp": 0.891,
+      "avg_month": 0.73,
+      "months": 22,
+      "months_ge5": 32.0
+     }
+    },
+    "pnl_without_top3_pct": -96.94,
+    "random_test_ret": [
+     2.3,
+     9.78,
+     -4.84,
+     -0.41,
+     7.58,
+     0.8,
+     6.96,
+     -13.34
+    ],
+    "beats_random": 1.0,
+    "causality_mismatches": 0,
+    "fails": [
+     "loses without its top 3 trades"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  },
+  "K": {
+   "title": "K: Momentum long/short, dynamic 2x/5x leverage (1d)",
+   "tf": "1d",
+   "coins": 10,
+   "grid": [
+    {
+     "params": {
+      "lb": 14,
+      "rb": 7,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": 366.31,
+      "sharpe": 1.11,
+      "max_dd": 97.9,
+      "trades": 253,
+      "win": 48.6,
+      "exp": 3.618,
+      "avg_month": 3.39,
+      "months": 46,
+      "months_ge5": 52.0
+     },
+     "val": {
+      "ret": 133.47,
+      "sharpe": 1.0,
+      "max_dd": 88.8,
+      "trades": 161,
+      "win": 44.1,
+      "exp": 1.805,
+      "avg_month": 2.82,
+      "months": 22,
+      "months_ge5": 45.0
+     },
+     "test": {
+      "ret": -21.06,
+      "sharpe": 0.45,
+      "max_dd": 84.0,
+      "trades": 136,
+      "win": 43.4,
+      "exp": 1.042,
+      "avg_month": -1.63,
+      "months": 22,
+      "months_ge5": 41.0
+     },
+     "full": {
+      "ret": 759.37,
+      "sharpe": 0.95,
+      "max_dd": 99.6,
+      "trades": 550,
+      "win": 46.0,
+      "exp": 2.45,
+      "avg_month": 2.16,
+      "months": 91,
+      "months_ge5": 47.0
+     },
+     "expo": 97.8,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    {
+     "params": {
+      "lb": 30,
+      "rb": 7,
+      "stop": 3.5
+     },
+     "train": {
+      "ret": -58.31,
+      "sharpe": 0.76,
+      "max_dd": 98.5,
+      "trades": 207,
+      "win": 46.4,
+      "exp": 3.067,
+      "avg_month": -1.9,
+      "months": 46,
+      "months_ge5": 43.0
+     },
+     "val": {
+      "ret": 21.82,
+      "sharpe": 0.76,
+      "max_dd": 94.7,
+      "trades": 118,
+      "win": 39.8,
+      "exp": 3.458,
+      "avg_month": 1.42,
+      "months": 22,
+      "months_ge5": 36.0
+     },
+     "test": {
+      "ret": -41.3,
+      "sharpe": 0.39,
+      "max_dd": 82.4,
+      "trades": 105,
+      "win": 44.8,
+      "exp": 0.262,
+      "avg_month": -2.83,
+      "months": 22,
+      "months_ge5": 41.0
+     },
+     "full": {
+      "ret": -70.19,
+      "sharpe": 0.68,
+      "max_dd": 99.9,
+      "trades": 430,
+      "win": 44.2,
+      "exp": 2.489,
+      "avg_month": -1.6,
+      "months": 91,
+      "months_ge5": 41.0
+     },
+     "expo": 99.4,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    }
+   ],
+   "selected_params": {
+    "lb": 14,
+    "rb": 7,
+    "stop": 3.5
+   },
+   "frozen": {
+    "params": {
+     "lb": 30,
+     "rb": 7,
+     "stop": 3.5
+    },
+    "base": {
+     "train": {
+      "ret": -58.31,
+      "sharpe": 0.76,
+      "max_dd": 98.5,
+      "trades": 207,
+      "win": 46.4,
+      "exp": 3.067,
+      "avg_month": -1.9,
+      "months": 46,
+      "months_ge5": 43.0
+     },
+     "val": {
+      "ret": 21.82,
+      "sharpe": 0.76,
+      "max_dd": 94.7,
+      "trades": 118,
+      "win": 39.8,
+      "exp": 3.458,
+      "avg_month": 1.42,
+      "months": 22,
+      "months_ge5": 36.0
+     },
+     "test": {
+      "ret": -41.3,
+      "sharpe": 0.39,
+      "max_dd": 82.4,
+      "trades": 105,
+      "win": 44.8,
+      "exp": 0.262,
+      "avg_month": -2.83,
+      "months": 22,
+      "months_ge5": 41.0
+     },
+     "full": {
+      "ret": -70.19,
+      "sharpe": 0.68,
+      "max_dd": 99.9,
+      "trades": 430,
+      "win": 44.2,
+      "exp": 2.489,
+      "avg_month": -1.6,
+      "months": 91,
+      "months_ge5": 41.0
+     },
+     "expo": 99.4,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": -56.69,
+     "sharpe": 0.27,
+     "max_dd": 85.5,
+     "trades": 105,
+     "win": 42.9,
+     "exp": -0.031,
+     "avg_month": -4.13,
+     "months": 22,
+     "months_ge5": 41.0
+    },
+    "delay_1": {
+     "ret": -40.22,
+     "sharpe": 0.42,
+     "max_dd": 77.1,
+     "trades": 107,
+     "win": 44.9,
+     "exp": -0.081,
+     "avg_month": -2.87,
+     "months": 22,
+     "months_ge5": 41.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "lb": 22,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -51.6,
+       "sharpe": 0.28,
+       "max_dd": 73.7,
+       "trades": 120,
+       "win": 44.2,
+       "exp": 0.141,
+       "avg_month": -3.98,
+       "months": 22,
+       "months_ge5": 32.0
+      }
+     },
+     {
+      "params": {
+       "lb": 40,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": 0.0,
+       "sharpe": null,
+       "max_dd": 0.0,
+       "trades": 0,
+       "win": null,
+       "exp": null,
+       "avg_month": 0.0,
+       "months": 22,
+       "months_ge5": 0.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 5,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -59.55,
+       "sharpe": 0.27,
+       "max_dd": 81.7,
+       "trades": 128,
+       "win": 43.8,
+       "exp": -0.182,
+       "avg_month": -4.89,
+       "months": 22,
+       "months_ge5": 32.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 9,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -86.61,
+       "sharpe": -0.19,
+       "max_dd": 91.4,
+       "trades": 96,
+       "win": 44.8,
+       "exp": -1.289,
+       "avg_month": -9.31,
+       "months": 22,
+       "months_ge5": 32.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 7,
+       "stop": 2.625
+      },
+      "test": {
+       "ret": -60.56,
+       "sharpe": 0.27,
+       "max_dd": 88.1,
+       "trades": 108,
+       "win": 42.6,
+       "exp": 0.047,
+       "avg_month": -4.48,
+       "months": 22,
+       "months_ge5": 45.0
+      }
+     },
+     {
+      "params": {
+       "lb": 30,
+       "rb": 7,
+       "stop": 4.655
+      },
+      "test": {
+       "ret": -61.73,
+       "sharpe": 0.28,
+       "max_dd": 87.5,
+       "trades": 104,
+       "win": 45.2,
+       "exp": 0.135,
+       "avg_month": -4.7,
+       "months": 22,
+       "months_ge5": 41.0
+      }
+     }
+    ],
+    "neighbours_positive": 4,
+    "drop_best_coin": {
+     "coin": "ETH",
+     "test": {
+      "ret": -78.88,
+      "sharpe": -0.05,
+      "max_dd": 88.5,
+      "trades": 107,
+      "win": 45.8,
+      "exp": -0.279,
+      "avg_month": -7.24,
+      "months": 22,
+      "months_ge5": 36.0
+     }
+    },
+    "pnl_without_top3_pct": -94.08,
+    "random_test_ret": [
+     -19.95,
+     -14.55,
+     -4.62,
+     -85.71,
+     -43.62,
+     -46.75,
+     -32.85,
+     -53.18
+    ],
+    "beats_random": 0.5,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "loses without its best coin",
+     "loses without its top 3 trades",
+     "does not clearly beat random entries"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   },
+   "selected": {
+    "params": {
+     "lb": 14,
+     "rb": 7,
+     "stop": 3.5
+    },
+    "base": {
+     "train": {
+      "ret": 366.31,
+      "sharpe": 1.11,
+      "max_dd": 97.9,
+      "trades": 253,
+      "win": 48.6,
+      "exp": 3.618,
+      "avg_month": 3.39,
+      "months": 46,
+      "months_ge5": 52.0
+     },
+     "val": {
+      "ret": 133.47,
+      "sharpe": 1.0,
+      "max_dd": 88.8,
+      "trades": 161,
+      "win": 44.1,
+      "exp": 1.805,
+      "avg_month": 2.82,
+      "months": 22,
+      "months_ge5": 45.0
+     },
+     "test": {
+      "ret": -21.06,
+      "sharpe": 0.45,
+      "max_dd": 84.0,
+      "trades": 136,
+      "win": 43.4,
+      "exp": 1.042,
+      "avg_month": -1.63,
+      "months": 22,
+      "months_ge5": 41.0
+     },
+     "full": {
+      "ret": 759.37,
+      "sharpe": 0.95,
+      "max_dd": 99.6,
+      "trades": 550,
+      "win": 46.0,
+      "exp": 2.45,
+      "avg_month": 2.16,
+      "months": 91,
+      "months_ge5": 47.0
+     },
+     "expo": 97.8,
+     "liqs": 0,
+     "bh_test": -57.24,
+     "days": 2788
+    },
+    "cost_x2": {
+     "ret": -46.36,
+     "sharpe": 0.27,
+     "max_dd": 87.5,
+     "trades": 136,
+     "win": 43.4,
+     "exp": 0.748,
+     "avg_month": -3.29,
+     "months": 22,
+     "months_ge5": 41.0
+    },
+    "delay_1": {
+     "ret": -47.27,
+     "sharpe": 0.25,
+     "max_dd": 88.2,
+     "trades": 136,
+     "win": 42.6,
+     "exp": 0.814,
+     "avg_month": -3.66,
+     "months": 22,
+     "months_ge5": 41.0
+    },
+    "neighbours": [
+     {
+      "params": {
+       "lb": 10,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -80.93,
+       "sharpe": -0.12,
+       "max_dd": 89.4,
+       "trades": 150,
+       "win": 43.3,
+       "exp": -0.747,
+       "avg_month": -7.9,
+       "months": 22,
+       "months_ge5": 41.0
+      }
+     },
+     {
+      "params": {
+       "lb": 19,
+       "rb": 7,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -49.58,
+       "sharpe": 0.27,
+       "max_dd": 72.3,
+       "trades": 126,
+       "win": 44.4,
+       "exp": 0.496,
+       "avg_month": -3.76,
+       "months": 22,
+       "months_ge5": 32.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 5,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": -65.45,
+       "sharpe": 0.25,
+       "max_dd": 88.0,
+       "trades": 163,
+       "win": 40.5,
+       "exp": 0.029,
+       "avg_month": -5.91,
+       "months": 22,
+       "months_ge5": 41.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 9,
+       "stop": 3.5
+      },
+      "test": {
+       "ret": 2.31,
+       "sharpe": 0.62,
+       "max_dd": 78.0,
+       "trades": 122,
+       "win": 42.6,
+       "exp": 1.602,
+       "avg_month": -0.9,
+       "months": 22,
+       "months_ge5": 45.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 7,
+       "stop": 2.625
+      },
+      "test": {
+       "ret": -49.67,
+       "sharpe": 0.3,
+       "max_dd": 88.9,
+       "trades": 140,
+       "win": 43.6,
+       "exp": 0.796,
+       "avg_month": -3.62,
+       "months": 22,
+       "months_ge5": 41.0
+      }
+     },
+     {
+      "params": {
+       "lb": 14,
+       "rb": 7,
+       "stop": 4.655
+      },
+      "test": {
+       "ret": -23.48,
+       "sharpe": 0.44,
+       "max_dd": 84.5,
+       "trades": 136,
+       "win": 43.4,
+       "exp": 0.953,
+       "avg_month": -1.77,
+       "months": 22,
+       "months_ge5": 41.0
+      }
+     }
+    ],
+    "neighbours_positive": 5,
+    "drop_best_coin": {
+     "coin": "AVAX",
+     "test": {
+      "ret": -39.99,
+      "sharpe": 0.33,
+      "max_dd": 87.8,
+      "trades": 129,
+      "win": 39.5,
+      "exp": 0.553,
+      "avg_month": -3.78,
+      "months": 22,
+      "months_ge5": 32.0
+     }
+    },
+    "pnl_without_top3_pct": -957.38,
+    "random_test_ret": [
+     6.02,
+     41.06,
+     -33.35,
+     -18.35,
+     25.8,
+     -2.3,
+     25.93,
+     -56.23
+    ],
+    "beats_random": 0.25,
+    "causality_mismatches": 0,
+    "fails": [
+     "test not positive",
+     "loses at double costs",
+     "loses with one extra candle of delay",
+     "loses without its best coin",
+     "loses without its top 3 trades",
+     "does not clearly beat random entries"
+    ],
+    "survives": false,
+    "meets_5pct_month": false
+   }
+  }
+ }
+}
