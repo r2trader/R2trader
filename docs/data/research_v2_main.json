@@ -1,0 +1,320 @@
+{
+ "updated": "2026-11-26 19:39 UTC",
+ "engine": "v2",
+ "note": "Main account strategy through the same red-team checks as A to K. Target is 3 ATR (1.5R) with a 2 ATR stop and a 48-bar limit. Daily-loss halt not modelled.",
+ "result": {
+  "title": "M: Main account, 20-bar volume breakout long (1h)",
+  "coins": 10,
+  "grid": [
+   {
+    "params": {
+     "stop": 1.5
+    },
+    "train": {
+     "ret": -18.78,
+     "sharpe": -5.71,
+     "max_dd": 18.9,
+     "trades": 219,
+     "win": 36.1,
+     "exp": -0.373,
+     "avg_month": -4.86,
+     "months": 3,
+     "months_ge5": 0.0
+    },
+    "val": {
+     "ret": -8.37,
+     "sharpe": -2.61,
+     "max_dd": 14.3,
+     "trades": 182,
+     "win": 45.6,
+     "exp": -0.189,
+     "avg_month": -7.51,
+     "months": 1,
+     "months_ge5": 0.0
+    },
+    "test": {
+     "ret": -14.43,
+     "sharpe": -10.22,
+     "max_dd": 15.8,
+     "trades": 72,
+     "win": 22.2,
+     "exp": -0.859,
+     "avg_month": -7.5,
+     "months": 2,
+     "months_ge5": 0.0
+    },
+    "full": {
+     "ret": -36.32,
+     "sharpe": -5.09,
+     "max_dd": 37.3,
+     "trades": 473,
+     "win": 37.6,
+     "exp": -0.376,
+     "avg_month": -6.24,
+     "months": 7,
+     "months_ge5": 0.0
+    },
+    "expo": 33.2,
+    "liqs": 0,
+    "bh_test": -34.03,
+    "days": 200
+   },
+   {
+    "params": {
+     "stop": 2.0
+    },
+    "train": {
+     "ret": -20.06,
+     "sharpe": -4.95,
+     "max_dd": 20.2,
+     "trades": 172,
+     "win": 36.0,
+     "exp": -0.509,
+     "avg_month": -6.08,
+     "months": 3,
+     "months_ge5": 0.0
+    },
+    "val": {
+     "ret": -2.77,
+     "sharpe": -0.63,
+     "max_dd": 10.5,
+     "trades": 128,
+     "win": 48.4,
+     "exp": -0.109,
+     "avg_month": -2.1,
+     "months": 1,
+     "months_ge5": 0.0
+    },
+    "test": {
+     "ret": -15.63,
+     "sharpe": -9.77,
+     "max_dd": 17.3,
+     "trades": 59,
+     "win": 16.9,
+     "exp": -1.194,
+     "avg_month": -8.15,
+     "months": 2,
+     "months_ge5": 0.0
+    },
+    "full": {
+     "ret": -34.42,
+     "sharpe": -4.0,
+     "max_dd": 35.7,
+     "trades": 359,
+     "win": 37.3,
+     "exp": -0.479,
+     "avg_month": -5.85,
+     "months": 7,
+     "months_ge5": 0.0
+    },
+    "expo": 47.9,
+    "liqs": 0,
+    "bh_test": -34.03,
+    "days": 200
+   },
+   {
+    "params": {
+     "stop": 3.0
+    },
+    "train": {
+     "ret": -10.69,
+     "sharpe": -2.03,
+     "max_dd": 12.0,
+     "trades": 141,
+     "win": 39.7,
+     "exp": -0.324,
+     "avg_month": -3.01,
+     "months": 3,
+     "months_ge5": 0.0
+    },
+    "val": {
+     "ret": 4.14,
+     "sharpe": 1.15,
+     "max_dd": 9.8,
+     "trades": 98,
+     "win": 44.9,
+     "exp": 0.151,
+     "avg_month": 1.21,
+     "months": 1,
+     "months_ge5": 0.0
+    },
+    "test": {
+     "ret": -22.57,
+     "sharpe": -11.6,
+     "max_dd": 24.3,
+     "trades": 49,
+     "win": 10.2,
+     "exp": -2.229,
+     "avg_month": -12.01,
+     "months": 2,
+     "months_ge5": 0.0
+    },
+    "full": {
+     "ret": -27.98,
+     "sharpe": -2.65,
+     "max_dd": 29.3,
+     "trades": 288,
+     "win": 36.5,
+     "exp": -0.487,
+     "avg_month": -4.58,
+     "months": 7,
+     "months_ge5": 0.0
+    },
+    "expo": 61.2,
+    "liqs": 0,
+    "bh_test": -34.03,
+    "days": 200
+   }
+  ],
+  "frozen": {
+   "params": {
+    "stop": 2.0
+   },
+   "base": {
+    "train": {
+     "ret": -20.06,
+     "sharpe": -4.95,
+     "max_dd": 20.2,
+     "trades": 172,
+     "win": 36.0,
+     "exp": -0.509,
+     "avg_month": -6.08,
+     "months": 3,
+     "months_ge5": 0.0
+    },
+    "val": {
+     "ret": -2.77,
+     "sharpe": -0.63,
+     "max_dd": 10.5,
+     "trades": 128,
+     "win": 48.4,
+     "exp": -0.109,
+     "avg_month": -2.1,
+     "months": 1,
+     "months_ge5": 0.0
+    },
+    "test": {
+     "ret": -15.63,
+     "sharpe": -9.77,
+     "max_dd": 17.3,
+     "trades": 59,
+     "win": 16.9,
+     "exp": -1.194,
+     "avg_month": -8.15,
+     "months": 2,
+     "months_ge5": 0.0
+    },
+    "full": {
+     "ret": -34.42,
+     "sharpe": -4.0,
+     "max_dd": 35.7,
+     "trades": 359,
+     "win": 37.3,
+     "exp": -0.479,
+     "avg_month": -5.85,
+     "months": 7,
+     "months_ge5": 0.0
+    },
+    "expo": 47.9,
+    "liqs": 0,
+    "bh_test": -34.03,
+    "days": 200
+   },
+   "cost_x2": {
+    "ret": -19.31,
+    "sharpe": -11.86,
+    "max_dd": 20.8,
+    "trades": 59,
+    "win": 16.9,
+    "exp": -1.491,
+    "avg_month": -10.17,
+    "months": 2,
+    "months_ge5": 0.0
+   },
+   "delay_1": {
+    "ret": -15.04,
+    "sharpe": -9.68,
+    "max_dd": 16.5,
+    "trades": 55,
+    "win": 18.2,
+    "exp": -1.209,
+    "avg_month": -7.82,
+    "months": 2,
+    "months_ge5": 0.0
+   },
+   "neighbours": [
+    {
+     "params": {
+      "stop": 1.5
+     },
+     "test": {
+      "ret": -14.43,
+      "sharpe": -10.22,
+      "max_dd": 15.8,
+      "trades": 72,
+      "win": 22.2,
+      "exp": -0.859,
+      "avg_month": -7.5,
+      "months": 2,
+      "months_ge5": 0.0
+     }
+    },
+    {
+     "params": {
+      "stop": 2.66
+     },
+     "test": {
+      "ret": -19.52,
+      "sharpe": -10.66,
+      "max_dd": 21.3,
+      "trades": 50,
+      "win": 12.0,
+      "exp": -1.871,
+      "avg_month": -10.29,
+      "months": 2,
+      "months_ge5": 0.0
+     }
+    }
+   ],
+   "neighbours_positive": 0,
+   "drop_best_coin": {
+    "coin": "XRP",
+    "test": {
+     "ret": -16.06,
+     "sharpe": -10.43,
+     "max_dd": 17.7,
+     "trades": 58,
+     "win": 15.5,
+     "exp": -1.249,
+     "avg_month": -8.38,
+     "months": 2,
+     "months_ge5": 0.0
+    }
+   },
+   "pnl_without_top3_pct": -14.44,
+   "random_test_ret": [
+    -12.45,
+    -12.04,
+    -10.46,
+    -12.53,
+    -15.09,
+    -6.17,
+    -11.96,
+    -12.45
+   ],
+   "beats_random": 0.0,
+   "causality_mismatches": 0,
+   "fails": [
+    "test not positive",
+    "loses at double costs",
+    "loses with one extra candle of delay",
+    "neighbouring settings mostly negative",
+    "loses without its best coin",
+    "loses without its top 3 trades",
+    "does not clearly beat random entries"
+   ],
+   "survives": false,
+   "meets_5pct_month": false
+  }
+ }
+}
