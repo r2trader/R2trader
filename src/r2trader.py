@@ -1,11 +1,16 @@
-"""R2trader main account: 1h 20-bar breakout with volume confirmation, long only. Engine v2 (next-open fills). Paper only."""
-import json, os, sys, time
+"""R2trader main account: EMA 9/21 + EMA100 trend, long only, daily candles (promoted 2026-11-26 after red-team v2).
+Replaces the 1h 20-bar volume breakout, which failed every red-team check (see docs/data/research_v2_main.json).
+The old account is archived in docs/data/state_breakout_archive.json and dashboard_breakout_archive.json. Paper only."""
+import json, os, shutil, sys, time
 from datetime import datetime, timezone
 import requests
 import research as R
+import research_ema921 as E
 import lab as L
 
-A = dict(tf="1h", build=R.build_breakout, stop=2.0, tp=3.0, maxbars=48, side="long", daily_loss=0.03)
+TF = "1d"
+A = dict(tf=TF, build=E.build_ema("long", "cross", 0), stop=2.0, tp=None, maxbars=R.NOEXIT, side="long")
+TAG = "F"
 
 
 def llm_note(payload):
@@ -30,39 +35,35 @@ def snapshot(data):
         prev = b[-21:-1]
         va = sum(x[5] for x in prev) / 20
         ratio = c[5] / va if va else 0
-        trend = c[4] > R.ema_s([x[4] for x in b[-120:]], 50)[-1]
+        trend = c[4] > R.ema_s([x[4] for x in b[-200:]], 100)[-1]
         brk = c[4] > max(x[2] for x in prev)
-        chg = (c[4] / b[-25][4] - 1) * 100 if len(b) >= 25 else 0
+        chg = (c[4] / b[-2][4] - 1) * 100 if len(b) >= 2 else 0
+        en = A["build"](b, {})[0]
         rows.append(dict(sym=s, price=c[4], chg24=round(chg, 2), vol_ratio=round(ratio, 2), breakout=brk, trend=trend,
-                         fire=bool(brk and trend and ratio >= 2)))
+                         fire=bool(en[-1])))
     return sorted(rows, key=lambda x: -x["vol_ratio"])
 
 
-def migrate(old):
-    """Convert the first-generation state file (keys open/closed) into engine v2 format, keeping cash, trades and curve."""
-    st = L.new_state()
-    st["cash"] = old.get("cash", R.START)
-    st["closed"] = [dict(sym=c["sym"], side="long", entry=c["entry"], exit=c["exit"], pnl=c["pnl"], why=c["why"],
-                         t_out=c["t_out"]) for c in old.get("closed", [])]
-    st["nc"] = len(st["closed"])
-    st["nw"] = sum(1 for c in st["closed"] if c["pnl"] > 0)
-    st["pos"] = [dict(s=p["sym"], side="long", e=p["entry"], q=p["qty"], fund=0.0, stop=p["stop"], tp=p.get("tp"),
-                      n=p.get("n", 0), t=p.get("t", 0)) for p in old.get("open", [])]
-    st["curve"] = old.get("curve", [])
-    st["t"] = old.get("t", 0)
-    st["start"] = st["curve"][0][0] if st["curve"] else 0
-    return st
+def archive(sp, dp):
+    base = os.path.dirname(sp)
+    for src, name in ((sp, "state_breakout_archive.json"), (dp, "dashboard_breakout_archive.json")):
+        if os.path.exists(src) and not os.path.exists(os.path.join(base, name)):
+            shutil.copy(src, os.path.join(base, name))
 
 
 def main():
     os.makedirs(R.OUT, exist_ok=True)
-    sp = os.path.join(R.OUT, "state.json")
-    st = json.load(open(sp)) if os.path.exists(sp) else L.new_state()
-    if "pos" not in st:
-        st = migrate(st)
+    sp, dp = os.path.join(R.OUT, "state.json"), os.path.join(R.OUT, "dashboard.json")
+    st = json.load(open(sp)) if os.path.exists(sp) else None
+    if st is not None and st.get("strategy") != TAG:
+        archive(sp, dp)
+        st = None
+    if st is None:
+        st = L.new_state()
+        st["strategy"] = TAG
     data, missing = {}, []
     for s in R.SYMBOLS:
-        b = R.fetch(s, "1h")
+        b = R.fetch(s, TF)
         if b and len(b) > R.WARM:
             data[s] = b
         else:
@@ -73,7 +74,7 @@ def main():
         sys.exit(1)
     L.advance(st, data, A, {})
     eq = st["curve"][-1][1]
-    cs = L.curve_stats(st, "1h")
+    cs = L.curve_stats(st, TF)
     halted = eq < st["day"]["eq"] * 0.97
     live = dict(equity=round(eq, 2), return_pct=round((eq / R.START - 1) * 100, 2), trades=st["nc"],
                 win_rate=round(100 * st["nw"] / st["nc"], 1) if st["nc"] else 0, open_positions=len(st["pos"]),
@@ -83,7 +84,7 @@ def main():
                buy_hold_pct=bt["bh"], days=bt["days"], sharpe=bt["sharpe"], bh_sharpe=bt["bh_sharpe"]) if bt else None
     sigs = snapshot(data)
     fired = [x["sym"] for x in sigs if x["fire"]]
-    note = "Live paper account: %s equity, %s%% since start, %d closed trades. Signals firing now: %s." % (
+    note = "Main account is now strategy F (EMA 9/21 + EMA100, daily, long only): %s equity, %s%% since 2026-11-26, %d closed trades. Signals firing now: %s." % (
         live["equity"], live["return_pct"], live["trades"], ", ".join(fired) or "none")
     if btm:
         note += " Backtest over %s days: %s%% vs %s%% buy-and-hold, max drawdown %s%%." % (
@@ -94,7 +95,7 @@ def main():
                 live=live, backtest=btm, signals=sigs, open=opn, closed=st["closed"][-50:][::-1],
                 curve=st["curve"][-2000:], note=note)
     st["closed"], st["curve"] = st["closed"][-500:], st["curve"][-5000:]
-    json.dump(dash, open(os.path.join(R.OUT, "dashboard.json"), "w"))
+    json.dump(dash, open(dp, "w"))
     json.dump(st, open(sp, "w"))
     print(note)
 
