@@ -34,12 +34,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data
-          git diff --cached --quiet || (git commit -m "Update paper-trading data" && git pull --rebase && git push)
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Update paper-trading data"
+          for i in 1 2 3 4 5; do
+            git pull --rebase -X theirs && git push && exit 0
+            git rebase --abort || true
+            sleep $((i * 5))
+          done
+          exit 1
       - uses: actions/upload-pages-artifact@v3
+        if: always()
         with:
           path: docs
   deploy:
     needs: build
+    if: always() && needs.build.result != 'cancelled'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
