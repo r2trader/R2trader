@@ -1,5 +1,6 @@
 """R2trader lab engine v2 (2026-10-30): long/short paper simulator.
 Signals are read at a candle close and filled at the NEXT candle's open. Costs, funding and an exposure cap are modelled.
+Update 2026-11-26: signal and time exits are now also filled at the next candle's open (they used the signal candle's close).
 Paper only."""
 import math
 import research as R
@@ -63,7 +64,7 @@ def build_vwap_reject(b, ctx):
 
 
 def new_state():
-    return dict(cash=R.START, pos=[], pend=[], closed=[], curve=[], t=0, start=0, nc=0, nw=0, nb=0, ni=0,
+    return dict(cash=R.START, pos=[], pend=[], pend_x={}, closed=[], curve=[], t=0, start=0, nc=0, nw=0, nb=0, ni=0,
                 day=dict(d=0, eq=R.START))
 
 
@@ -116,7 +117,7 @@ def advance(st, data, a, ctx):
     """Process every closed candle after st['t']. Used by the live forward test and by backtests."""
     side, hrs = a.get("side", "long"), TF_MS[a["tf"]] / 3600000
     mode, cap, dl = a.get("fill", "open"), a.get("cap", CAP), a.get("daily_loss")
-    for k, v in (("pend", []), ("nb", 0), ("ni", 0), ("day", dict(d=0, eq=R.START))):
+    for k, v in (("pend", []), ("pend_x", {}), ("nb", 0), ("ni", 0), ("day", dict(d=0, eq=R.START))):
         st.setdefault(k, v)
     sig = {s: a["build"](b, ctx) for s, b in data.items()}
     idx = {s: {x[0]: i for i, x in enumerate(b)} for s, b in data.items()}
@@ -130,6 +131,14 @@ def advance(st, data, a, ctx):
         if prev:
             last[s] = prev[-1][4]
     for t in [x for x in times if x > st["t"]]:
+        gone, st["pend_x"] = st["pend_x"], {}
+        for p in list(st["pos"]):
+            if p["s"] in gone:
+                i = idx[p["s"]].get(t)
+                if i is None:
+                    st["pend_x"][p["s"]] = gone[p["s"]]
+                else:
+                    close_pos(st, p, data[p["s"]][i][1], gone[p["s"]], data[p["s"]][i][6])
         pend, st["pend"] = st["pend"], []
         for q in pend:
             i = idx[q["s"]].get(t)
@@ -161,12 +170,12 @@ def advance(st, data, a, ctx):
                     px, why = max(p["stop"], x[1]), "stop"
                 elif p["tp"] and x[3] <= p["tp"]:
                     px, why = p["tp"], "target"
-            if px is None and sig[p["s"]][1][i]:
-                px, why = x[4], "signal"
-            if px is None and p["n"] >= a["maxbars"]:
-                px, why = x[4], "time"
             if px is not None:
                 close_pos(st, p, px, why, x[6])
+            elif sig[p["s"]][1][i]:
+                st["pend_x"][p["s"]] = "signal"
+            elif p["n"] >= a["maxbars"]:
+                st["pend_x"][p["s"]] = "time"
         eq = equity(st, last)
         day = t // 86400000
         if st["day"]["d"] != day:
